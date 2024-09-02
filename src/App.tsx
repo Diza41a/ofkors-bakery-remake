@@ -10,6 +10,7 @@ function App() {
       <S.FontFaces />
 
       <Header />
+      <div style={{ height: '300vh' }} />
     </ThemeProvider>
   )
 }

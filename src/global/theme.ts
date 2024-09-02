@@ -45,6 +45,7 @@ export interface Theme extends DefaultTheme {
       hr: string;
       gray: string;
     },
+    brown: string;
   },
 };
 
@@ -136,6 +137,7 @@ const theme: Theme = {
       hr: '#617798',
       gray: '#E7E5EA33',
     },
+    brown: '#2B1A14',
   },
 };
 
