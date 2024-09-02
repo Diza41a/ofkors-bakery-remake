@@ -1,12 +1,14 @@
 import { ThemeProvider } from "styled-components";
 import Header from "./components/Header";
-import GlobalStyle from "./global/styles";
+import S from "./global/styles";
 import theme from "./global/theme";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
+      <S.GlobalStyle />
+      <S.FontFaces />
+
       <Header />
     </ThemeProvider>
   )
