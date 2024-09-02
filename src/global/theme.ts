@@ -17,6 +17,35 @@ export interface Theme extends DefaultTheme {
     headline5: CSSProperties;
     headline6: CSSProperties;
   },
+  colors: {
+    bg: {
+      dark: string;
+      light: string;
+      white: string;
+    },
+    action: {
+      gold: string;
+      yellow: string;
+      pink: string;
+      red: string,
+      green: string,
+      orange: string,
+      purple: string,
+      darkBlue: string,
+      turquoise: string,
+    },
+    text: {
+      heading: string;
+      darkAlt: string;
+      darkGray: string;
+      gray: string;
+      white: string;
+    },
+    lines: {
+      hr: string;
+      gray: string;
+    },
+  },
 };
 
 const DM_SANS_FONT_NAME = 'DMSans';
@@ -77,6 +106,35 @@ const theme: Theme = {
     headline6: {
       fontFamily: DM_SANS_FONT_NAME,
       fontSize: 18,
+    },
+  },
+  colors: {
+    bg: {
+      dark: '#292F32',
+      light: '#FAF8EC',
+      white: '#FFFFFF',
+    },
+    action: {
+      gold: '#B98D58',
+      yellow: '#F9E492',
+      pink: '#FFC0EC',
+      red: '#EF3737',
+      green: '#34C635',
+      orange: '#FF9513',
+      purple: '#886CFF',
+      darkBlue: '#001C7F',
+      turquoise: '#61DCDF',
+    },
+    text: {
+      heading: '#333333',
+      darkAlt: '#321370',
+      darkGray: '#888682',
+      gray: '#E7E5EA',
+      white: '#FFFFFF',
+    },
+    lines: {
+      hr: '#617798',
+      gray: '#E7E5EA33',
     },
   },
 };
