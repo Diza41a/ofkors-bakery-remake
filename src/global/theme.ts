@@ -58,6 +58,7 @@ const theme: Theme = {
     link: {
       fontFamily: DM_SANS_FONT_NAME,
       fontSize: 15,
+      textDecoration: 'none',
     },
     paragraph1: {
       fontFamily: DM_SANS_FONT_NAME,

@@ -1,21 +1,46 @@
 import { useLayoutEffect, useRef, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import S, { classes } from './styles.ts';
 import LogoDarkImg from '../../assets/images/Logo_dark.png';
 import LogoLightImg from '../../assets/images/Logo_light.png';
 
+const NAV_LINKS = [
+  { path: '/', label: 'Home' },
+  { path: '/about', label: 'About' },
+  { path: '/services', label: 'Services' },
+  { path: '/menu', label: 'Menu' },
+  { path: '/contact', label: 'Contact' },
+];
+
 const Header = (): JSX.Element => {
   const { pathname } = useLocation();
+  const isOnLandingPage = pathname === '/';
 
   const headerRef = useRef<HTMLHeadElement>(null);
-  const initialLogoImg = pathname === '/' ? LogoDarkImg : LogoLightImg;
+  const initialLogoImg = isOnLandingPage ? LogoDarkImg : LogoLightImg;
   const [logoImgLink, setLogoImgLink] = useState(initialLogoImg);
 
-  const isOnLandingPage = pathname === '/';
   const isOnTopOfPage = window.scrollY === 0;
   const shouldHaveOpaqueBackground = isOnLandingPage && isOnTopOfPage;
   const classNames = [];
   if (shouldHaveOpaqueBackground) classNames.push(classes.opaqueBackground);
+
+  const NavMenu = (
+    <nav>
+      <ul>
+        {NAV_LINKS.map((link) => (
+          <li key={link.path}>
+            <NavLink
+              to={link.path}
+              className={({ isActive }) => isActive? classes.navLinkActive : ''}
+            >
+              {link.label}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
 
   useLayoutEffect(() => {
     const customizeHeaderViewOnPageScroll = () => {
@@ -40,9 +65,10 @@ const Header = (): JSX.Element => {
 
   return (
     <S.Header ref={headerRef} className={classNames.join(' ')}>
-      <Link to='/' className={classes.logoLink}>
+      <NavLink to='/' className={classes.logoLink}>
         <img src={logoImgLink} />
-      </Link>
+      </NavLink>
+      {NavMenu}
     </S.Header>
   );
 };

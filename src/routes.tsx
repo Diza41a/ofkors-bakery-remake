@@ -10,4 +10,20 @@ export const USER_ROUTES: Array<RouteFixture> = [
     path: '/',
     element: <LandingPage />,
   },
+  {
+    path: '/about',
+    element: <></>,
+  },
+  {
+    path: '/services',
+    element: <></>,
+  },
+  {
+    path: '/menu',
+    element: <></>,
+  },
+  {
+    path: '/contact',
+    element: <></>,
+  },
 ];
