@@ -1,8 +1,10 @@
+import S from './styles.ts';
+
 const LandingPage = ():JSX.Element => {
   return (
-    <div style={{ height: '500vh' }}>
+    <S.LandingWrapper>
       {/*  */}
-    </div>
+    </S.LandingWrapper>
   );
 };
 
