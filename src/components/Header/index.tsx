@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import { Squash as Hamburger } from 'hamburger-react'
 import S, { classes } from './styles.ts';
 import LogoDarkImg from '../../assets/images/Logo_dark.png';
 import LogoLightImg from '../../assets/images/Logo_light.png';
@@ -16,6 +17,10 @@ const Header = (): JSX.Element => {
   const { pathname } = useLocation();
   const isOnLandingPage = pathname === '/';
 
+  const [isBurgerExpanded, setIsBurgerExpanded] = useState(false);
+  const navMenuClassNames = [];
+  if (isBurgerExpanded) navMenuClassNames.push(classes.navMenuExpanded);
+
   const headerRef = useRef<HTMLHeadElement>(null);
   const initialLogoImg = isOnLandingPage ? LogoDarkImg : LogoLightImg;
   const [logoImgLink, setLogoImgLink] = useState(initialLogoImg);
@@ -26,7 +31,7 @@ const Header = (): JSX.Element => {
   if (shouldHaveOpaqueBackground) classNames.push(classes.opaqueBackground);
 
   const NavMenu = (
-    <nav>
+    <nav className={navMenuClassNames.join(' ')}>
       <ul>
         {NAV_LINKS.map((link) => (
           <li key={link.path}>
@@ -34,11 +39,17 @@ const Header = (): JSX.Element => {
               to={link.path}
               className={({ isActive }) => isActive? classes.navLinkActive : ''}
             >
-              {link.label}
+              <p>{link.label}</p>
             </NavLink>
           </li>
         ))}
       </ul>
+
+      <Hamburger
+        size={24}
+        toggled={isBurgerExpanded}
+        toggle={setIsBurgerExpanded}
+      />
     </nav>
   );
 

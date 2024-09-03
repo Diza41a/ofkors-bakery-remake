@@ -5,7 +5,8 @@ import theme from "../../global/theme";
 export const classes = {
   opaqueBackground: 'Header-OpaqueBackground',
   logoLink: 'Header-LogoLink',
-  navLinkActive: 'Header-NavLink--active'
+  navLinkActive: 'Header-NavLink--active',
+  navMenuExpanded: 'Header-MobileView-NavMenu--expanded',
 };
 
 const Header = styled('header')<{ theme: Theme }>(() => ({
@@ -49,6 +50,10 @@ const Header = styled('header')<{ theme: Theme }>(() => ({
         },
       },
     },
+
+    '.hamburger-react': {
+      display: 'none',
+    },
   },
 
   [`&.${classes.opaqueBackground}`]: {
@@ -80,6 +85,88 @@ const Header = styled('header')<{ theme: Theme }>(() => ({
     [`.${classes.logoLink}`]: {
       img: {
         width: 110,
+      },
+    },
+
+    nav: {
+      position: 'relative',
+
+      [`&:not(.${classes.navMenuExpanded})`]: {
+        ul: {
+          opacity: 0,
+
+          li: {
+            left: '100%',
+          },
+        },
+      },
+
+      ul: {
+        flexDirection: 'column',
+        width: '100%',
+        position: 'fixed',
+        top: 64,
+        left: 0,
+        overflow: 'hidden',
+        backgroundColor: 'transparent',
+        opacity: 1,
+        transition: 'opacity 0.55s ease-in-out',
+
+        li: {
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '35px',
+          position: 'relative',
+          left: 0,
+          backgroundColor: theme.colors.brown,
+          borderTop: '1px inset #ffffffb5',
+          transition: 'left 0.3s ease-in-out',
+
+          a: {
+            fontSize: 20,
+            textAlign: "center",
+          },
+
+          '&:last-of-type': {
+            borderBottom: '1px inset #ffffffb5',
+          },
+
+          ...(() => {
+            const navLinksAmount = 5;
+            const transitionDelays = {};
+
+            for (let i = 1; i <= navLinksAmount; i+=1) {
+              const cssSelector = `&:nth-of-type(${i + 1})`;
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              transitionDelays[cssSelector] = {
+                transitionDelay: `${0.05 * i}s`,
+              };
+            }
+
+            return transitionDelays;
+          })(),
+        },
+      },
+
+      '.hamburger-react': {
+        display: 'block',
+
+        div: {
+          backgroundColor: `${theme.colors.text.white} !important`,
+          transition: 'background-color 0.2s ease-in-out',
+        }
+      },
+    },
+
+    [`&.${classes.opaqueBackground}`]: {
+      nav: {
+        '.hamburger-react': {
+          div: {
+            backgroundColor: `${theme.colors.text.heading} !important`,
+          }
+        },
       },
     },
   },
