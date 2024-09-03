@@ -1,17 +1,26 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import Header from "./components/Header";
 import S from "./global/styles";
 import theme from "./global/theme";
+import MainLayout from "./components/MainLayout";
+import { USER_ROUTES } from "./routes";
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <S.GlobalStyle />
-      <S.FontFaces />
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <S.GlobalStyle />
+        <S.FontFaces />
 
-      <Header />
-      <div style={{ height: '300vh' }} />
-    </ThemeProvider>
+        <Routes>
+          <Route element={<MainLayout />}>
+            {USER_ROUTES.map((route, index) => (
+              <Route key={index} path={route.path} element={route.element} />
+            ))}
+          </Route>
+        </Routes>
+      </ThemeProvider>
+    </BrowserRouter>
   )
 }
 
