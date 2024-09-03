@@ -132,6 +132,11 @@ const Header = styled('header')<{ theme: Theme }>(() => ({
           transition: 'left 0.3s ease-in-out',
 
           a: {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '100%',
+            height: '100%',
             fontSize: 20,
             textAlign: "center",
           },

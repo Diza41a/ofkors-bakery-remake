@@ -38,6 +38,7 @@ const Header = (): JSX.Element => {
             <NavLink
               to={link.path}
               className={({ isActive }) => isActive? classes.navLinkActive : ''}
+              onClick={() => { setIsBurgerExpanded(false) }}
             >
               <p>{link.label}</p>
             </NavLink>
@@ -62,7 +63,6 @@ const Header = (): JSX.Element => {
         headerRef.current.classList.remove(classes.opaqueBackground);
         setLogoImgLink(LogoLightImg);
       } else if (!isBurgerExpanded) {
-        console.log('here', { isBurgerExpanded });
         headerRef.current.classList.add(classes.opaqueBackground);
         setLogoImgLink(LogoDarkImg);
       }
@@ -72,19 +72,29 @@ const Header = (): JSX.Element => {
         setIsBurgerExpanded(false);
       }
     };
+    const toggleBurgerMenuOnExternalClick = (e: MouseEvent | TouchEvent) => {
+      if (!headerRef.current) return;
+
+      const clickedEl = e.target as HTMLElement;
+      if (!headerRef.current.contains(clickedEl)) setIsBurgerExpanded(false);
+    };
 
     toggleHeaderStylesOnPageScroll();
     window.addEventListener('scroll', toggleHeaderStylesOnPageScroll);
     window.addEventListener('resize', toggleBurgerMenuOnPageResize);
+    window.addEventListener('click', toggleBurgerMenuOnExternalClick);
 
     return () => {
       window.removeEventListener('scroll', toggleHeaderStylesOnPageScroll);
       window.removeEventListener('resize', toggleBurgerMenuOnPageResize);
+      window.removeEventListener('click', toggleBurgerMenuOnExternalClick);
     };
   }, [pathname, isBurgerExpanded]);
 
   useLayoutEffect(() => {
-    if (isBurgerExpanded) setLogoImgLink(LogoLightImg);
+    if (isBurgerExpanded) {
+      setLogoImgLink(LogoLightImg);
+    };
   }, [isBurgerExpanded]);
 
   return (
