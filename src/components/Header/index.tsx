@@ -81,11 +81,10 @@ const Header = (): JSX.Element => {
       window.removeEventListener('scroll', toggleHeaderStylesOnPageScroll);
       window.removeEventListener('resize', toggleBurgerMenuOnPageResize);
     };
-  }, [pathname]);
+  }, [pathname, isBurgerExpanded]);
 
   useLayoutEffect(() => {
     if (isBurgerExpanded) setLogoImgLink(LogoLightImg);
-    else setLogoImgLink(LogoDarkImg);
   }, [isBurgerExpanded]);
 
   return (
