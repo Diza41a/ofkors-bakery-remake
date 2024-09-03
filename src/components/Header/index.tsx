@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { Squash as Hamburger } from 'hamburger-react'
+import { Fade as Hamburger } from 'hamburger-react'
 import S, { classes } from './styles.ts';
 import LogoDarkImg from '../../assets/images/Logo_dark.png';
 import LogoLightImg from '../../assets/images/Logo_light.png';
@@ -22,11 +22,11 @@ const Header = (): JSX.Element => {
   if (isBurgerExpanded) navMenuClassNames.push(classes.navMenuExpanded);
 
   const headerRef = useRef<HTMLHeadElement>(null);
-  const initialLogoImg = isOnLandingPage ? LogoDarkImg : LogoLightImg;
+  const initialLogoImg = isOnLandingPage && !isBurgerExpanded ? LogoDarkImg : LogoLightImg;
   const [logoImgLink, setLogoImgLink] = useState(initialLogoImg);
 
   const isOnTopOfPage = window.scrollY === 0;
-  const shouldHaveOpaqueBackground = isOnLandingPage && isOnTopOfPage;
+  const shouldHaveOpaqueBackground = isOnLandingPage && isOnTopOfPage && !isBurgerExpanded;
   const classNames = [];
   if (shouldHaveOpaqueBackground) classNames.push(classes.opaqueBackground);
 
@@ -46,6 +46,7 @@ const Header = (): JSX.Element => {
       </ul>
 
       <Hamburger
+        direction='left'
         size={24}
         toggled={isBurgerExpanded}
         toggle={setIsBurgerExpanded}
@@ -54,25 +55,38 @@ const Header = (): JSX.Element => {
   );
 
   useLayoutEffect(() => {
-    const customizeHeaderViewOnPageScroll = () => {
+    const toggleHeaderStylesOnPageScroll = () => {
       if (!headerRef.current) return;
 
       if (window.scrollY > 0 || pathname !== '/') {
         headerRef.current.classList.remove(classes.opaqueBackground);
         setLogoImgLink(LogoLightImg);
-      } else {
+      } else if (!isBurgerExpanded) {
+        console.log('here', { isBurgerExpanded });
         headerRef.current.classList.add(classes.opaqueBackground);
         setLogoImgLink(LogoDarkImg);
       }
     };
+    const toggleBurgerMenuOnPageResize = () => {
+      if (window.innerWidth > 750) {
+        setIsBurgerExpanded(false);
+      }
+    };
 
-    customizeHeaderViewOnPageScroll();
-    window.addEventListener('scroll', customizeHeaderViewOnPageScroll);
+    toggleHeaderStylesOnPageScroll();
+    window.addEventListener('scroll', toggleHeaderStylesOnPageScroll);
+    window.addEventListener('resize', toggleBurgerMenuOnPageResize);
 
     return () => {
-      window.removeEventListener('scroll', customizeHeaderViewOnPageScroll);
+      window.removeEventListener('scroll', toggleHeaderStylesOnPageScroll);
+      window.removeEventListener('resize', toggleBurgerMenuOnPageResize);
     };
   }, [pathname]);
+
+  useLayoutEffect(() => {
+    if (isBurgerExpanded) setLogoImgLink(LogoLightImg);
+    else setLogoImgLink(LogoDarkImg);
+  }, [isBurgerExpanded]);
 
   return (
     <S.Header ref={headerRef} className={classNames.join(' ')}>
