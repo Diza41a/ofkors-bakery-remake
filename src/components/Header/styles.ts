@@ -15,7 +15,7 @@ const Header = styled('header')<{ theme: Theme }>(() => ({
   position: 'sticky',
   top: 0,
   height: 80,
-  padding: '0 10%',
+  padding: '0 20%',
   boxShadow: '0px 0px 13px 0px #191919',
   backgroundColor: theme.colors.brown,
   transitionProperty: 'background-color, box-shadow',
@@ -66,6 +66,20 @@ const Header = styled('header')<{ theme: Theme }>(() => ({
             },
           },
         },
+      },
+    },
+  },
+
+  '@media (max-width: 1150px)': {
+    padding: '0 10%',
+  },
+
+  '@media (max-width: 750px)': {
+    height: 64,
+
+    [`.${classes.logoLink}`]: {
+      img: {
+        width: 110,
       },
     },
   },
