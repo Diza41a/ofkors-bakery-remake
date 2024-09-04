@@ -68,11 +68,19 @@ const theme: Theme = {
       fontFamily: DM_SANS_FONT_NAME,
       fontSize: 15,
       textDecoration: 'none',
+
+      [`@media (max-width: ${SMALL_SCREEN_BREAKPOINT}px)`]: {
+        fontSize: 14,
+      },
     },
     linkSmall: {
       fontFamily: MOSK_FONT_NAME,
       fontSize: 14,
       textDecoration: 'none',
+
+      [`@media (max-width: ${SMALL_SCREEN_BREAKPOINT}px)`]: {
+        fontSize: 13,
+      },
     },
     paragraph1: {
       fontFamily: DM_SANS_FONT_NAME,

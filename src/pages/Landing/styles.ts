@@ -4,8 +4,9 @@ import type { Theme } from "../../global/theme";
 export const classes = {
   heroContainer: 'Landing-Hero-Container',
   heroTextContainer: 'Landing-Hero-TextContainer',
-  heroTitleText: 'Landing-Hero-MainText',
-  heroBodyText: 'Landing-Hero-SecondaryText',
+  heroTitleText: 'Landing-Hero-Txt-Title',
+  heroBodyText: 'Landing-Hero-Txt-Body',
+  heroViewMenuButton: 'Landing-Hero-Btn',
   heroImageContainer: 'Landing-Hero-ImageContainer',
 };
 
@@ -92,9 +93,12 @@ const LandingWrapper = styled('div')<{ theme: Theme }>(({ theme }) => ({
     [`.${classes.heroContainer}`]: {
       [`.${classes.heroTextContainer}`]: {
         [`.${classes.heroTitleText}`]: {
-          textAlign: 'center',
           fontSize: 48,
           marginBottom: 22,
+        },
+
+        [`.${classes.heroBodyText}`]: {
+          marginBottom: 25,
         },
       },
     },

@@ -29,9 +29,9 @@ const Button = (props: ButtonProps): JSX.Element => {
       className={classes.root}
       {...buttonStyleProps}
     >
-      <p className={classes.text}>
-        {children}
-      </p>
+      {startIcon && <span className={classes.startIcon}>{startIcon}</span>}
+      <p className={classes.text}>{children}</p>
+      {endIcon && <span className={classes.endIcon}>{endIcon}</span>}
     </S.Button>
   );
 };

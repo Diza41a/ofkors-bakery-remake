@@ -26,6 +26,8 @@ const Button = styled('button')<StyledButtonProps>(({
     const backgroundColor = variant === 'outlined' ? 'transparent' : accentColor;
     const color = variant === 'outlined' ? accentColor : secondaryColor;
     const border = variant === 'outlined' ? `1px solid ${accentColor}` : 'none';
+    const startIconMargin = { marginRight: size === 'small' ? '10px' : '12px' };
+    const endIconMargin = { marginLeft: size === 'small'? '10px' : '12px' };
 
     return {
       padding: buttonPadding,
@@ -36,8 +38,30 @@ const Button = styled('button')<StyledButtonProps>(({
         ...typographyProps,
         color,
       },
+
+      [`.${classes.startIcon}`]: {
+        ...startIconMargin,
+      },
+
+      [`.${classes.endIcon}`]: {
+        ...endIconMargin,
+      },
     };
   })(),
+
+  '@media (max-width: 600px)': {
+    ...(() => ({
+      padding: size === 'small' ? '10px 16px' : '14px 26px',
+
+      [`.${classes.startIcon}`]: {
+        marginRight: size === 'small' ? '8px' : '10px',
+      },
+
+      [`.${classes.endIcon}`]: {
+        marginLeft: size === 'small' ? '8px' : '10px',
+      },
+    }))(),
+  },
 }));
 
 export default {
