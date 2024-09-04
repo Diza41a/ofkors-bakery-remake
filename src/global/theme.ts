@@ -6,6 +6,7 @@ const SMALL_SCREEN_BREAKPOINT = 600;
 const DM_SANS_FONT_NAME = 'DMSans';
 const CORMORANT_SEMIBOLD_FONT_NAME = 'CormorantSemiBold';
 const CORMORANT_BOLD_FONT_NAME = 'CormorantBold';
+const MOSK_FONT_NAME = 'Mosk';
 
 type MediaQueryKey = `@media (max-width: ${number}px)`;
 type MediaQueryStyles<> = {
@@ -15,6 +16,7 @@ type TypographyStyles = CSSProperties & MediaQueryStyles;
 export interface Theme extends DefaultTheme {
   typography: {
     link: TypographyStyles;
+    linkSmall: TypographyStyles;
     paragraph1: TypographyStyles;
     paragraph2: TypographyStyles;
     paragraph3: TypographyStyles;
@@ -65,6 +67,11 @@ const theme: Theme = {
     link: {
       fontFamily: DM_SANS_FONT_NAME,
       fontSize: 15,
+      textDecoration: 'none',
+    },
+    linkSmall: {
+      fontFamily: MOSK_FONT_NAME,
+      fontSize: 14,
       textDecoration: 'none',
     },
     paragraph1: {

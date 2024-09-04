@@ -4,6 +4,8 @@ import type { Theme } from "../../global/theme";
 export const classes = {
   heroContainer: 'Landing-Hero-Container',
   heroTextContainer: 'Landing-Hero-TextContainer',
+  heroTitleText: 'Landing-Hero-MainText',
+  heroBodyText: 'Landing-Hero-SecondaryText',
   heroImageContainer: 'Landing-Hero-ImageContainer',
 };
 
@@ -22,15 +24,16 @@ const LandingWrapper = styled('div')<{ theme: Theme }>(({ theme }) => ({
       /* TODO: Once the actual text is in place, adjust padding-bottom
         to match the design */
 
-      h1: {
+      [`.${classes.heroTitleText}`]: {
         ...theme.typography.display1,
         color: theme.colors.text.heading,
         marginBottom: '40px',
       },
 
-      p: {
+      [`.${classes.heroBodyText}`]: {
         ...theme.typography.paragraph1,
         color: theme.colors.text.darkGray,
+        marginBottom: '70px',
       },
     },
 
@@ -55,7 +58,7 @@ const LandingWrapper = styled('div')<{ theme: Theme }>(({ theme }) => ({
   '@media (max-width: 1150px)': {
     [`.${classes.heroContainer}`]: {
       [`.${classes.heroTextContainer}`]: {
-        h1: {
+        [`.${classes.heroTitleText}`]: {
           fontSize: 61,
         },
       },
@@ -88,7 +91,7 @@ const LandingWrapper = styled('div')<{ theme: Theme }>(({ theme }) => ({
   '@media (max-width: 600px)': {
     [`.${classes.heroContainer}`]: {
       [`.${classes.heroTextContainer}`]: {
-        h1: {
+        [`.${classes.heroTitleText}`]: {
           textAlign: 'center',
           fontSize: 48,
           marginBottom: 22,
