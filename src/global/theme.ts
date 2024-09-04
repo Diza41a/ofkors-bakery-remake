@@ -1,21 +1,32 @@
 import type { DefaultTheme } from "styled-components";
 import type { CSSProperties } from "react";
 
+const SMALL_SCREEN_BREAKPOINT = 600;
+
+const DM_SANS_FONT_NAME = 'DMSans';
+const CORMORANT_SEMIBOLD_FONT_NAME = 'CormorantSemiBold';
+const CORMORANT_BOLD_FONT_NAME = 'CormorantBold';
+
+type MediaQueryKey = `@media (max-width: ${number}px)`;
+type MediaQueryStyles<> = {
+  [K in MediaQueryKey]: CSSProperties;
+};
+type TypographyStyles = CSSProperties & MediaQueryStyles;
 export interface Theme extends DefaultTheme {
   typography: {
-    link: CSSProperties;
-    paragraph1: CSSProperties;
-    paragraph2: CSSProperties;
-    paragraph3: CSSProperties;
-    display1: CSSProperties;
-    display2: CSSProperties;
-    display3: CSSProperties;
-    headline1: CSSProperties;
-    headline2: CSSProperties;
-    headline3: CSSProperties;
-    headline4: CSSProperties;
-    headline5: CSSProperties;
-    headline6: CSSProperties;
+    link: TypographyStyles;
+    paragraph1: TypographyStyles;
+    paragraph2: TypographyStyles;
+    paragraph3: TypographyStyles;
+    display1: TypographyStyles;
+    display2: TypographyStyles;
+    display3: TypographyStyles;
+    headline1: TypographyStyles;
+    headline2: TypographyStyles;
+    headline3: TypographyStyles;
+    headline4: TypographyStyles;
+    headline5: TypographyStyles;
+    headline6: TypographyStyles;
   },
   colors: {
     bg: {
@@ -49,12 +60,6 @@ export interface Theme extends DefaultTheme {
   },
 };
 
-const SMALL_SCREEN_BREAKPOINT = 600;
-
-const DM_SANS_FONT_NAME = 'DMSans';
-const CORMORANT_SEMIBOLD_FONT_NAME = 'CormorantSemiBold';
-const CORMORANT_BOLD_FONT_NAME = 'CormorantBold';
-
 const theme: Theme = {
   typography: {
     link: {
@@ -65,6 +70,10 @@ const theme: Theme = {
     paragraph1: {
       fontFamily: DM_SANS_FONT_NAME,
       fontSize: 18,
+
+      [`@media (max-width: ${SMALL_SCREEN_BREAKPOINT}px)`]: {
+        fontSize: 16,
+      },
     },
     paragraph2: {
       fontFamily: DM_SANS_FONT_NAME,

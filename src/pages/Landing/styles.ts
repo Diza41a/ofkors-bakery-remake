@@ -90,6 +90,8 @@ const LandingWrapper = styled('div')<{ theme: Theme }>(({ theme }) => ({
       [`.${classes.heroTextContainer}`]: {
         h1: {
           textAlign: 'center',
+          fontSize: 48,
+          marginBottom: 22,
         },
       },
     },
