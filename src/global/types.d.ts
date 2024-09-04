@@ -1,3 +1,4 @@
+// Assets types
 declare module '*.rtf' {
   const content: string;
   export default content;
@@ -8,6 +9,11 @@ declare module '*.ttf' {
 }
 
 declare module '*.png' {
+  const content: string;
+  export default content;
+}
+
+declare module '*.svg' {
   const content: string;
   export default content;
 }

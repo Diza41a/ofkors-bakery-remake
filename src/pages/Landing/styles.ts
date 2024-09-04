@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import HeroBgImg from "../../assets/images/hero_bg.png";
 import type { Theme } from "../../global/theme";
 
 export const classes = {
@@ -8,7 +9,11 @@ export const classes = {
   heroBodyText: 'Landing-Hero-Txt-Body',
   heroViewMenuButton: 'Landing-Hero-Btn',
   heroImageContainer: 'Landing-Hero-ImageContainer',
+  heroTopLeftCornerImageContainer: 'Landing-Hero-TopLeftCornerImageContainer',
+  heroBottomRightCornerImageContainer: 'Landing-Hero-BottomRightCornerImageContainer',
 };
+
+// TODO: Animate the hero images.
 
 const LandingWrapper = styled('div')<{ theme: Theme }>(({ theme }) => ({
   [`.${classes.heroContainer}`]: {
@@ -17,13 +22,12 @@ const LandingWrapper = styled('div')<{ theme: Theme }>(({ theme }) => ({
     alignItems: 'center',
     minHeight: 'max(750px, 100vh)',
     backgroundColor: theme.colors.bg.light,
+    backgroundImage: `url(${HeroBgImg})`,
     columnGap: '70px',
 
     [`.${classes.heroTextContainer}`]: {
       width: '50%',
       marginLeft: '12.5%',
-      /* TODO: Once the actual text is in place, adjust padding-bottom
-        to match the design */
 
       [`.${classes.heroTitleText}`]: {
         ...theme.typography.display1,
@@ -45,6 +49,18 @@ const LandingWrapper = styled('div')<{ theme: Theme }>(({ theme }) => ({
       img: {
         width: 'min(100%, 750px)',
       },
+    },
+
+    [`.${classes.heroTopLeftCornerImageContainer}`]: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+    },
+
+    [`.${classes.heroBottomRightCornerImageContainer}`]: {
+      position: 'absolute',
+      bottom: 0,
+      right: 0,
     },
   },
 

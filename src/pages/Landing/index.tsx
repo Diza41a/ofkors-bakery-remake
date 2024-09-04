@@ -1,5 +1,7 @@
 import S, { classes } from './styles.ts';
 import HeroImg from '../../assets/images/hero_img.png';
+import HeroTopLeftCornerImg from '../../assets/images/hero_top-left_corner.svg';
+import HeroBottomRightCornerImg from '../../assets/images/hero_bottom-right_corner.svg';
 import Button from '../../components/Button';
 
 const LandingPage = ():JSX.Element => {
@@ -18,6 +20,13 @@ const LandingPage = ():JSX.Element => {
         </div>
         <div className={classes.heroImageContainer}>
           <img src={HeroImg} draggable={false} />
+        </div>
+
+        <div className={classes.heroTopLeftCornerImageContainer}>
+          <img src={HeroTopLeftCornerImg} draggable={false} />
+        </div>
+        <div className={classes.heroBottomRightCornerImageContainer}>
+          <img src={HeroBottomRightCornerImg} draggable={false} />
         </div>
       </div>
     </S.LandingWrapper>
