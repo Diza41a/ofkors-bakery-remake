@@ -49,6 +49,8 @@ export interface Theme extends DefaultTheme {
   },
 };
 
+const SMALL_SCREEN_BREAKPOINT = 600;
+
 const DM_SANS_FONT_NAME = 'DMSans';
 const CORMORANT_SEMIBOLD_FONT_NAME = 'CormorantSemiBold';
 const CORMORANT_BOLD_FONT_NAME = 'CormorantBold';
@@ -73,8 +75,12 @@ const theme: Theme = {
       fontSize: 14,
     },
     display1: {
-      fontFamily: CORMORANT_SEMIBOLD_FONT_NAME,
+      fontFamily: CORMORANT_BOLD_FONT_NAME,
       fontSize: 72,
+
+      [`@media (max-width: ${SMALL_SCREEN_BREAKPOINT}px)`]: {
+        fontSize: 48,
+      },
     },
     display2: {
       fontFamily: CORMORANT_SEMIBOLD_FONT_NAME,

@@ -2,8 +2,8 @@ import { useLayoutEffect, useRef, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Fade as Hamburger } from 'hamburger-react'
 import S, { classes } from './styles.ts';
-import LogoDarkImg from '../../assets/images/Logo_dark.png';
-import LogoLightImg from '../../assets/images/Logo_light.png';
+import LogoDarkImg from '../../assets/images/logo_dark.png';
+import LogoLightImg from '../../assets/images/logo_light.png';
 
 const NAV_LINKS = [
   { path: '/', label: 'Home' },
@@ -78,7 +78,14 @@ const Header = (): JSX.Element => {
       const clickedEl = e.target as HTMLElement;
       if (!headerRef.current.contains(clickedEl)) setIsBurgerExpanded(false);
     };
+    const switchHeaderAttachmentOnPageLoad = () => {
+      if (!headerRef.current) return;
 
+      if (pathname === '/') headerRef.current.style.position = 'fixed';
+      else headerRef.current.style.position = 'sticky';
+    };
+
+    switchHeaderAttachmentOnPageLoad();
     toggleHeaderStylesOnPageScroll();
     window.addEventListener('scroll', toggleHeaderStylesOnPageScroll);
     window.addEventListener('resize', toggleBurgerMenuOnPageResize);

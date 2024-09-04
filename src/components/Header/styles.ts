@@ -20,6 +20,7 @@ const Header = styled('header')<{ theme: Theme }>(() => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
+  width: '100%',
   height: 80,
   position: 'sticky',
   top: 0,
