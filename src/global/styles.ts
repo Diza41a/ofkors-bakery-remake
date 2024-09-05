@@ -2,7 +2,12 @@ import { createGlobalStyle } from "styled-components";
 import DMSansFont from '../assets/fonts/DM_Sans/DMSans-VariableFont.ttf';
 import CormorantSemiBoldFont from '../assets/fonts/Cormorant/Cormorant-SemiBold.ttf';
 import CormorantBoldFont from '../assets/fonts/Cormorant/Cormorant-Bold.ttf';
-import MoskFont from '../assets/fonts/Mosk/Mosk-400.ttf'
+import MoskFont from '../assets/fonts/Mosk/Mosk-400.ttf';
+
+export const zIndexes = {
+  header: 1000,
+  heroCornerImages: 0,
+};
 
 const GlobalStyle = createGlobalStyle(() => ({
   '*': {
@@ -34,4 +39,4 @@ const FontFaces = createGlobalStyle`
   }
 `;
 
-export default { GlobalStyle, FontFaces  };
+export default { GlobalStyle, FontFaces };

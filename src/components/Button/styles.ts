@@ -8,7 +8,13 @@ export const classes = {
   endIcon: 'Btn-endIcon',
 };
 
-const Button = styled('button')<StyledButtonProps>(({
+const styledButtonShouldForwardProp = (prop: string) => (
+  !['accentColor','secondaryColor','variant','size','borderRadius','startIcon','endIcon'].includes(prop)
+);
+
+const Button = styled('button').withConfig({
+  shouldForwardProp: styledButtonShouldForwardProp,
+})<StyledButtonProps>(({
   theme,
   size,
   variant,

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import HeroBgImg from "../../assets/images/hero_bg.png";
 import type { Theme } from "../../global/theme";
+import { zIndexes } from "../../global/styles";
 
 export const classes = {
   heroContainer: 'Landing-Hero-Container',
@@ -13,8 +14,6 @@ export const classes = {
   heroBottomRightCornerImageContainer: 'Landing-Hero-BottomRightCornerImageContainer',
 };
 
-// TODO: Animate the hero images.
-
 const LandingWrapper = styled('div')<{ theme: Theme }>(({ theme }) => ({
   [`.${classes.heroContainer}`]: {
     display: 'flex',
@@ -23,6 +22,7 @@ const LandingWrapper = styled('div')<{ theme: Theme }>(({ theme }) => ({
     minHeight: 'max(750px, 100vh)',
     position: 'relative',
     columnGap: '70px',
+    overflow: 'hidden',
     backgroundColor: theme.colors.bg.light,
     backgroundImage: `url(${HeroBgImg})`,
 
@@ -34,6 +34,8 @@ const LandingWrapper = styled('div')<{ theme: Theme }>(({ theme }) => ({
         ...theme.typography.display1,
         color: theme.colors.text.heading,
         marginBottom: '40px',
+        position: 'relative',
+        zIndex: zIndexes.heroCornerImages + 1,
       },
 
       [`.${classes.heroBodyText}`]: {
@@ -49,6 +51,7 @@ const LandingWrapper = styled('div')<{ theme: Theme }>(({ theme }) => ({
 
       img: {
         width: 'min(100%, 750px)',
+        userSelect: 'none',
       },
     },
 
@@ -56,12 +59,38 @@ const LandingWrapper = styled('div')<{ theme: Theme }>(({ theme }) => ({
       position: 'absolute',
       top: 0,
       left: 0,
+      zIndex: zIndexes.heroCornerImages,
+
+      img: {
+        userSelect: 'none',
+        transform: 'scale(1.05)',
+
+        '@keyframes rotateHeroTopLeft': {
+          '0%': { transform: 'scale(1.05) rotate(3deg)', },
+          '100%': { transform: 'scale(1.05) rotate(-3deg)', },
+        },
+
+        animation: 'rotateHeroTopLeft 6s infinite alternate',
+      },
     },
 
     [`.${classes.heroBottomRightCornerImageContainer}`]: {
       position: 'absolute',
       bottom: 0,
       right: 0,
+      zIndex: zIndexes.heroCornerImages,
+
+      img: {
+        userSelect: 'none',
+        transform: 'scale(1.05)',
+
+        '@keyframes rotateHeroBottomRight': {
+          '0%': { transform: 'scale(1.05) rotate(-3deg)', },
+          '100%': { transform: 'scale(1.05) rotate(3deg)', },
+        },
+
+        animation: 'rotateHeroBottomRight 6s infinite alternate',
+      },
     },
   },
 

@@ -36,14 +36,4 @@ const Button = (props: ButtonProps): JSX.Element => {
   );
 };
 
-Button.defaultProps = {
-  accentColor: theme.colors.action.gold,
-  secondaryColor: theme.colors.text.white,
-  variant: 'contained',
-  size: 'default',
-  borderRadius: 0,
-  startIcon: undefined,
-  endIcon: undefined,
-};
-
 export default Button;
