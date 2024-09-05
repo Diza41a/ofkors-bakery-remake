@@ -12,6 +12,8 @@ const Button = (props: ButtonProps): JSX.Element => {
     borderRadius = 0,
     startIcon = undefined,
     endIcon = undefined,
+    isIconButton = false,
+    href=undefined,
   } = props;
 
   const buttonStyleProps: StyledButtonProps = {
@@ -22,6 +24,8 @@ const Button = (props: ButtonProps): JSX.Element => {
     borderRadius,
     startIcon,
     endIcon,
+    isIconButton,
+    href,
   };
 
   return (
@@ -30,7 +34,7 @@ const Button = (props: ButtonProps): JSX.Element => {
       {...buttonStyleProps}
     >
       {startIcon && <span className={classes.startIcon}>{startIcon}</span>}
-      <p className={classes.text}>{children}</p>
+      {isIconButton ? children : <p className={classes.text}>{children}</p>}
       {endIcon && <span className={classes.endIcon}>{endIcon}</span>}
     </S.Button>
   );

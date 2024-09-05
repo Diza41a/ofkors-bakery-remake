@@ -123,7 +123,7 @@ const theme: Theme = {
       fontSize: 36,
     },
     headline3: {
-      fontFamily: CORMORANT_BOLD_FONT_NAME,
+      fontFamily: CORMORANT_SEMIBOLD_FONT_NAME,
       fontSize: 32,
     },
     headline4: {
@@ -165,7 +165,7 @@ const theme: Theme = {
       white: '#FFFFFF',
     },
     lines: {
-      hr: '#617798',
+      hr: '#6177982b',
       gray: '#E7E5EA33',
     },
     brown: '#2B1A14',

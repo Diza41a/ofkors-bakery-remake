@@ -4,12 +4,22 @@ import type { StyledButtonProps } from "./props";
 export const classes = {
   root: 'Btn',
   text: 'Btn-text',
+  link: 'Btn-link',
   startIcon: 'Btn-startIcon',
   endIcon: 'Btn-endIcon',
 };
 
 const styledButtonShouldForwardProp = (prop: string) => (
-  !['accentColor','secondaryColor','variant','size','borderRadius','startIcon','endIcon'].includes(prop)
+  ![
+    'accentColor',
+    'secondaryColor',
+    'variant',
+    'size',
+    'borderRadius',
+    'startIcon',
+    'endIcon',
+    'isIconButton',
+  ].includes(prop)
 );
 
 const Button = styled('button').withConfig({
@@ -21,13 +31,19 @@ const Button = styled('button').withConfig({
   accentColor,
   secondaryColor,
   borderRadius,
+  isIconButton,
 }) => ({
   outline: 'none',
   cursor: 'pointer',
   borderRadius,
 
   ...(() => {
-    const buttonPadding = size === 'small' ? '12px 20px' : '18px 32px';
+    let buttonPadding = '18px 32px';
+    if (isIconButton) {
+      buttonPadding = '0';
+    } else if (size === 'small') {
+      buttonPadding = '12px 20px';
+    }
     const typographyProps = size === 'small' ? theme.typography.linkSmall : theme.typography.link;
     const backgroundColor = variant === 'outlined' ? 'transparent' : accentColor;
     const color = variant === 'outlined' ? accentColor : secondaryColor;
@@ -39,6 +55,17 @@ const Button = styled('button').withConfig({
       padding: buttonPadding,
       backgroundColor,
       border,
+      ...(() => {
+        if (isIconButton) {
+          return {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '40px',
+            height: '40px',
+          };
+        } else return {};
+      })(),
 
       [`.${classes.text}`]: {
         ...typographyProps,

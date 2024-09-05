@@ -10,6 +10,11 @@ export interface ButtonProps {
   startIcon?: JSX.Element;
   endIcon?: JSX.Element;
   children?: ReactNode;
+  isIconButton?: boolean;
+  /**
+   * Button will render as `<a>`.
+   */
+  href?: string;
 };
 
 export type StyledButtonProps = ButtonProps & { theme?: Theme };
