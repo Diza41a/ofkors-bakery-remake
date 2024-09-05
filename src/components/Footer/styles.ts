@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import type { Theme } from "../../global/theme";
+import { MOBILE_VIEW_BREAKPOINT, type Theme } from "../../global/theme";
 
 export const classes = {
   contentSectionsContainer: 'Footer-ContentSections-Container',
@@ -17,6 +17,9 @@ const Footer = styled('footer')<{ theme: Theme }>(({ theme }) => ({
 
   [`.${classes.contentSectionsContainer}`]: {
     display: 'flex',
+    flexWrap: 'wrap',
+    rowGap: 25,
+    columnGap: 20,
     padding: '0 10%',
     justifyContent: 'space-between',
     paddingBottom: '100px',
@@ -31,6 +34,10 @@ const Footer = styled('footer')<{ theme: Theme }>(({ theme }) => ({
         color: theme.colors.text.white,
       },
 
+      ul: {
+        rowGap: 30,
+      },
+
       [`&.${classes.mediaSection}`]: {
         ul: {
           display: 'flex',
@@ -43,7 +50,6 @@ const Footer = styled('footer')<{ theme: Theme }>(({ theme }) => ({
         ul: {
           display: 'flex',
           flexDirection: 'column',
-          rowGap: 30,
           listStyle: 'none',
 
           li: {
@@ -91,7 +97,62 @@ const Footer = styled('footer')<{ theme: Theme }>(({ theme }) => ({
     ...theme.typography.paragraph2,
     textAlign: 'center',
     color: theme.colors.text.gray,
-    padding: '40px 0',
+    padding: '40px 10%',
+  },
+
+  '@media (max-width: 760px)': {
+    [`.${classes.contentSectionsContainer}`]: {
+      flexDirection: 'column',
+    },
+  },
+
+  [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
+    paddingTop: 56,
+
+    [`.${classes.contentSectionsContainer}`]: {
+      padding: '0 5%',
+      paddingBottom: 30,
+
+      section: {
+        h3: {
+          marginBottom: 32,
+        },
+
+        ul: {
+          rowGap: 22,
+        },
+
+        [`&.${classes.mediaSection}`]: {
+          ul: {
+            li: {
+              '&:first-of-type': {
+                button: {
+                  img: {
+                    width: 10,
+                  },
+                },
+              },
+
+              '&:nth-of-type(2)': {
+                button: {
+                  img: {
+                    width: 17,
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+
+    hr: {
+      margin: '0 5%',
+    },
+
+    [`.${classes.copyrightText}`]: {
+      padding: '22px 5%',
+    },
   },
 }));
 

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import type { StyledButtonProps } from "./props";
+import { MOBILE_VIEW_BREAKPOINT } from "../../global/theme";
 
 export const classes = {
   root: 'Btn',
@@ -82,10 +83,8 @@ const Button = styled('button').withConfig({
     };
   })(),
 
-  '@media (max-width: 600px)': {
+  [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
     ...(() => ({
-      padding: size === 'small' ? '10px 16px' : '14px 26px',
-
       [`.${classes.startIcon}`]: {
         marginRight: size === 'small' ? '8px' : '10px',
       },
@@ -94,6 +93,21 @@ const Button = styled('button').withConfig({
         marginLeft: size === 'small' ? '8px' : '10px',
       },
     }))(),
+
+    ...(() => {
+      let buttonPadding = '14px 26px';
+      if (isIconButton) buttonPadding = '0';
+      else if (size === 'small') buttonPadding = '10px 16px';
+
+      return {
+        padding: buttonPadding,
+      }
+    })(),
+
+    ...(() => (isIconButton ? {
+      width: 32,
+      height: 32,
+    } : {}))(),
   },
 }));
 

@@ -17,6 +17,7 @@ const Footer = ():JSX.Element => {
   return (
     <S.Footer>
       <div className={classes.contentSectionsContainer}>
+        {/* TODO: Update the media links to be actual links */}
         <section className={classes.mediaSection}>
           <h3>Media Links</h3>
           <ul>
@@ -38,21 +39,6 @@ const Footer = ():JSX.Element => {
             </li>
           </ul>
         </section>
-        <section className={classes.learnMoreSection}>
-          <h3>Learn More</h3>
-          <ul>
-            {LEARN_MORE_LINKS.map((link) => (
-              <li key={link.path}>
-                <NavLink
-                  to={link.path}
-                  className={({ isActive }) => isActive ? classes.activeLink : ''}
-                >
-                  <p>{link.label}</p>
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </section>
         <section>
           <h3>Hours of Operation</h3>
           <ul>
@@ -68,6 +54,21 @@ const Footer = ():JSX.Element => {
             </li>
           </ul>
         </section>
+        <section className={classes.learnMoreSection}>
+          <h3>Learn More</h3>
+          <ul>
+            {LEARN_MORE_LINKS.map((link) => (
+              <li key={link.path}>
+                <NavLink
+                  to={link.path}
+                  className={({ isActive }) => isActive ? classes.activeLink : ''}
+                >
+                  <p>{link.label}</p>
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </section>
         <section className={classes.contactSection}>
           <h3>Reach Us</h3>
           <ul>
@@ -80,7 +81,6 @@ const Footer = ():JSX.Element => {
               </NavLink>
             </li>
             <li>
-              {/* TODO: open Google maps on pc, and default maps app on mobile devices */}
               <a
                 href='https://maps.app.goo.gl/V4TDFKFfWy6vBnqY6'
                 target='_blank'

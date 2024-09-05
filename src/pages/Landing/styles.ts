@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import HeroBgImg from "../../assets/images/hero_bg.png";
-import type { Theme } from "../../global/theme";
+import { MOBILE_VIEW_BREAKPOINT, type Theme } from "../../global/theme";
 import { zIndexes } from "../../global/styles";
 
 export const classes = {
@@ -135,7 +135,7 @@ const LandingWrapper = styled('div')<{ theme: Theme }>(({ theme }) => ({
     },
   },
 
-  '@media (max-width: 600px)': {
+  [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
     [`.${classes.heroContainer}`]: {
       [`.${classes.heroTextContainer}`]: {
         [`.${classes.heroTitleText}`]: {

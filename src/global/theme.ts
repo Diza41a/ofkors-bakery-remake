@@ -1,7 +1,7 @@
 import type { DefaultTheme } from "styled-components";
 import type { CSSProperties } from "react";
 
-const SMALL_SCREEN_BREAKPOINT = 600;
+export const MOBILE_VIEW_BREAKPOINT = 600;
 
 const DM_SANS_FONT_NAME = 'DMSans';
 const CORMORANT_SEMIBOLD_FONT_NAME = 'CormorantSemiBold';
@@ -69,7 +69,7 @@ const theme: Theme = {
       fontSize: 15,
       textDecoration: 'none',
 
-      [`@media (max-width: ${SMALL_SCREEN_BREAKPOINT}px)`]: {
+      [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
         fontSize: 14,
       },
     },
@@ -78,7 +78,7 @@ const theme: Theme = {
       fontSize: 14,
       textDecoration: 'none',
 
-      [`@media (max-width: ${SMALL_SCREEN_BREAKPOINT}px)`]: {
+      [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
         fontSize: 13,
       },
     },
@@ -86,13 +86,17 @@ const theme: Theme = {
       fontFamily: DM_SANS_FONT_NAME,
       fontSize: 18,
 
-      [`@media (max-width: ${SMALL_SCREEN_BREAKPOINT}px)`]: {
+      [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
         fontSize: 16,
       },
     },
     paragraph2: {
       fontFamily: DM_SANS_FONT_NAME,
       fontSize: 16,
+
+      [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
+        fontSize: 15,
+      },
     },
     paragraph3: {
       fontFamily: DM_SANS_FONT_NAME,
@@ -102,7 +106,7 @@ const theme: Theme = {
       fontFamily: CORMORANT_BOLD_FONT_NAME,
       fontSize: 72,
 
-      [`@media (max-width: ${SMALL_SCREEN_BREAKPOINT}px)`]: {
+      [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
         fontSize: 48,
       },
     },
@@ -125,6 +129,10 @@ const theme: Theme = {
     headline3: {
       fontFamily: CORMORANT_SEMIBOLD_FONT_NAME,
       fontSize: 32,
+
+      [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
+        fontSize: 28,
+      },
     },
     headline4: {
       fontFamily: DM_SANS_FONT_NAME,
