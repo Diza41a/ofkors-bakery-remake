@@ -8,7 +8,7 @@ import LogoLightImg from '../../assets/images/logo_light.png';
 const NAV_LINKS = [
   { path: '/', label: 'Home' },
   { path: '/about', label: 'About' },
-  { path: '/services', label: 'Services' },
+  { path: '/gallery', label: 'Gallery' },
   { path: '/menu', label: 'Menu' },
   { path: '/contact', label: 'Contact' },
 ];

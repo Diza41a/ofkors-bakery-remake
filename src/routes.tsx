@@ -15,7 +15,7 @@ export const USER_ROUTES: Array<RouteFixture> = [
     element: <></>,
   },
   {
-    path: '/services',
+    path: '/gallery',
     element: <></>,
   },
   {

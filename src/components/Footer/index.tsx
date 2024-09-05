@@ -7,7 +7,7 @@ import InstagramIcon from '../../assets/icons/instagram.svg';
 
 const LEARN_MORE_LINKS = [
   { path: '/about', label: 'About' },
-  { path: '/services', label: 'Services' },
+  { path: '/gallery', label: 'gallery' },
   { path: '/menu', label: 'Menu' },
 ];
 
