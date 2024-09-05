@@ -13,7 +13,7 @@ export const classes = {
   heroBottomRightCornerImageContainer: 'Landing-Hero-BottomRightCornerImageContainer',
 };
 
-// TODO: Animate the hero images. 
+// TODO: Animate the hero images.
 
 const LandingWrapper = styled('div')<{ theme: Theme }>(({ theme }) => ({
   [`.${classes.heroContainer}`]: {
@@ -21,9 +21,10 @@ const LandingWrapper = styled('div')<{ theme: Theme }>(({ theme }) => ({
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: 'max(750px, 100vh)',
+    position: 'relative',
+    columnGap: '70px',
     backgroundColor: theme.colors.bg.light,
     backgroundImage: `url(${HeroBgImg})`,
-    columnGap: '70px',
 
     [`.${classes.heroTextContainer}`]: {
       width: '50%',
