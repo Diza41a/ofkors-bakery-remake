@@ -4,6 +4,7 @@ import { MOBILE_VIEW_BREAKPOINT, type Theme } from "../../global/theme";
 import { zIndexes } from "../../global/styles";
 
 export const classes = {
+  // Hero Section
   heroContainer: 'Landing-Hero-Container',
   heroTextContainer: 'Landing-Hero-TextContainer',
   heroTitleText: 'Landing-Hero-Txt-Title',
@@ -12,9 +13,14 @@ export const classes = {
   heroImageContainer: 'Landing-Hero-ImageContainer',
   heroTopLeftCornerImageContainer: 'Landing-Hero-TopLeftCornerImageContainer',
   heroBottomRightCornerImageContainer: 'Landing-Hero-BottomRightCornerImageContainer',
+  // Services Section
+  servicesContainer: 'Landing-Services-Container',
+  serviceCard: 'Landing-Service-Card',
+  serviceCardImageContainer: 'Landing-Service-Card-ImgContainer',
+  serviceCardTextContainer: 'Landing-Service-Card-TxtContainer',
 };
 
-const LandingWrapper = styled('div')<{ theme: Theme }>(({ theme }) => ({
+const LandingContainer = styled('div')<{ theme: Theme }>(({ theme }) => ({
   [`.${classes.heroContainer}`]: {
     display: 'flex',
     justifyContent: 'center',
@@ -94,6 +100,48 @@ const LandingWrapper = styled('div')<{ theme: Theme }>(({ theme }) => ({
     },
   },
 
+  [`.${classes.servicesContainer}`]: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    alignItems: 'center',
+    columnGap: 30,
+    rowGap: 40,
+    padding: '120px 5%',
+
+    [`.${classes.serviceCard}`]: {
+      display: 'flex',
+      columnGap: 20,
+      width: 370,
+
+      [`.${classes.serviceCardImageContainer}`]: {
+        flexShrink: 0,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 70,
+        height: 70,
+        marginTop: 4,
+        backgroundColor: theme.colors.bg.light,
+        borderRadius: 15,
+      },
+
+      [`.${classes.serviceCardTextContainer}`]: {
+        h3: {
+          marginBottom: 30,
+          ...theme.typography.headline3,
+          color: theme.colors.text.heading,
+        },
+
+        p: {
+          ...theme.typography.paragraph2,
+          color: theme.colors.text.darkGray,
+        },
+      },
+
+    },
+  },
+
   '@media (max-width: 1250px)': {
     [`.${classes.heroContainer}`]: {
       [`.${classes.heroImageContainer}`]: {
@@ -148,9 +196,30 @@ const LandingWrapper = styled('div')<{ theme: Theme }>(({ theme }) => ({
         },
       },
     },
+
+    [`.${classes.servicesContainer}`]: {
+      padding: '60px 5%',
+
+      [`.${classes.serviceCard}`]: {
+        [`.${classes.serviceCardImageContainer}`]: {
+          width: 55,
+          height: 55,
+
+          img: {
+            transform: 'scale(0.75)',
+          },
+        },
+
+        [`.${classes.serviceCardTextContainer}`]: {
+          h3: {
+            marginBottom: 17,
+          },
+        },
+      },
+    },
   },
 }));
 
 export default {
-  LandingWrapper,
+  LandingContainer,
 };

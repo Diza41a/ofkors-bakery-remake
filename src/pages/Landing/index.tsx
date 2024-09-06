@@ -1,12 +1,15 @@
+import Button from '../../components/Button';
 import S, { classes } from './styles.ts';
 import HeroImg from '../../assets/images/hero_img.png';
 import HeroTopLeftCornerImg from '../../assets/images/hero_top-left_corner.svg';
 import HeroBottomRightCornerImg from '../../assets/images/hero_bottom-right_corner.svg';
-import Button from '../../components/Button';
+import CoffeeBeansIcon from '../../assets/icons/coffee_beans_icon.svg';
+import BaristaIcon from '../../assets/icons/barista_icon.svg';
+import BlenderIcon from '../../assets/icons/blender_icon.svg';
 
 const LandingPage = ():JSX.Element => {
   const HeroSection = (
-    <div className={classes.heroContainer}>
+    <section className={classes.heroContainer}>
       <div className={classes.heroTextContainer}>
         <h1 className={classes.heroTitleText}>Welcome to Lorem Ips, and Coffee Espresso!</h1>
         <p className={classes.heroBodyText}>
@@ -27,13 +30,57 @@ const LandingPage = ():JSX.Element => {
       <div className={classes.heroBottomRightCornerImageContainer}>
         <img src={HeroBottomRightCornerImg} draggable={false} />
       </div>
-    </div>
+    </section>
+  );
+  const ServicesSection = (
+    <section className={classes.servicesContainer}>
+      <div className={classes.serviceCard}>
+        <div className={classes.serviceCardImageContainer}>
+          <img src={CoffeeBeansIcon} />
+        </div>
+        <div className={classes.serviceCardTextContainer}>
+          <h3>
+            High Quality Ipsum
+          </h3>
+          <p>
+          Our coffees are carefully selected for quality, flavor, and social impact
+          </p>
+        </div>
+      </div>
+      <div className={classes.serviceCard}>
+        <div className={classes.serviceCardImageContainer}>
+          <img src={BaristaIcon} />
+        </div>
+        <div className={classes.serviceCardTextContainer}>
+          <h3>
+            High Quality Ipsum
+          </h3>
+          <p>
+          Our coffees are carefully selected for quality, flavor, and social impact
+          </p>
+        </div>
+      </div>
+      <div className={classes.serviceCard}>
+        <div className={classes.serviceCardImageContainer}>
+          <img src={BlenderIcon} />
+        </div>
+        <div className={classes.serviceCardTextContainer}>
+          <h3>
+            High Quality Ipsum
+          </h3>
+          <p>
+          Our coffees are carefully selected for quality, flavor, and social impact
+          </p>
+        </div>
+      </div>
+    </section>
   );
 
   return (
-    <S.LandingWrapper>
+    <S.LandingContainer>
       {HeroSection}
-    </S.LandingWrapper>
+      {ServicesSection}
+    </S.LandingContainer>
   );
 };
 
