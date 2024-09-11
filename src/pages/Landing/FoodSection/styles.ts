@@ -160,9 +160,11 @@ const FoodSection = styled('section')<{ theme: Theme }>(({ theme }) => ({
   },
 
   [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
-    padding: '60px 5% 85px 5%',
+    padding: '60px 0 85px 0',
 
     [`.${classes.titleContainer}`]: {
+      padding: '0 10%',
+
       img: {
         transform: 'scale(0.85)',
       },
@@ -180,7 +182,7 @@ const FoodSection = styled('section')<{ theme: Theme }>(({ theme }) => ({
 
       [`.${classes.textContainer}`]: {
         marginTop: 0,
-        padding: 0,
+        padding: '0 3.5%',
       },
     },
 
