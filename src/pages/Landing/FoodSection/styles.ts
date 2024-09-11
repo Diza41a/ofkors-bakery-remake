@@ -160,12 +160,34 @@ const FoodSection = styled('section')<{ theme: Theme }>(({ theme }) => ({
   },
 
   [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
-    padding: '60px 5%',
+    padding: '60px 5% 85px 5%',
 
     [`.${classes.titleContainer}`]: {
       img: {
         transform: 'scale(0.85)',
       },
+    },
+
+    [`.${classes.bodyContainer}`]: {
+      marginTop: 0,
+      overflowX: 'hidden',
+
+      [`.${classes.imageContainer}`]: {
+        transform: 'scale(0.55)',
+        marginTop: -40,
+        marginBottom: -15,
+      },
+
+      [`.${classes.textContainer}`]: {
+        marginTop: 0,
+        padding: 0,
+      },
+    },
+
+    [`.${classes.beansImage}`]: {
+      transform: 'scale(0.45)',
+      bottom: -20,
+      right: '-4.5%',
     },
   },
 }));
