@@ -4,14 +4,14 @@ import { MOBILE_VIEW_BREAKPOINT, type Theme } from "../../../global/theme";
 import { zIndexes } from "../../../global/styles";
 
 export const classes = {
-  heroContainer: 'Landing-Hero-Container',
-  heroTextContainer: 'Landing-Hero-TextContainer',
-  heroTitleText: 'Landing-Hero-Txt-Title',
-  heroBodyText: 'Landing-Hero-Txt-Body',
-  heroViewMenuButton: 'Landing-Hero-Btn',
-  heroImageContainer: 'Landing-Hero-ImageContainer',
-  heroTopLeftCornerImageContainer: 'Landing-Hero-TopLeftCornerImageContainer',
-  heroBottomRightCornerImageContainer: 'Landing-Hero-BottomRightCornerImageContainer',
+  root: 'Landing-Hero-Container',
+  textContainer: 'Landing-Hero-TextContainer',
+  titleText: 'Landing-Hero-Txt-Title',
+  bodyText: 'Landing-Hero-Txt-Body',
+  viewMenuButton: 'Landing-Hero-Btn',
+  imageContainer: 'Landing-Hero-ImageContainer',
+  topLeftCornerImageContainer: 'Landing-Hero-TopLeftCornerImageContainer',
+  bottomRightCornerImageContainer: 'Landing-Hero-BottomRightCornerImageContainer',
 };
 
 const HeroSection = styled('section')<{ theme: Theme }>(({ theme }) => ({
@@ -25,26 +25,26 @@ const HeroSection = styled('section')<{ theme: Theme }>(({ theme }) => ({
   backgroundColor: theme.colors.bg.light,
   backgroundImage: `url(${HeroBgImg})`,
 
-  [`.${classes.heroTextContainer}`]: {
+  [`.${classes.textContainer}`]: {
     width: '50%',
     marginLeft: '12.5%',
 
-    [`.${classes.heroTitleText}`]: {
+    [`.${classes.titleText}`]: {
       ...theme.typography.display1,
       color: theme.colors.text.heading,
       marginBottom: '40px',
       position: 'relative',
-      zIndex: zIndexes.heroCornerImages + 1,
+      zIndex: zIndexes.landingHeroCornerImages + 1,
     },
 
-    [`.${classes.heroBodyText}`]: {
+    [`.${classes.bodyText}`]: {
       ...theme.typography.paragraph1,
       color: theme.colors.text.darkGray,
       marginBottom: '70px',
     },
   },
 
-  [`.${classes.heroImageContainer}`]: {
+  [`.${classes.imageContainer}`]: {
     width: '57.5%',
     marginRight: '7.5%',
 
@@ -54,11 +54,11 @@ const HeroSection = styled('section')<{ theme: Theme }>(({ theme }) => ({
     },
   },
 
-  [`.${classes.heroTopLeftCornerImageContainer}`]: {
+  [`.${classes.topLeftCornerImageContainer}`]: {
     position: 'absolute',
     top: 0,
     left: 0,
-    zIndex: zIndexes.heroCornerImages,
+    zIndex: zIndexes.landingHeroCornerImages,
 
     img: {
       userSelect: 'none',
@@ -73,11 +73,11 @@ const HeroSection = styled('section')<{ theme: Theme }>(({ theme }) => ({
     },
   },
 
-  [`.${classes.heroBottomRightCornerImageContainer}`]: {
+  [`.${classes.bottomRightCornerImageContainer}`]: {
     position: 'absolute',
     bottom: 0,
     right: 0,
-    zIndex: zIndexes.heroCornerImages,
+    zIndex: zIndexes.landingHeroCornerImages,
 
     img: {
       userSelect: 'none',
@@ -93,14 +93,14 @@ const HeroSection = styled('section')<{ theme: Theme }>(({ theme }) => ({
   },
 
   '@media (max-width: 1250px)': {
-    [`.${classes.heroImageContainer}`]: {
+    [`.${classes.imageContainer}`]: {
       marginRight: 0,
     },
   },
 
   '@media (max-width: 1150px)': {
-    [`.${classes.heroTextContainer}`]: {
-      [`.${classes.heroTitleText}`]: {
+    [`.${classes.textContainer}`]: {
+      [`.${classes.titleText}`]: {
         fontSize: 61,
       },
     },
@@ -109,31 +109,43 @@ const HeroSection = styled('section')<{ theme: Theme }>(({ theme }) => ({
   '@media (max-width: 1050px)': {
     columnGap: '30px',
 
-    [`.${classes.heroImageContainer}`]: {
+    [`.${classes.imageContainer}`]: {
       width: '62.5%',
     },
   },
 
   '@media (max-width: 780px)': {
-    [`.${classes.heroTextContainer}`]: {
+    [`.${classes.textContainer}`]: {
       width: '75%',
       margin: '0 12.5%',
     },
 
-    [`.${classes.heroImageContainer}`]: {
+    [`.${classes.imageContainer}`]: {
       display: 'none',
     },
   },
 
   [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
-    [`.${classes.heroTextContainer}`]: {
-      [`.${classes.heroTitleText}`]: {
+    [`.${classes.textContainer}`]: {
+      [`.${classes.titleText}`]: {
         fontSize: 48,
         marginBottom: 22,
       },
 
-      [`.${classes.heroBodyText}`]: {
+      [`.${classes.bodyText}`]: {
         marginBottom: 25,
+      },
+    },
+
+    [`.${classes.topLeftCornerImageContainer}`]: {
+      img: {
+        width: '275px',
+      },
+    },
+
+    [`.${classes.bottomRightCornerImageContainer}`]: {
+      img: {
+        width: '275px',
       },
     },
   },

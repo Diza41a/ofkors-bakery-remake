@@ -34,6 +34,7 @@ export interface Theme extends DefaultTheme {
     bg: {
       dark: string;
       light: string;
+      lightAlt: string;
       white: string;
     },
     action: {
@@ -113,6 +114,10 @@ const theme: Theme = {
     display2: {
       fontFamily: CORMORANT_SEMIBOLD_FONT_NAME,
       fontSize: 64,
+
+      [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
+        fontSize: 40,
+      },
     },
     display3: {
       fontFamily: CORMORANT_SEMIBOLD_FONT_NAME,
@@ -125,6 +130,10 @@ const theme: Theme = {
     headline2: {
       fontFamily: CORMORANT_SEMIBOLD_FONT_NAME,
       fontSize: 36,
+
+      [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
+        fontSize: 30,
+      },
     },
     headline3: {
       fontFamily: CORMORANT_SEMIBOLD_FONT_NAME,
@@ -152,6 +161,7 @@ const theme: Theme = {
     bg: {
       dark: '#292F32',
       light: '#FAF8EC',
+      lightAlt: '#F7F5F1',
       white: '#FFFFFF',
     },
     action: {

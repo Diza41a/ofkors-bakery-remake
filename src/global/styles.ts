@@ -6,7 +6,10 @@ import MoskFont from '../assets/fonts/Mosk/Mosk-400.ttf';
 
 export const zIndexes = {
   header: 1000,
-  heroCornerImages: 0,
+  landingHeroCornerImages: 0,
+  landingFoodLinchpinImage: 3,
+  landingFoodSecondaryImage: 2,
+  landingFoodBranchImage: 1,
 };
 
 const GlobalStyle = createGlobalStyle(() => ({

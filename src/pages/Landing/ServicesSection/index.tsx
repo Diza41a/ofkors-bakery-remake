@@ -4,12 +4,12 @@ import BaristaIcon from '../../../assets/icons/barista_icon.svg';
 import BlenderIcon from '../../../assets/icons/blender_icon.svg';
 
 const ServicesSection = (): JSX.Element => (
-  <S.ServicesSection className={classes.servicesContainer}>
-    <div className={classes.serviceCard}>
-      <div className={classes.serviceCardImageContainer}>
+  <S.ServicesSection className={classes.root}>
+    <div className={classes.card}>
+      <div className={classes.cardImageContainer}>
         <img src={CoffeeBeansIcon} />
       </div>
-      <div className={classes.serviceCardTextContainer}>
+      <div className={classes.cardTextContainer}>
         <h3>
           High Quality Ipsum
         </h3>
@@ -18,11 +18,11 @@ const ServicesSection = (): JSX.Element => (
         </p>
       </div>
     </div>
-    <div className={classes.serviceCard}>
-      <div className={classes.serviceCardImageContainer}>
+    <div className={classes.card}>
+      <div className={classes.cardImageContainer}>
         <img src={BaristaIcon} />
       </div>
-      <div className={classes.serviceCardTextContainer}>
+      <div className={classes.cardTextContainer}>
         <h3>
           High Quality Ipsum
         </h3>
@@ -31,11 +31,11 @@ const ServicesSection = (): JSX.Element => (
         </p>
       </div>
     </div>
-    <div className={classes.serviceCard}>
-      <div className={classes.serviceCardImageContainer}>
+    <div className={classes.card}>
+      <div className={classes.cardImageContainer}>
         <img src={BlenderIcon} />
       </div>
-      <div className={classes.serviceCardTextContainer}>
+      <div className={classes.cardTextContainer}>
         <h3>
           High Quality Ipsum
         </h3>
