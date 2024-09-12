@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import S, { classes } from './styles';
 import { useTranslation } from "react-i18next";
 import { Languages as LangIcon, ChevronDown as ChevronDownIcon } from 'lucide-react';
@@ -33,6 +33,23 @@ const LanguageMenu = ({ isHeaderOpaque }: LanguageMenuProps): JSX.Element => {
     .map(([langCode, langLabels]) => (
       { label: langLabels.menuLabel, value: langCode }
     ));
+
+  useEffect(() => {
+    const handleExternalClick = (e: MouseEvent | TouchEvent) => {
+      const htmlEl = e.target as HTMLElement;
+
+      if (!htmlEl.closest(`.${classes.languageMenu}`) && isLanguageMenuExpanded) {
+        console.log('here');
+        setIsLanguageMenuExpanded(false);
+      }
+    };
+
+    window.addEventListener('click', handleExternalClick);
+
+    return () => {
+      window.removeEventListener('click', handleExternalClick);
+    };
+  }, []);
 
   return (
     <S.LanguageMenu

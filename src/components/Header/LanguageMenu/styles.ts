@@ -60,6 +60,37 @@ const LanguageMenu = styled('div').withConfig({
 
   [`.${classes.languageMenu}`]: {
     display: 'none',
+    paddingTop: 10,
+    position: 'absolute',
+
+    li: {
+      button: {
+        width: '100%',
+        padding: '10px',
+        textAlign: 'left',
+        ...theme.typography.link,
+        color: theme.colors.text.white,
+        backgroundColor: theme.colors.brown,
+        border: 'none',
+        transition: 'color 0.2s ease-in-out',
+        cursor: 'pointer',
+
+        '&:hover': {
+          color: theme.colors.action.gold,
+        },
+      },
+
+      '&:first-of-type': {
+        button: {
+          paddingBottom: 5,
+        },
+      },
+      '&:last-of-type': {
+        button: {
+          paddingTop: 5,
+        },
+      },
+    },
 
     [`&.${classes.languageMenuExpanded}`]: {
       display: 'block',
