@@ -1,7 +1,8 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { Fade as Hamburger } from 'hamburger-react'
+import LanguageMenu from './LanguageMenu/index';
 import S, { classes } from './styles.ts';
+import { Fade as Hamburger } from 'hamburger-react'
 import LogoDarkImg from '../../assets/images/logo_dark.png';
 import LogoLightImg from '../../assets/images/logo_light.png';
 
@@ -45,6 +46,8 @@ const Header = (): JSX.Element => {
           </li>
         ))}
       </ul>
+
+      <LanguageMenu isHeaderOpaque={shouldHaveOpaqueBackground} />
 
       <Hamburger
         direction='left'

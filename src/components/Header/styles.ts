@@ -41,6 +41,9 @@ const Header = styled('header')<{ theme: Theme }>(() => ({
   },
 
   nav: {
+    display: 'flex',
+    alignItems: 'center',
+
     ul: {
       display: 'flex',
       columnGap: 30,

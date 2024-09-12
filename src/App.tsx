@@ -4,6 +4,7 @@ import S from "./global/styles";
 import theme from "./global/theme";
 import MainLayout from "./components/MainLayout";
 import { USER_ROUTES } from "./routes";
+import './translations';
 
 function App() {
   return (
