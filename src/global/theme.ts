@@ -2,6 +2,7 @@ import type { DefaultTheme } from "styled-components";
 import type { CSSProperties } from "react";
 
 export const MOBILE_VIEW_BREAKPOINT = 600;
+export const HEADER_BURGER_BREAKPOINT = 750;
 
 const DM_SANS_FONT_NAME = 'DMSans';
 const CORMORANT_SEMIBOLD_FONT_NAME = 'CormorantSemiBold';

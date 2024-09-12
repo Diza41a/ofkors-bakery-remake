@@ -47,7 +47,10 @@ const Header = (): JSX.Element => {
         ))}
       </ul>
 
-      <LanguageMenu isHeaderOpaque={shouldHaveOpaqueBackground} />
+      <LanguageMenu
+        isHeaderOpaque={shouldHaveOpaqueBackground}
+        isNavMenuExpanded={isBurgerExpanded}
+      />
 
       <Hamburger
         direction='left'

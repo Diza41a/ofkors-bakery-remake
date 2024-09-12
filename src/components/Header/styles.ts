@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import type { Theme } from "../../global/theme";
-import theme from "../../global/theme";
+import theme, { HEADER_BURGER_BREAKPOINT } from "../../global/theme";
 import { zIndexes } from "../../global/styles";
 
 export const constants = {
@@ -44,7 +44,7 @@ const Header = styled('header')<{ theme: Theme }>(() => ({
     display: 'flex',
     alignItems: 'center',
 
-    ul: {
+    '>ul': {
       display: 'flex',
       columnGap: 30,
       listStyle: 'none',
@@ -73,7 +73,7 @@ const Header = styled('header')<{ theme: Theme }>(() => ({
     boxShadow: 'none',
 
     nav: {
-      ul: {
+      '>ul': {
         li: {
           a: {
             color: theme.colors.text.heading,
@@ -91,7 +91,7 @@ const Header = styled('header')<{ theme: Theme }>(() => ({
     padding: '0 10%',
   },
 
-  '@media (max-width: 750px)': {
+  [`@media (max-width: ${HEADER_BURGER_BREAKPOINT}px)`]: {
     height: 64,
 
     [`.${classes.logoLink}`]: {
@@ -104,7 +104,7 @@ const Header = styled('header')<{ theme: Theme }>(() => ({
       position: 'relative',
 
       [`&:not(.${classes.navMenuExpanded})`]: {
-        ul: {
+        '>ul': {
           opacity: 0,
 
           li: {
@@ -113,7 +113,7 @@ const Header = styled('header')<{ theme: Theme }>(() => ({
         },
       },
 
-      ul: {
+      '>ul': {
         flexDirection: 'column',
         width: '100%',
         position: 'fixed',

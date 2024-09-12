@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import type { Theme } from "../../../global/theme";
+import { HEADER_BURGER_BREAKPOINT, MOBILE_VIEW_BREAKPOINT, type Theme } from "../../../global/theme";
 import type { LanguageMenuProps } from "./props";
 
 interface StyledLanguageMenuProps extends LanguageMenuProps {
@@ -19,12 +19,13 @@ export const classes = {
 const styledLanguageMenuShouldForwardProp = (prop: string) => (
   ![
     'isHeaderOpaque',
+    'isNavMenuExpanded',
   ].includes(prop)
 );
 
 const LanguageMenu = styled('div').withConfig({
   shouldForwardProp: styledLanguageMenuShouldForwardProp,
-})<StyledLanguageMenuProps>(({ theme, isHeaderOpaque }) => ({
+})<StyledLanguageMenuProps>(({ theme, isHeaderOpaque, isNavMenuExpanded }) => ({
   marginLeft: 30,
 
   [`.${classes.languageMenuToggle}`]: {
@@ -37,10 +38,12 @@ const LanguageMenu = styled('div').withConfig({
     border: 'none',
     textTransform: 'uppercase',
     cursor: 'pointer',
-    transition: 'color 0.2s ease-in-out',
+    opacity: isNavMenuExpanded ? 0 : 1,
+    transition: 'color 0.2s ease-in-out, opacity 0.2s ease-in-out',
 
     [`.${classes.languageIcon}`]: {
       width: 17,
+      strokeWidth: 1.5,
     },
 
     [`.${classes.currentLanguageLabel}`]: {
@@ -52,16 +55,13 @@ const LanguageMenu = styled('div').withConfig({
       top: 2,
       width: 17,
     },
-
-    '&:hover': {
-      color: theme.colors.action.gold,
-    },
   },
 
   [`.${classes.languageMenu}`]: {
     display: 'none',
     paddingTop: 10,
     position: 'absolute',
+    listStyle: 'none',
 
     li: {
       button: {
@@ -94,6 +94,35 @@ const LanguageMenu = styled('div').withConfig({
 
     [`&.${classes.languageMenuExpanded}`]: {
       display: 'block',
+    },
+  },
+
+  [`@media(max-width: ${HEADER_BURGER_BREAKPOINT}px)`]: {
+    [`.${classes.languageMenuToggle}`]: {
+      right: 5,
+
+      [`.${classes.languageIcon}`]: {
+        width: 25,
+      },
+
+      [`.${classes.currentLanguageLabel}`]: {
+        display: 'none',
+      },
+
+      [`.${classes.chevronDownIcon}`]: {
+        width: 17,
+        top: 7,
+      },
+    },
+  },
+
+  [`@media(max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
+    [`.${classes.languageMenu}`]: {
+      li: {
+        button: {
+          fontSize: 20,
+        },
+      },
     },
   },
 }));
