@@ -36,10 +36,13 @@ const LanguageMenu = ({ isHeaderOpaque }: LanguageMenuProps): JSX.Element => {
 
   useEffect(() => {
     const handleExternalClick = (e: MouseEvent | TouchEvent) => {
-      const htmlEl = e.target as HTMLElement;
+      e.preventDefault();
+      e.stopPropagation();
 
-      if (!htmlEl.closest(`.${classes.languageMenu}`) && isLanguageMenuExpanded) {
-        console.log('here');
+      const htmlEl = e.target as HTMLElement;
+      const isExternalClick = !htmlEl.closest(`.${classes.languageMenuContainer}`);
+
+      if (isExternalClick) {
         setIsLanguageMenuExpanded(false);
       }
     };
@@ -49,7 +52,7 @@ const LanguageMenu = ({ isHeaderOpaque }: LanguageMenuProps): JSX.Element => {
     return () => {
       window.removeEventListener('click', handleExternalClick);
     };
-  }, []);
+  }, [isLanguageMenuExpanded]);
 
   return (
     <S.LanguageMenu
