@@ -5,16 +5,18 @@ import S, { classes } from './styles.ts';
 import { Fade as Hamburger } from 'hamburger-react'
 import LogoDarkImg from '../../assets/images/logo_dark.png';
 import LogoLightImg from '../../assets/images/logo_light.png';
-
-const NAV_LINKS = [
-  { path: '/', label: 'Home' },
-  { path: '/about', label: 'About' },
-  { path: '/gallery', label: 'Gallery' },
-  { path: '/menu', label: 'Menu' },
-  { path: '/contact', label: 'Contact' },
-];
+import { useTranslation } from 'react-i18next';
 
 const Header = (): JSX.Element => {
+  const { t } = useTranslation();
+  const navLinks = [
+    { path: '/', label: t('global.header.home') },
+    { path: '/about', label: t('global.header.about') },
+    { path: '/gallery', label: t('global.header.gallery') },
+    { path: '/menu', label: t('global.header.menu') },
+    { path: '/contact', label: t('global.header.contact') },
+  ];
+
   const { pathname } = useLocation();
   const isOnLandingPage = pathname === '/';
 
@@ -34,7 +36,7 @@ const Header = (): JSX.Element => {
   const NavMenu = (
     <nav className={navMenuClassNames.join(' ')}>
       <ul>
-        {NAV_LINKS.map((link) => (
+        {navLinks.map((link) => (
           <li key={link.path}>
             <NavLink
               to={link.path}

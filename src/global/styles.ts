@@ -18,6 +18,10 @@ const GlobalStyle = createGlobalStyle(() => ({
     padding: 0,
     boxSizing: 'border-box',
   },
+
+  img: {
+    userSelect: 'none',
+  },
 }));
 
 const FontFaces = createGlobalStyle`

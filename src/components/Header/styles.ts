@@ -91,8 +91,19 @@ const Header = styled('header')<{ theme: Theme }>(() => ({
     padding: '0 10%',
   },
 
+  '@media (max-width: 960px)': {
+    padding: '0 5%',
+
+    nav: {
+      '>ul': {
+        columnGap: 23,
+      },
+    },
+  },
+
   [`@media (max-width: ${HEADER_BURGER_BREAKPOINT}px)`]: {
     height: 64,
+    padding: '0 10%',
 
     [`.${classes.logoLink}`]: {
       img: {

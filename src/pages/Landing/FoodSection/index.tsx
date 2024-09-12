@@ -10,13 +10,13 @@ const FoodSection = (): JSX.Element => (
   <S.FoodSection className={classes.root}>
     <div className={classes.titleContainer}>
       <h2>Providing unique coffee experiences</h2>
-      <img src={FoodSectionLineIcon} />
+      <img src={FoodSectionLineIcon} draggable={false} />
     </div>
     <div className={classes.bodyContainer}>
       <div className={classes.imageContainer}>
         <img src={LinchpinImage} className={classes.linchpinImage} />
         <img src={SecondaryImage} className={classes.secondaryImage} />
-        <img src={BranchImage} className={classes.branchImage} />
+        <img src={BranchImage} className={classes.branchImage} draggable={false} />
       </div>
       <div className={classes.textContainer}>
         <h2>
@@ -32,7 +32,7 @@ const FoodSection = (): JSX.Element => (
       </div>
     </div>
 
-    <img src={BeansImage} className={classes.beansImage} />
+    <img src={BeansImage} className={classes.beansImage} draggable={false} />
   </S.FoodSection>
 );
 
