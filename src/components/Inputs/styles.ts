@@ -1,32 +1,9 @@
-import styled, { type CSSProperties } from "styled-components";
+import styled from "styled-components";
 import { rgba } from 'polished';
 import type { InputProps, TextAreaProps } from "./props";
 import type { StyledComponent } from "../../global/props/styleTypes";
-import type { Theme } from "../../global/theme";
-
-const injectTextfieldStyles = (theme: Theme): CSSProperties => ({
-  padding: '11px 12px',
-  ...theme.typography.paragraph3,
-  color: theme.colors.text.heading,
-  backgroundColor: '#F6F6F6',
-  border: 'none',
-  outline: `0 solid ${rgba(theme.colors.text.darkGray, 0.75)}`,
-});
-const injectTextfieldPlaceholderStyles = (theme: Theme): CSSProperties => ({
-  color: theme.colors.text.darkGray,
-});
-const injectTextfieldFocusStyles = (): CSSProperties => ({
-  outlineWidth: 1,
-});
-const injectTextfieldHoverStyles = (theme: Theme): CSSProperties => ({
-  outline: `1px solid ${theme.colors.text.gray}`,
-});
-const injectTextfieldAutofillStyles = (theme: Theme): CSSProperties => ({
-  backgroundColor: '#F6F6F6 !important',
-  color: `${theme.colors.text.heading} !important`,
-  boxShadow: '0 0 0px 1000px #F6F6F6 inset !important',
-  WebkitTextFillColor: `${theme.colors.text.heading} !important`,
-});
+import { MOBILE_VIEW_BREAKPOINT } from "../../global/theme";
+import { createSharedTextFieldStyles } from "./utils";
 
 const styledInputShouldForwardProp = (prop: string) => (
   !['errorMessage'].includes(prop)
@@ -35,25 +12,33 @@ const styledInputShouldForwardProp = (prop: string) => (
 export const inputClassName = 'Input';
 const Input = styled('input').withConfig({
   shouldForwardProp: styledInputShouldForwardProp,
-})<StyledComponent<InputProps>>(({ theme }) => ({
-  ...injectTextfieldStyles(theme),
+})<StyledComponent<InputProps>>(({ theme }) => {
+  const sharedTextFieldStyles = createSharedTextFieldStyles(theme);
+
+  return {
+  ...sharedTextFieldStyles.root,
 
   '&::placeholder': {
-    ...injectTextfieldPlaceholderStyles(theme),
+    ...sharedTextFieldStyles.placeholder,
   },
 
   '&:hover:not(:focus)': {
-    ...injectTextfieldHoverStyles(theme),
+    ...sharedTextFieldStyles.hover,
   },
 
   '&:focus': {
-    ...injectTextfieldFocusStyles(),
+    ...sharedTextFieldStyles.focus,
   },
 
   '&:-webkit-autofill': {
-    ...injectTextfieldAutofillStyles(theme),
+    ...sharedTextFieldStyles.autofill,
   },
-}));
+
+  [`@media(max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
+    ...sharedTextFieldStyles.mobile,
+  },
+  }
+});
 
 const styledTextAreaShouldForwardProp = (prop: string) => (
   !['errorMessage'].includes(prop)
@@ -62,42 +47,50 @@ const styledTextAreaShouldForwardProp = (prop: string) => (
 export const textAreaClassName = 'TextArea';
 const TextArea = styled('textarea').withConfig({
   shouldForwardProp: styledTextAreaShouldForwardProp,
-})<StyledComponent<TextAreaProps>>(({ theme }) => ({
-  ...injectTextfieldStyles(theme),
-  resize: 'none',
+})<StyledComponent<TextAreaProps>>(({ theme }) => {
+  const sharedTextFieldStyles = createSharedTextFieldStyles(theme);
 
-  '&::placeholder': {
-    ...injectTextfieldPlaceholderStyles(theme),
-  },
+  return {
+    ...sharedTextFieldStyles.root,
+    resize: 'none',
 
-  '&:hover:not(:focus)': {
-    ...injectTextfieldHoverStyles(theme),
-  },
+    '&::placeholder': {
+      ...sharedTextFieldStyles.placeholder,
+    },
 
-  '&:focus': {
-    ...injectTextfieldFocusStyles(),
-  },
+    '&:hover:not(:focus)': {
+      ...sharedTextFieldStyles.hover,
+    },
 
-  '&:-webkit-autofill': {
-    ...injectTextfieldAutofillStyles(theme),
-  },
+    '&:focus': {
+      ...sharedTextFieldStyles.focus,
+    },
 
-  '&::-webkit-scrollbar': {
-    width: 8,
-  },
+    '&:-webkit-autofill': {
+      ...sharedTextFieldStyles.autofill,
+    },
 
-  '&::-webkit-scrollbar-track': {
-    background: rgba('#f1f1f1', 0.75),
-  },
+    '&::-webkit-scrollbar': {
+      width: 8,
+    },
 
-  '&::-webkit-scrollbar-thumb': {
-    background: rgba(theme.colors.text.darkGray, 0.5),
-  },
+    '&::-webkit-scrollbar-track': {
+      background: rgba('#f1f1f1', 0.75),
+    },
 
-  '&::-webkit-scrollbar-thumb:hover': {
-    backgroundColor: theme.colors.text.darkGray,
-  },
-}));
+    '&::-webkit-scrollbar-thumb': {
+      background: rgba(theme.colors.text.darkGray, 0.5),
+    },
+
+    '&::-webkit-scrollbar-thumb:hover': {
+      backgroundColor: theme.colors.text.darkGray,
+    },
+
+    [`@media(max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
+      ...sharedTextFieldStyles.mobile,
+    },
+  };
+});
 
 export default {
   Input,
