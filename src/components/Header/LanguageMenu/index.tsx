@@ -13,10 +13,10 @@ const LANGUAGES: LanguageLabels = {
     activeLabel: 'УКР',
     menuLabel: 'Українська',
   },
-   ru: {
+  ru: {
     activeLabel: 'РУС',
     menuLabel: 'Русский',
-   },
+  },
 };
 
 const LanguageMenu = ({ isHeaderOpaque, isNavMenuExpanded }: LanguageMenuProps): JSX.Element => {
