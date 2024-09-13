@@ -1,4 +1,5 @@
 import LandingPage from './pages/Landing';
+import ContactPage from './pages/Contact';
 
 export type RouteFixture = {
   path: string;
@@ -24,6 +25,6 @@ export const USER_ROUTES: Array<RouteFixture> = [
   },
   {
     path: '/contact',
-    element: <></>,
+    element: <ContactPage />,
   },
 ];

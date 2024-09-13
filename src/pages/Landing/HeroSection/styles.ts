@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import HeroBgImg from "../../../assets/images/hero_bg.png";
+import HeroBgImg from "../../../assets/images/bg_main.png";
 import { MOBILE_VIEW_BREAKPOINT, type Theme } from "../../../global/theme";
 import { zIndexes } from "../../../global/styles";
 
