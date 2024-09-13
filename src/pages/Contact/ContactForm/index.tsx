@@ -16,13 +16,13 @@ const ContactForm = (): JSX.Element => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register('name')} placeholder="Name" />
-      <input {...register('email')} placeholder="Email" />
-      <input {...register('phone')} placeholder="Phone" />
-      <input {...register('subject')} placeholder="Subject" />
-      <textarea {...register('comment')} placeholder="Comment" />
+      <input {...register('name')} placeholder="Your name" />
+      <input {...register('email')} placeholder="Your email" />
+      <input {...register('phone')} placeholder="Your phone" />
+      <input {...register('subject')} placeholder="Your subject" />
+      <textarea {...register('comment')} placeholder="Your comment" />
 
-      <button type="submit">Submit</button>
+      <button type="submit">Send</button>
     </form>
   );
 };
