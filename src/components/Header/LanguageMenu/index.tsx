@@ -35,23 +35,16 @@ const LanguageMenu = ({ isHeaderOpaque, isNavMenuExpanded }: LanguageMenuProps):
     ));
 
   useEffect(() => {
-    const handleExternalClick = (e: MouseEvent | TouchEvent) => {
-      e.preventDefault();
-      e.stopPropagation();
+    if (!isLanguageMenuExpanded) return;
 
-      const htmlEl = e.target as HTMLElement;
-      const isExternalClick = !htmlEl.closest(`.${classes.languageMenuContainer}`);
-
-      if (isExternalClick) {
-        setIsLanguageMenuExpanded(false);
-      }
+    const closeLanguageMenuOnExternalClick = (e: MouseEvent | TouchEvent) => {
+      const domEl = e.target as HTMLElement;
+      const isExternalClick = !domEl.closest(`.${classes.languageMenuContainer}`);
+      if (isExternalClick) setIsLanguageMenuExpanded(false);
     };
 
-    window.addEventListener('click', handleExternalClick);
-
-    return () => {
-      window.removeEventListener('click', handleExternalClick);
-    };
+    window.addEventListener('click', closeLanguageMenuOnExternalClick);
+    return () => window.removeEventListener('click', closeLanguageMenuOnExternalClick);
   }, [isLanguageMenuExpanded]);
 
   return (
