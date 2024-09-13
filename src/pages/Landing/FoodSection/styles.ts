@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { MOBILE_VIEW_BREAKPOINT, type Theme } from "../../../global/theme";
+import { MOBILE_VIEW_BREAKPOINT } from "../../../global/theme";
 import { zIndexes } from "../../../global/styles";
+import type { StyledComponent } from "../../../global/props/styleTypes";
 
 export const classes = {
   root: 'Food-Section',
@@ -14,7 +15,7 @@ export const classes = {
   textContainer: 'Food-Section-TxtContainer',
 };
 
-const FoodSection = styled('section')<{ theme: Theme }>(({ theme }) => ({
+const FoodSection = styled('section')<StyledComponent>(({ theme }) => ({
   position: 'relative',
   padding: '120px 0 150px 0',
   backgroundColor: theme.colors.bg.lightAlt,

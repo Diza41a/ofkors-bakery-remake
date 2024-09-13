@@ -97,6 +97,10 @@ const LanguageMenu = styled('div').withConfig({
     },
   },
 
+  '@media (max-width: 960px)': {
+    marginLeft: 25,
+  },
+
   [`@media(max-width: ${HEADER_BURGER_BREAKPOINT}px)`]: {
     [`.${classes.languageMenuToggle}`]: {
       right: 5,

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import HeroBgImg from "../../../assets/images/bg_main.png";
-import { MOBILE_VIEW_BREAKPOINT, type Theme } from "../../../global/theme";
+import { MOBILE_VIEW_BREAKPOINT } from "../../../global/theme";
 import { zIndexes } from "../../../global/styles";
+import type { StyledComponent } from "../../../global/props/styleTypes";
 
 export const classes = {
   root: 'Landing-Hero-Container',
@@ -14,7 +15,7 @@ export const classes = {
   bottomRightCornerImageContainer: 'Landing-Hero-BottomRightCornerImageContainer',
 };
 
-const HeroSection = styled('section')<{ theme: Theme }>(({ theme }) => ({
+const HeroSection = styled('section')<StyledComponent>(({ theme }) => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',

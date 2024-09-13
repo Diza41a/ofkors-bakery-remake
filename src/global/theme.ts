@@ -103,6 +103,10 @@ const theme: Theme = {
     paragraph3: {
       fontFamily: DM_SANS_FONT_NAME,
       fontSize: 14,
+
+      [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
+        fontSize: 13,
+      },
     },
     display1: {
       fontFamily: CORMORANT_BOLD_FONT_NAME,

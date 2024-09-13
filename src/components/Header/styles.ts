@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import type { Theme } from "../../global/theme";
 import theme, { HEADER_BURGER_BREAKPOINT } from "../../global/theme";
 import { zIndexes } from "../../global/styles";
+import type { StyledComponent } from "../../global/props/styleTypes";
 
 export const constants = {
   height: 80,
@@ -16,7 +16,7 @@ export const classes = {
   navMenuExpanded: 'Header-MobileView-NavMenu--expanded',
 };
 
-const Header = styled('header')<{ theme: Theme }>(() => ({
+const Header = styled('header')<StyledComponent>(() => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
@@ -96,7 +96,7 @@ const Header = styled('header')<{ theme: Theme }>(() => ({
 
     nav: {
       '>ul': {
-        columnGap: 23,
+        columnGap: 25,
       },
     },
   },

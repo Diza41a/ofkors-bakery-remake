@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { MOBILE_VIEW_BREAKPOINT, type Theme } from "../../../global/theme";
+import { MOBILE_VIEW_BREAKPOINT } from "../../../global/theme";
+import type { StyledComponent } from "../../../global/props/styleTypes";
 
 export const classes = {
   root: 'Landing-Services-Container',
@@ -8,7 +9,7 @@ export const classes = {
   cardTextContainer: 'Landing-Service-Card-TxtContainer',
 };
 
-const ServicesSection = styled('section')<{ theme: Theme }>(({ theme }) => ({
+const ServicesSection = styled('section')<StyledComponent>(({ theme }) => ({
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'center',

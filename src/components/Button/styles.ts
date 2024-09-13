@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import type { StyledButtonProps } from "./props";
 import { MOBILE_VIEW_BREAKPOINT } from "../../global/theme";
+import type { ButtonProps } from "./props";
+import type { StyledComponent } from "../../global/props/styleTypes";
 
 export const classes = {
   root: 'Btn',
@@ -25,7 +26,7 @@ const styledButtonShouldForwardProp = (prop: string) => (
 
 const Button = styled('button').withConfig({
   shouldForwardProp: styledButtonShouldForwardProp,
-})<StyledButtonProps>(({
+})<StyledComponent<ButtonProps>>(({
   theme,
   size,
   variant,

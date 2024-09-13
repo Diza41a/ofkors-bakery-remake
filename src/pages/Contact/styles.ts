@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import type { Theme } from "../../global/theme";
 import BgImage from '../../assets/images/bg_main.png'
+import type { StyledComponent } from "../../global/props/styleTypes";
 
 export const classes = {
   title: 'Contact-Title',
@@ -9,7 +9,7 @@ export const classes = {
   formContainer: 'Contact-FormContainer',
 };
 
-const ContactContainer = styled('div')<{ theme: Theme }>(({ theme }) => ({
+const ContactContainer = styled('div')<StyledComponent>(({ theme }) => ({
   backgroundImage: `url(${BgImage})`,
   padding: '120px 10%',
 
@@ -17,6 +17,7 @@ const ContactContainer = styled('div')<{ theme: Theme }>(({ theme }) => ({
     ...theme.typography.display2,
     color: theme.colors.text.heading,
     textAlign: 'center',
+    marginBottom: 80,
   },
 }));
 

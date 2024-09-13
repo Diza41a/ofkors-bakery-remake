@@ -1,5 +1,4 @@
 import type { CSSProperties, ReactNode } from "react";
-import type  { Theme } from "../../global/theme";
 
 export interface ButtonProps {
   accentColor?: CSSProperties['backgroundColor'];
@@ -16,5 +15,3 @@ export interface ButtonProps {
    */
   href?: string;
 };
-
-export type StyledButtonProps = ButtonProps & { theme?: Theme };

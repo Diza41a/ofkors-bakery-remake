@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { MOBILE_VIEW_BREAKPOINT, type Theme } from "../../global/theme";
+import { MOBILE_VIEW_BREAKPOINT } from "../../global/theme";
+import type { StyledComponent } from "../../global/props/styleTypes";
 
 export const classes = {
   contentSectionsContainer: 'Footer-ContentSections-Container',
@@ -11,7 +12,7 @@ export const classes = {
   copyrightText: 'Footer-Txt-Copyright',
 };
 
-const Footer = styled('footer')<{ theme: Theme }>(({ theme }) => ({
+const Footer = styled('footer')<StyledComponent>(({ theme }) => ({
   paddingTop: 120,
   backgroundColor: theme.colors.brown,
 
