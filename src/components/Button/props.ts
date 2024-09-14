@@ -1,6 +1,6 @@
-import type { CSSProperties, ReactNode } from "react";
+import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from "react";
 
-export interface ButtonProps {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   accentColor?: CSSProperties['backgroundColor'];
   secondaryColor?: CSSProperties['color'];
   variant?: 'outlined' | 'contained';

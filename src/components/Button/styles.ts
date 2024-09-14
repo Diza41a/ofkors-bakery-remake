@@ -35,6 +35,9 @@ const Button = styled('button').withConfig({
   borderRadius,
   isIconButton,
 }) => ({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
   outline: 'none',
   cursor: 'pointer',
   borderRadius,
@@ -75,11 +78,17 @@ const Button = styled('button').withConfig({
       },
 
       [`.${classes.startIcon}`]: {
+        display: 'flex',
+        alignItems: 'center',
         ...startIconMargin,
+        position: 'relative',
       },
 
       [`.${classes.endIcon}`]: {
+        display: 'flex',
+        alignItems: 'center',
         ...endIconMargin,
+        position: 'relative',
       },
     };
   })(),

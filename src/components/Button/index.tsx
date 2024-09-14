@@ -1,6 +1,6 @@
 import S, { classes } from './styles.ts';
-import type { ButtonProps, StyledButtonProps } from './props.ts';
 import theme from '../../global/theme.ts';
+import type { ButtonProps } from './props.ts';
 
 const Button = (props: ButtonProps): JSX.Element => {
   const {
@@ -14,9 +14,10 @@ const Button = (props: ButtonProps): JSX.Element => {
     endIcon = undefined,
     isIconButton = false,
     href=undefined,
+    ...rest
   } = props;
 
-  const buttonStyleProps: StyledButtonProps = {
+  const buttonStyleProps: ButtonProps = {
     accentColor,
     secondaryColor,
     variant,
@@ -32,6 +33,7 @@ const Button = (props: ButtonProps): JSX.Element => {
     <S.Button
       className={classes.root}
       {...buttonStyleProps}
+      {...rest}
     >
       {startIcon && <span className={classes.startIcon}>{startIcon}</span>}
       {isIconButton ? children : <p className={classes.text}>{children}</p>}
