@@ -2,7 +2,7 @@ import styled from "styled-components";
 import HeroBgImg from "../../../assets/images/bg_main.png";
 import { MOBILE_VIEW_BREAKPOINT } from "../../../global/theme";
 import { zIndexes } from "../../../global/styles";
-import type { StyledComponent } from "../../../global/props/styleTypes";
+import type { StyledComponent } from "../../../global/types/styleTypes";
 
 export const classes = {
   root: 'Landing-Hero-Container',
@@ -65,12 +65,7 @@ const HeroSection = styled('section')<StyledComponent>(({ theme }) => ({
       userSelect: 'none',
       transform: 'scale(1.05)',
 
-      '@keyframes rotateHeroTopLeft': {
-        '0%': { transform: 'scale(1.05) rotate(3deg)', },
-        '100%': { transform: 'scale(1.05) rotate(-3deg)', },
-      },
-
-      animation: 'rotateHeroTopLeft 6s infinite alternate',
+      animation: 'rotateLeftBranch 6s infinite alternate',
     },
   },
 
@@ -84,12 +79,7 @@ const HeroSection = styled('section')<StyledComponent>(({ theme }) => ({
       userSelect: 'none',
       transform: 'scale(1.05)',
 
-      '@keyframes rotateHeroBottomRight': {
-        '0%': { transform: 'scale(1.05) rotate(-3deg)', },
-        '100%': { transform: 'scale(1.05) rotate(3deg)', },
-      },
-
-      animation: 'rotateHeroBottomRight 6s infinite alternate',
+      animation: 'rotateRightBranch 6s infinite alternate',
     },
   },
 

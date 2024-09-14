@@ -10,6 +10,8 @@ export const zIndexes = {
   landingFoodLinchpinImage: 3,
   landingFoodSecondaryImage: 2,
   landingFoodBranchImage: 1,
+  contactForm: 2,
+  contactFormLeftBranch: 1,
 };
 
 const GlobalStyle = createGlobalStyle(() => ({
@@ -46,4 +48,16 @@ const FontFaces = createGlobalStyle`
   }
 `;
 
-export default { GlobalStyle, FontFaces };
+const CustomAnimations = createGlobalStyle`
+  @keyframes rotateLeftBranch {
+    0% { transform: scale(1.05) rotate(3deg); }
+    100% { transform: scale(1.05) rotate(-3deg); }
+  }
+
+  @keyframes rotateRightBranch {
+    0% { transform: scale(1.05) rotate(-3deg); }
+    100% { transform: scale(1.05) rotate(3deg); }
+  }
+`;
+
+export default { GlobalStyle, FontFaces, CustomAnimations };

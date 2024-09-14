@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import theme, { HEADER_BURGER_BREAKPOINT } from "../../global/theme";
 import { zIndexes } from "../../global/styles";
-import type { StyledComponent } from "../../global/props/styleTypes";
+import type { StyledComponent } from "../../global/types/styleTypes";
 
 export const constants = {
   height: 80,
@@ -116,6 +116,7 @@ const Header = styled('header')<StyledComponent>(() => ({
 
       [`&:not(.${classes.navMenuExpanded})`]: {
         '>ul': {
+          left: '-100%',
           opacity: 0,
 
           li: {

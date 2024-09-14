@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { MOBILE_VIEW_BREAKPOINT } from "../../global/theme";
 import type { ButtonProps } from "./props";
-import type { StyledComponent } from "../../global/props/styleTypes";
+import type { StyledComponent } from "../../global/types/styleTypes";
 
 export const classes = {
   root: 'Btn',

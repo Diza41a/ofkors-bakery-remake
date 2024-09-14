@@ -12,6 +12,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <S.GlobalStyle />
         <S.FontFaces />
+        <S.CustomAnimations />
 
         <Routes>
           <Route element={<MainLayout />}>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { rgba } from 'polished';
 import type { InputProps, TextAreaProps } from "./props";
-import type { StyledComponent } from "../../global/props/styleTypes";
+import type { StyledComponent } from "../../global/types/styleTypes";
 import { MOBILE_VIEW_BREAKPOINT } from "../../global/theme";
 import { createSharedTextFieldStyles } from "./utils";
 
