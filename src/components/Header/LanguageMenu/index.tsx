@@ -27,6 +27,7 @@ const LanguageMenu = ({ isHeaderOpaque, isNavMenuExpanded }: LanguageMenuProps):
   if (isLanguageMenuExpanded) languageMenuClassNames.push(classes.languageMenuExpanded);
 
   const currentLanguageCode = i18n.language;
+  console.log({i18n})
   const currentLanguageLabel = LANGUAGES[currentLanguageCode].activeLabel;
   const languageOptions = Object.entries(LANGUAGES)
     .filter(([langCode]) => langCode !== currentLanguageCode)
