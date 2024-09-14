@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useForm, type SubmitHandler, Controller } from "react-hook-form";
 import { Input, TextArea } from '../../../components/Inputs';
 import { Send as SendIcon } from "lucide-react";
@@ -13,6 +14,8 @@ type ContactFormInputs = {
 };
 
 const ContactForm = (): JSX.Element => {
+  const { t } = useTranslation('contact');
+
   const { handleSubmit, control, watch, formState: { errors } } = useForm<ContactFormInputs>({
     defaultValues: {
       name: '',
@@ -30,7 +33,7 @@ const ContactForm = (): JSX.Element => {
   const phoneVal = watch('phone');
 
   const validateRequiredContactMethod = () => {
-    if (!emailVal && !phoneVal) return 'Email or phone number is required';
+    if (!emailVal && !phoneVal) return t('contact_method_required_error');
 
     return true;
   }
@@ -39,33 +42,33 @@ const ContactForm = (): JSX.Element => {
     <S.ContactForm onSubmit={handleSubmit(onSubmit)}>
       <div className={classes.inputContainer}>
         <p className={classes.inputLabel}>
-          Name
+          {t('name_label')}
           <span className={classes.requiredAsterisk}>*</span>
         </p>
         <Controller
           name="name"
           control={control}
           rules={{
-            required: 'Name is required',
-            minLength: { value: 2, message: 'Name must be at least 2 characters long' },
+            required: t('name_required_error'),
+            minLength: { value: 2, message: t('name_min_length_error') },
           }}
           render={({ field }) => (
-            <Input {...field} errorMessage={errors.name?.message} placeholder="Your name" />
+            <Input {...field} errorMessage={errors.name?.message} placeholder={t('name_placeholder')} />
           )}
         />
       </div>
       <div className={classes.inputContainer}>
-        <p className={classes.inputLabel}>Subject</p>
+        <p className={classes.inputLabel}>{t('subject_label')}</p>
         <Controller
           name="subject"
           control={control}
           render={({ field }) => (
-            <Input {...field} placeholder="Your subject" />
+            <Input {...field} placeholder={t('subject_placeholder')} />
           )}
         />
       </div>
       <div className={classes.inputContainer}>
-        <p className={classes.inputLabel}>Email</p>
+        <p className={classes.inputLabel}>{t('email_label')}</p>
         <Controller
           name="email"
           control={control}
@@ -73,20 +76,20 @@ const ContactForm = (): JSX.Element => {
             validate: validateRequiredContactMethod,
             pattern: {
               value: /^(?=[a-zA-Z0-9@._%+-]{1,254}$)(?=.{1,64}@.{1,255}$)(?:(?!.*\.\.)[a-zA-Z0-9._%+-]+)@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-              message: 'Invalid email format',
+              message: t('email_format_error'),
             },
           }}
           render={({ field }) => (
             <Input
               {...field}
-              placeholder="Your email address"
+              placeholder={t('email_placeholder')}
               errorMessage={errors.email?.message}
             />
           )}
         />
       </div>
       <div className={classes.inputContainer}>
-        <p className={classes.inputLabel}>Phone</p>
+        <p className={classes.inputLabel}>{t('phone_label')}</p>
         <Controller
           name="phone"
           control={control}
@@ -94,14 +97,14 @@ const ContactForm = (): JSX.Element => {
             validate: validateRequiredContactMethod,
             pattern: {
               value: /^(\+?\d{1,3}[-.\s]?)?(\(?\d{3}\)?[-.\s]?)?(\d{3}[-.\s]?\d{4})$/,
-              message: 'Invalid phone number format',
+              message: t('phone_format_error'),
             },
           }}
           render={({ field }) => (
             <Input
               {...field}
               type="tel"
-              placeholder="Your phone number"
+              placeholder={t('phone_placeholder') }
               errorMessage={errors.phone?.message}
             />
           )}
@@ -109,27 +112,27 @@ const ContactForm = (): JSX.Element => {
       </div>
       <div className={`${classes.inputContainer} ${classes.messageInputContainer}`}>
         <p className={classes.inputLabel}>
-          Message
+          {t('message_label')}
           <span className={classes.requiredAsterisk}>*</span>
         </p>
         <Controller
           name="message"
           control={control}
           rules={{
-            required: 'Message is required',
-            minLength: { value: 10, message: 'Message must be at least 10 characters long' },
+            required: t('message_required_error'),
+            minLength: { value: 10, message: t('message_min_length_error') },
           }}
           render={({ field }) => (
             <TextArea
               {...field}
-              placeholder="Your message"
+              placeholder={t('message_placeholder')}
               rows={5}
               errorMessage={errors.message?.message}
             />
           )}
         />
       </div>
-      <Button type="submit" endIcon={<SendIcon />}>Send Inquiry</Button>
+      <Button type="submit" endIcon={<SendIcon />}>{t('submit_button')}</Button>
     </S.ContactForm>
   );
 };

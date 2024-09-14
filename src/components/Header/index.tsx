@@ -8,13 +8,13 @@ import LogoLightImg from '../../assets/images/logo_light.png';
 import { useTranslation } from 'react-i18next';
 
 const Header = (): JSX.Element => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('global');
   const navLinks = [
-    { path: '/', label: t('global.header.home') },
-    { path: '/about', label: t('global.header.about') },
-    { path: '/gallery', label: t('global.header.gallery') },
-    { path: '/menu', label: t('global.header.menu') },
-    { path: '/contact', label: t('global.header.contact') },
+    { path: '/', label: t('header:home') },
+    { path: '/about', label: t('header:about') },
+    { path: '/gallery', label: t('header:gallery') },
+    { path: '/menu', label: t('header:menu') },
+    { path: '/contact', label: t('header:contact') },
   ];
 
   const { pathname } = useLocation();

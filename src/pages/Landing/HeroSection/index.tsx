@@ -6,14 +6,14 @@ import HeroTopLeftCornerImg from '../../../assets/images/hero_top-left_corner.sv
 import HeroBottomRightCornerImg from '../../../assets/images/hero_bottom-right_corner.svg';
 
 const HeroSection = (): JSX.Element => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('landing');
 
   return (
     <S.HeroSection className={classes.root}>
       <div className={classes.textContainer}>
-        <h1 className={classes.titleText}>{t('landing.hero.title')}</h1>
-        <p className={classes.bodyText}>{t('landing.hero.body')}</p>
-        <Button>{t('landing.hero.to_menu').toUpperCase()}</Button>
+        <h1 className={classes.titleText}>{t('hero:title')}</h1>
+        <p className={classes.bodyText}>{t('hero:body')}</p>
+        <Button>{`${t('hero:to_menu')}`.toUpperCase()}</Button>
       </div>
       <div className={classes.imageContainer}>
         <img src={HeroImg} draggable={false} />

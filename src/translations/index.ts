@@ -16,35 +16,32 @@ import contactEn from './en/contact.json';
 import contactRu from './ru/contact.json';
 import contactUk from './uk/contact.json';
 
+export const resources = {
+  en: {
+    global: globalEn,
+    landing: landingEn,
+    contact: contactEn,
+  },
+  ru: {
+    global: globalRu,
+    landing: landingRu,
+    contact: contactRu,
+  },
+  uk: {
+    global: globalUk,
+    landing: landingUk,
+    contact: contactUk,
+  },
+};
+
 i18n
   .use(Backend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     fallbackLng: 'en',
-    resources: {
-      en: {
-        translation: {
-          global: globalEn,
-          landing: landingEn,
-          contact: contactEn,
-        },
-      },
-      ru: {
-        translation: {
-          global: globalRu,
-          landing: landingRu,
-          contact: contactRu,
-        }
-      },
-      uk: {
-        translation: {
-          global: globalUk,
-          landing: landingUk,
-          contact: contactUk,
-        }
-      },
-    },
+    keySeparator: ':',
+    resources,
   });
 
 
