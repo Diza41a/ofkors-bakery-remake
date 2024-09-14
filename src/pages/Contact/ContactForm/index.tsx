@@ -6,9 +6,9 @@ import Button from "../../../components/Button";
 
 type ContactFormInputs = {
   name: string;
+  subject: string;
   email: string;
   phone: string;
-  subject: string;
   comment: string;
 };
 
@@ -16,9 +16,9 @@ const ContactForm = (): JSX.Element => {
   const { handleSubmit, control, formState: { errors } } = useForm<ContactFormInputs>({
     defaultValues: {
       name: '',
+      subject: '',
       email: '',
       phone: '',
-      subject: '',
       comment: '',
     },
   });
@@ -29,12 +29,25 @@ const ContactForm = (): JSX.Element => {
   return (
     <S.ContactForm onSubmit={handleSubmit(onSubmit)}>
       <div className={classes.inputContainer}>
-        <p className={classes.inputLabel}>Name</p>
+        <p className={classes.inputLabel}>
+          Name
+          <span className={classes.requiredAsterisk}>*</span>
+        </p>
         <Controller
           name="name"
           control={control}
           render={({ field }) => (
             <Input {...field} placeholder="Your name" />
+          )}
+        />
+      </div>
+      <div className={classes.inputContainer}>
+        <p className={classes.inputLabel}>Subject</p>
+        <Controller
+          name="subject"
+          control={control}
+          render={({ field }) => (
+            <Input {...field} placeholder="Your subject" />
           )}
         />
       </div>
@@ -58,18 +71,11 @@ const ContactForm = (): JSX.Element => {
           )}
         />
       </div>
-      <div className={classes.inputContainer}>
-        <p className={classes.inputLabel}>Subject</p>
-        <Controller
-          name="subject"
-          control={control}
-          render={({ field }) => (
-            <Input {...field} placeholder="Your subject" />
-          )}
-        />
-      </div>
       <div className={`${classes.inputContainer} ${classes.commentInputContainer}`}>
-        <p className={classes.inputLabel}>Comment</p>
+        <p className={classes.inputLabel}>
+          Comment
+          <span className={classes.requiredAsterisk}>*</span>
+        </p>
         <Controller
           name="comment"
           control={control}

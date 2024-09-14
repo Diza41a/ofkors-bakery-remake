@@ -1,17 +1,22 @@
 import { forwardRef } from 'react';
-import S, { inputClassName } from './styles';
+import S, { inputClassNames } from './styles';
 import type { InputProps } from './props';
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props: InputProps, ref): JSX.Element => {
-  const classNames = [inputClassName];
-  if (props.className) classNames.push(props.className);
+  const { errorMessage, className, ...rest } = props;
+  const classNames = [inputClassNames.root];
+  if (className) classNames.push(className);
+  if (errorMessage) classNames.push(inputClassNames.error);
 
   return (
-    <S.Input
-      {...props}
-      ref={ref}
-      className={classNames.join(' ')}
-    />
+    <S.InputContainer className={inputClassNames.container}>
+      <input
+        {...rest}
+        ref={ref}
+        className={classNames.join(' ')}
+      />
+      {errorMessage && <p className={inputClassNames.errorLabel}>{errorMessage}</p>}
+    </S.InputContainer>
   );
 });
 

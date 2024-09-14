@@ -6,8 +6,9 @@ import { MOBILE_VIEW_BREAKPOINT } from "../../../global/theme";
 export const classes = {
   root: 'ContactForm',
   inputContainer: 'ContactForm-InputContainer',
-  inputLabel: 'ContactForm-InputLabel',
   commentInputContainer: 'ContactForm-CommentInputContainer',
+  inputLabel: 'ContactForm-InputLabel',
+  requiredAsterisk: 'ContactForm-RequiredAsterisk',
 };
 
 const ContactForm = styled('form')<StyledComponent>(({ theme }) => ({
@@ -27,6 +28,15 @@ const ContactForm = styled('form')<StyledComponent>(({ theme }) => ({
       marginBottom: 8,
       ...theme.typography.paragraph3,
       color: theme.colors.text.heading,
+
+      [`.${classes.requiredAsterisk}`]: {
+        color: theme.colors.action.red,
+        marginLeft: 2,
+      },
+    },
+
+    'input, textarea': {
+      width: '100%',
     },
   },
 

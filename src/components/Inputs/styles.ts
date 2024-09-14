@@ -9,34 +9,55 @@ const styledInputShouldForwardProp = (prop: string) => (
   !['errorMessage'].includes(prop)
 );
 
-export const inputClassName = 'Input';
-const Input = styled('input').withConfig({
+export const inputClassNames = {
+  container: 'InputContainer',
+  root: 'Input',
+  error: 'Input--error',
+  errorLabel: 'Input--error-Lbl',
+};
+const InputContainer = styled('div').withConfig({
   shouldForwardProp: styledInputShouldForwardProp,
 })<StyledComponent<InputProps>>(({ theme }) => {
   const sharedTextFieldStyles = createSharedTextFieldStyles(theme);
 
   return {
-  ...sharedTextFieldStyles.root,
+    ...sharedTextFieldStyles.container,
 
-  '&::placeholder': {
-    ...sharedTextFieldStyles.placeholder,
-  },
+    [`.${inputClassNames.root}`]: {
+      ...sharedTextFieldStyles.root,
 
-  '&:hover:not(:focus)': {
-    ...sharedTextFieldStyles.hover,
-  },
+      '&::placeholder': {
+        ...sharedTextFieldStyles.placeholder,
+      },
 
-  '&:focus': {
-    ...sharedTextFieldStyles.focus,
-  },
+      '&:hover:not(:focus)': {
+        [`&:not(.${inputClassNames.error})`]: {
+          ...sharedTextFieldStyles.hover,
+        },
+      },
 
-  '&:-webkit-autofill': {
-    ...sharedTextFieldStyles.autofill,
-  },
+      [`&:focus:not(.${inputClassNames.error})`]: {
+        ...sharedTextFieldStyles.focus,
+      },
 
-  [`@media(max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
-    ...sharedTextFieldStyles.mobile,
-  },
+      [`&.${inputClassNames.error}`]: {
+        ...sharedTextFieldStyles.error,
+      },
+
+      '&:-webkit-autofill': {
+        ...sharedTextFieldStyles.autofill,
+      },
+    },
+
+    [`.${inputClassNames.errorLabel}`]: {
+      ...sharedTextFieldStyles.errorLabel,
+    },
+
+    [`@media(max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
+      [`.${inputClassNames.root}`]: {
+        ...sharedTextFieldStyles.mobile,
+      },
+    },
   }
 });
 
@@ -44,55 +65,76 @@ const styledTextAreaShouldForwardProp = (prop: string) => (
   !['errorMessage'].includes(prop)
 );
 
-export const textAreaClassName = 'TextArea';
-const TextArea = styled('textarea').withConfig({
+export const textAreaClassNames = {
+  container: 'TextArea-Container',
+  root: 'TextArea',
+  error: 'TextArea--error',
+  errorLabel: 'TextArea--error-Lbl',
+};
+const TextAreaContainer = styled('div').withConfig({
   shouldForwardProp: styledTextAreaShouldForwardProp,
 })<StyledComponent<TextAreaProps>>(({ theme }) => {
   const sharedTextFieldStyles = createSharedTextFieldStyles(theme);
 
   return {
-    ...sharedTextFieldStyles.root,
-    resize: 'none',
+    ...sharedTextFieldStyles.container,
 
-    '&::placeholder': {
-      ...sharedTextFieldStyles.placeholder,
+    [`.${textAreaClassNames.root}`]: {
+      ...sharedTextFieldStyles.root,
+      resize: 'none',
+
+      '&::placeholder': {
+        ...sharedTextFieldStyles.placeholder,
+      },
+
+      '&:hover:not(:focus)': {
+        [`&:not(.${textAreaClassNames.error})`]: {
+          ...sharedTextFieldStyles.hover,
+        },
+      },
+
+      [`&:focus:not(.${textAreaClassNames.error})`]: {
+        ...sharedTextFieldStyles.focus,
+      },
+
+      [`&.${textAreaClassNames.error}`]: {
+        ...sharedTextFieldStyles.error,
+      },
+
+      '&:-webkit-autofill': {
+        ...sharedTextFieldStyles.autofill,
+      },
+
+      '&::-webkit-scrollbar': {
+        width: 8,
+      },
+
+      '&::-webkit-scrollbar-track': {
+        background: rgba('#f1f1f1', 0.75),
+      },
+
+      '&::-webkit-scrollbar-thumb': {
+        background: rgba(theme.colors.text.darkGray, 0.5),
+      },
+
+      '&::-webkit-scrollbar-thumb:hover': {
+        backgroundColor: theme.colors.text.darkGray,
+      },
     },
 
-    '&:hover:not(:focus)': {
-      ...sharedTextFieldStyles.hover,
-    },
-
-    '&:focus': {
-      ...sharedTextFieldStyles.focus,
-    },
-
-    '&:-webkit-autofill': {
-      ...sharedTextFieldStyles.autofill,
-    },
-
-    '&::-webkit-scrollbar': {
-      width: 8,
-    },
-
-    '&::-webkit-scrollbar-track': {
-      background: rgba('#f1f1f1', 0.75),
-    },
-
-    '&::-webkit-scrollbar-thumb': {
-      background: rgba(theme.colors.text.darkGray, 0.5),
-    },
-
-    '&::-webkit-scrollbar-thumb:hover': {
-      backgroundColor: theme.colors.text.darkGray,
+    [`.${textAreaClassNames.errorLabel}`]: {
+      ...sharedTextFieldStyles.errorLabel,
     },
 
     [`@media(max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
-      ...sharedTextFieldStyles.mobile,
+      [`.${textAreaClassNames.root}`]: {
+        ...sharedTextFieldStyles.mobile,
+      },
     },
   };
 });
 
 export default {
-  Input,
-  TextArea,
+  InputContainer,
+  TextAreaContainer,
 };

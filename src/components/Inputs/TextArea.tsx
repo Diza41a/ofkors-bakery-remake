@@ -1,18 +1,23 @@
-import S, { textAreaClassName } from './styles';
+import S, { textAreaClassNames } from './styles';
 import type { TextAreaProps } from './props';
 import { forwardRef } from 'react';
 
 const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (props: TextAreaProps, ref): JSX.Element => {
-    const classNames = [textAreaClassName];
-    if (props.className) classNames.push(props.className);
+    const { errorMessage, className, ...rest } = props;
+    const classNames = [textAreaClassNames.root];
+    if (className) classNames.push(className);
+    if (errorMessage) classNames.push(textAreaClassNames.error);
 
     return (
-      <S.TextArea
-        {...props}
-        ref={ref}
-        className={classNames.join(' ')}
-      />
+      <S.TextAreaContainer className={textAreaClassNames.container}>
+        <textarea
+          {...rest}
+          ref={ref}
+          className={classNames.join(' ')}
+        />
+        {errorMessage && <p className={textAreaClassNames.errorLabel}>{errorMessage}</p>}
+      </S.TextAreaContainer>
     );
   }
 );

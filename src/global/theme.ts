@@ -21,6 +21,7 @@ export interface Theme extends DefaultTheme {
     paragraph1: TypographyStyles;
     paragraph2: TypographyStyles;
     paragraph3: TypographyStyles;
+    paragraph4: TypographyStyles;
     display1: TypographyStyles;
     display2: TypographyStyles;
     display3: TypographyStyles;
@@ -106,6 +107,14 @@ const theme: Theme = {
 
       [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
         fontSize: 13,
+      },
+    },
+    paragraph4: {
+      fontFamily: DM_SANS_FONT_NAME,
+      fontSize: 13,
+
+      [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
+        fontSize: 12,
       },
     },
     display1: {
