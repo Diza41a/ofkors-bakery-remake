@@ -13,7 +13,7 @@ type ContactFormInputs = {
 };
 
 const ContactForm = (): JSX.Element => {
-  const { handleSubmit, control, formState: { errors } } = useForm<ContactFormInputs>({
+  const { handleSubmit, control, watch, formState: { errors } } = useForm<ContactFormInputs>({
     defaultValues: {
       name: '',
       subject: '',
@@ -26,6 +26,15 @@ const ContactForm = (): JSX.Element => {
     console.log({ data, errors });
   }
 
+  const emailVal = watch('email');
+  const phoneVal = watch('phone');
+
+  const validateRequiredContactMethod = () => {
+    if (!emailVal &&!phoneVal) return 'Email or phone number is required';
+
+    return true;
+  }
+
   return (
     <S.ContactForm onSubmit={handleSubmit(onSubmit)}>
       <div className={classes.inputContainer}>
@@ -36,8 +45,12 @@ const ContactForm = (): JSX.Element => {
         <Controller
           name="name"
           control={control}
+          rules={{
+            required: 'Name is required',
+            minLength: { value: 2, message: 'Name must be at least 2 characters long' },
+          }}
           render={({ field }) => (
-            <Input {...field} placeholder="Your name" />
+            <Input {...field} errorMessage={errors.name?.message} placeholder="Your name" />
           )}
         />
       </div>
@@ -56,8 +69,19 @@ const ContactForm = (): JSX.Element => {
         <Controller
           name="email"
           control={control}
+          rules={{
+            validate: validateRequiredContactMethod,
+            pattern: {
+              value: /^(?=[a-zA-Z0-9@._%+-]{1,254}$)(?=.{1,64}@.{1,255}$)(?:(?!.*\.\.)[a-zA-Z0-9._%+-]+)@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+              message: 'Invalid email format',
+            },
+          }}
           render={({ field }) => (
-            <Input {...field} type="email" placeholder="Your email address" />
+            <Input
+              {...field}
+              placeholder="Your email address"
+              errorMessage={errors.email?.message}
+            />
           )}
         />
       </div>
@@ -66,8 +90,20 @@ const ContactForm = (): JSX.Element => {
         <Controller
           name="phone"
           control={control}
+          rules={{
+            validate: validateRequiredContactMethod,
+            pattern: {
+              value: /^(\+?\d{1,3}[-.\s]?)?(\(?\d{3}\)?[-.\s]?)?(\d{3}[-.\s]?\d{4})$/,
+              message: 'Invalid phone number format',
+            },
+          }}
           render={({ field }) => (
-            <Input {...field} type="tel" placeholder="Your phone number" />
+            <Input
+              {...field}
+              type="tel"
+              placeholder="Your phone number"
+              errorMessage={errors.phone?.message}
+            />
           )}
         />
       </div>
@@ -79,8 +115,17 @@ const ContactForm = (): JSX.Element => {
         <Controller
           name="comment"
           control={control}
+          rules={{
+            required: 'Comment is required',
+            minLength: { value: 10, message: 'Comment must be at least 10 characters long' },
+          }}
           render={({ field }) => (
-            <TextArea {...field} placeholder="Your comment" rows={5} />
+            <TextArea
+              {...field}
+              placeholder="Your comment"
+              rows={5}
+              errorMessage={errors.comment?.message}
+            />
           )}
         />
       </div>

@@ -27,7 +27,7 @@ const createTextFieldErrorStyles = (theme: Theme): CSSProperties => ({
 const createTextFieldErrorLabelStyles = (theme: Theme): CSSProperties => ({
   ...theme.typography.paragraph4,
   color: theme.colors.action.red,
-  marginTop: '0.3em',
+  marginTop: '0.3rem',
 });
 const createTextfieldHoverStyles = (theme: Theme): CSSProperties => ({
   outline: `1px solid ${theme.colors.text.gray}`,
