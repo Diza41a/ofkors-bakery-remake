@@ -1,12 +1,13 @@
-import S, { classes } from './styles';
+import { useTranslation } from 'react-i18next';
 import ContactForm from './ContactForm';
+import S, { classes } from './styles';
 
 const ContactPage = (): JSX.Element => {
+  const { t } = useTranslation();
+
   return (
     <S.ContactContainer>
-      <h2 className={classes.title}>
-        Contact us if you have any questions about our products or services
-      </h2>
+      <h2 className={classes.title}>{t('contact.title')}</h2>
       <ContactForm />
     </S.ContactContainer>
   );

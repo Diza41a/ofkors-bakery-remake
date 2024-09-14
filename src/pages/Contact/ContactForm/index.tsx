@@ -9,7 +9,7 @@ type ContactFormInputs = {
   subject: string;
   email: string;
   phone: string;
-  comment: string;
+  message: string;
 };
 
 const ContactForm = (): JSX.Element => {
@@ -19,7 +19,7 @@ const ContactForm = (): JSX.Element => {
       subject: '',
       email: '',
       phone: '',
-      comment: '',
+      message: '',
     },
   });
   const onSubmit: SubmitHandler<ContactFormInputs> = (data) => {
@@ -30,7 +30,7 @@ const ContactForm = (): JSX.Element => {
   const phoneVal = watch('phone');
 
   const validateRequiredContactMethod = () => {
-    if (!emailVal &&!phoneVal) return 'Email or phone number is required';
+    if (!emailVal && !phoneVal) return 'Email or phone number is required';
 
     return true;
   }
@@ -107,24 +107,24 @@ const ContactForm = (): JSX.Element => {
           )}
         />
       </div>
-      <div className={`${classes.inputContainer} ${classes.commentInputContainer}`}>
+      <div className={`${classes.inputContainer} ${classes.messageInputContainer}`}>
         <p className={classes.inputLabel}>
-          Comment
+          Message
           <span className={classes.requiredAsterisk}>*</span>
         </p>
         <Controller
-          name="comment"
+          name="message"
           control={control}
           rules={{
-            required: 'Comment is required',
-            minLength: { value: 10, message: 'Comment must be at least 10 characters long' },
+            required: 'Message is required',
+            minLength: { value: 10, message: 'Message must be at least 10 characters long' },
           }}
           render={({ field }) => (
             <TextArea
               {...field}
-              placeholder="Your comment"
+              placeholder="Your message"
               rows={5}
-              errorMessage={errors.comment?.message}
+              errorMessage={errors.message?.message}
             />
           )}
         />

@@ -1,0 +1,21 @@
+{
+  "title": "We’re here to help! Feel free to reach out with questions and thoughts.",
+  "name_label": "Name",
+  "name_placeholder": "Your name",
+  "name_required_error": "Name is required",
+  "name_min_length_error": "Name must be at least 2 characters long",
+  "subject_label": "Subject",
+  "subject_placeholder": "Inquiry subject",
+  "email_label": "Email",
+  "email_placeholder": "Your email address",
+  "email_format_error": "Entered email address is not valid",
+  "phone_label": "Phone",
+  "phone_placeholder": "Your phone number",
+  "phone_format_error": "Entered phone number is not valid",
+  "contact_method_required_error": "Email or phone number is required",
+  "message_label": "Message",
+  "message_placeholder": "Your inquiry",
+  "message_required_error": "Message is required",
+  "message_min_length_error": "Message must be at least 10 characters long",
+  "submit_button": "Send Message"
+}

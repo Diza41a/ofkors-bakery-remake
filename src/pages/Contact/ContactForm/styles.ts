@@ -6,7 +6,7 @@ import { MOBILE_VIEW_BREAKPOINT } from "../../../global/theme";
 export const classes = {
   root: 'ContactForm',
   inputContainer: 'ContactForm-InputContainer',
-  commentInputContainer: 'ContactForm-CommentInputContainer',
+  messageInputContainer: 'ContactForm-MessageInputContainer',
   inputLabel: 'ContactForm-InputLabel',
   requiredAsterisk: 'ContactForm-RequiredAsterisk',
 };
@@ -40,7 +40,7 @@ const ContactForm = styled('form')<StyledComponent>(({ theme }) => ({
     },
   },
 
-  [`.${classes.commentInputContainer}`]: {
+  [`.${classes.messageInputContainer}`]: {
     flexBasis: '100%',
   },
 

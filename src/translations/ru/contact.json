@@ -1,0 +1,21 @@
+{
+  "title": "Мы здесь, чтобы помочь! Не стесняйтесь обращаться с вопросами и предложениями.",
+  "name_label": "Имя",
+  "name_placeholder": "Ваше имя",
+  "name_required_error": "Имя обязательно для заполнения",
+  "name_min_length_error": "Имя должно содержать не менее 2 символов",
+  "subject_label": "Тема",
+  "subject_placeholder": "Тема запроса",
+  "email_label": "Электронная почта",
+  "email_placeholder": "Ваш адрес электронной почты",
+  "email_format_error": "Введённый адрес электронной почты недействителен",
+  "phone_label": "Телефон",
+  "phone_placeholder": "Ваш номер телефона",
+  "phone_format_error": "Введённый номер телефона недействителен",
+  "contact_method_required_error": "Необходим адрес электронной почты или номер телефона",
+  "message_label": "Сообщение",
+  "message_placeholder": "Ваш запрос",
+  "message_required_error": "Сообщение обязательно для заполнения",
+  "message_min_length_error": "Сообщение должно содержать не менее 10 символов",
+  "submit_button": "Отправить сообщение"
+}

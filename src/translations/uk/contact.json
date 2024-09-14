@@ -1,0 +1,21 @@
+{
+  "title": "Ми тут, щоб допомогти! Не соромтеся звертатися з питаннями та пропозиціями.",
+  "name_label": "Ім'я",
+  "name_placeholder": "Ваше ім'я",
+  "name_required_error": "Ім'я є обов'язковим",
+  "name_min_length_error": "Ім'я повинно містити не менше 2 символів",
+  "subject_label": "Тема",
+  "subject_placeholder": "Тема запиту",
+  "email_label": "Електронна пошта",
+  "email_placeholder": "Ваша електронна адреса",
+  "email_format_error": "Введена електронна адреса недійсна",
+  "phone_label": "Телефон",
+  "phone_placeholder": "Ваш номер телефону",
+  "phone_format_error": "Введений номер телефону недійсний",
+  "contact_method_required_error": "Необхідно вказати електронну пошту або номер телефону",
+  "message_label": "Повідомлення",
+  "message_placeholder": "Ваш запит",
+  "message_required_error": "Повідомлення є обов'язковим",
+  "message_min_length_error": "Повідомлення повинно містити не менше 10 символів",
+  "submit_button": "Відправити повідомлення"
+}
