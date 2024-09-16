@@ -1,10 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import S from "./global/styles";
-import theme from "./global/theme";
 import MainLayout from "./components/MainLayout";
 import { USER_ROUTES } from "./routes";
+import theme from "./global/theme";
+import S from "./global/styles";
 import './translations';
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   return (

@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.1",
+    "gsap": "^3.12.5",
     "hamburger-react": "^2.5.1",
     "i18next": "^23.15.1",
     "i18next-browser-languagedetector": "^8.0.0",
