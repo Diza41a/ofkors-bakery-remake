@@ -11,13 +11,14 @@ export const classes = {
   linchpinImage: 'Food-Section-LinchpinImage',
   secondaryImage: 'Food-Section-SecondaryImage',
   branchImage: 'Food-Section-BranchImage',
-  beansImage: 'Food-Section-BeansImage',
+  beansImageContainer: 'Food-Section-BeansImageContainer',
   textContainer: 'Food-Section-TxtContainer',
 };
 
 const FoodSection = styled('section')<StyledComponent>(({ theme }) => ({
   position: 'relative',
   padding: '120px 0 150px 0',
+  overflowX: 'hidden',
   backgroundColor: theme.colors.bg.lightAlt,
 
   [`.${classes.titleContainer}`]: {
@@ -87,7 +88,7 @@ const FoodSection = styled('section')<StyledComponent>(({ theme }) => ({
     },
   },
 
-  [`.${classes.beansImage}`]: {
+  [`.${classes.beansImageContainer}`]: {
     position: 'absolute',
     bottom: 110,
     right: '10%',
@@ -102,7 +103,7 @@ const FoodSection = styled('section')<StyledComponent>(({ theme }) => ({
       },
     },
 
-    [`.${classes.beansImage}`]: {
+    [`.${classes.beansImageContainer}`]: {
       transform: 'scale(0.85)',
     },
   },
@@ -115,7 +116,7 @@ const FoodSection = styled('section')<StyledComponent>(({ theme }) => ({
       },
     },
 
-    [`.${classes.beansImage}`]: {
+    [`.${classes.beansImageContainer}`]: {
       transform: 'scale(0.75)',
     },
   },
@@ -155,7 +156,7 @@ const FoodSection = styled('section')<StyledComponent>(({ theme }) => ({
       },
     },
 
-    [`.${classes.beansImage}`]: {
+    [`.${classes.beansImageContainer}`]: {
       bottom: 10,
     },
   },
@@ -187,7 +188,7 @@ const FoodSection = styled('section')<StyledComponent>(({ theme }) => ({
       },
     },
 
-    [`.${classes.beansImage}`]: {
+    [`.${classes.beansImageContainer}`]: {
       transform: 'scale(0.45)',
       bottom: -20,
       right: '-4.5%',

@@ -10,13 +10,13 @@ const ServicesSection = (): JSX.Element => {
   const servicesSectionRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    gsap.fromTo(
+    const generateCardsTween = () => gsap.fromTo(
       `.${classes.card}`,
       { opacity: 0, y: 20 },
       {
         opacity: 1,
         y: 0,
-        stagger: 0.2,
+        stagger: 0.15,
         ease: 'power2.inOut',
 
         scrollTrigger: {
@@ -27,6 +27,7 @@ const ServicesSection = (): JSX.Element => {
 
       },
     );
+    generateCardsTween();
   }, { scope: servicesSectionRef });
 
   return (
