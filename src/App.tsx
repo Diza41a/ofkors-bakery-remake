@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import MainLayout from "./components/MainLayout";
+import ScrollToTop from "./components/ScrollToTop";
 import { USER_ROUTES } from "./routes";
 import theme from "./global/theme";
 import S from "./global/styles";
@@ -16,6 +17,8 @@ function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
+        <ScrollToTop />
+
         <S.GlobalStyle />
         <S.FontFaces />
         <S.CustomAnimations />

@@ -1,6 +1,7 @@
 import HeroSection from './HeroSection/index';
 import ServicesSection from './ServicesSection';
 import FoodSection from './FoodSection';
+import InstagramSection from './InstagramSection';
 
 const CLASS_NAME = 'Landing';
 
@@ -10,6 +11,7 @@ const LandingPage = ():JSX.Element => {
       <HeroSection />
       <ServicesSection />
       <FoodSection />
+      <InstagramSection />
     </div>
   );
 };
