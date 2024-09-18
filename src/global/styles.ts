@@ -10,6 +10,8 @@ export const zIndexes = {
   landingFoodLinchpinImage: 3,
   landingFoodSecondaryImage: 2,
   landingFoodBranchImage: 1,
+  aboutDecorativeImage: 2,
+  aboutDecorativeBranchImage: 1,
   contactForm: 2,
   contactFormLeftBranch: 1,
 };

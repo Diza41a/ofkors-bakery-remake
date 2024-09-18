@@ -6,7 +6,7 @@ import FoodSectionLineIcon from '../../../assets/images/food_section_line.svg';
 import LinchpinImage from '../../../assets/images/food_section_linchpin.png';
 import SecondaryImage from '../../../assets/images/food_section_secondary.png';
 import BranchImage from '../../../assets/images/food_section_branch.svg';
-import BeansImage from '../../../assets/images/food_section_beans.svg';
+import BeansImage from '../../../assets/images/beans.svg';
 import Button from '../../../components/Button';
 
 const FoodSection = (): JSX.Element => {

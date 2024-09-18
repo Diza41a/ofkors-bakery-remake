@@ -96,9 +96,11 @@ const theme: Theme = {
     paragraph2: {
       fontFamily: DM_SANS_FONT_NAME,
       fontSize: 16,
+      lineHeight: '26px',
 
       [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
         fontSize: 15,
+        lineHeight: '24px',
       },
     },
     paragraph3: {

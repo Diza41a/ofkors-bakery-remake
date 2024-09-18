@@ -1,5 +1,6 @@
 import LandingPage from './pages/Landing';
 import ContactPage from './pages/Contact';
+import AboutPage from './pages/About';
 
 export type RouteFixture = {
   path: string;
@@ -13,7 +14,7 @@ export const USER_ROUTES: Array<RouteFixture> = [
   },
   {
     path: '/about',
-    element: <></>,
+    element: <AboutPage />,
   },
   {
     path: '/gallery',
