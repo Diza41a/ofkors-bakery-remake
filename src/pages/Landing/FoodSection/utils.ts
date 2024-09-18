@@ -1,23 +1,10 @@
 import gsap from 'gsap';
 import { classes } from './styles';
+import { generateTitleTween } from '../../../utils/gsapUtils';
 
-const generateTitleTextTween = () => gsap.fromTo(
+const generateTitleTextTween = () => generateTitleTween(
   `.${classes.titleContainer}>h2`,
-  {
-    opacity: 0,
-    scale: 0.5,
-  },
-  {
-    opacity: 1,
-    scale: 1,
-    duration: 1,
-    ease: 'power4.out',
-    scrollTrigger: {
-      trigger: `.${classes.titleContainer}`,
-      start: 'top 80%',
-      end: 'bottom 20%',
-    },
-  }
+  `.${classes.titleContainer}`
 );
 const generateTitleLineImgTween = () => gsap.fromTo(
   `.${classes.titleContainer}>img`,
@@ -54,15 +41,13 @@ const generateBodyImgsTween = () => gsap.fromTo(
   },
 );
 
-const generateBodyTextTimeline = () => gsap.timeline(
-    {
-      scrollTrigger: {
-        trigger: `.${classes.textContainer}`,
-        start: 'top 80%',
-        end: 'bottom 20%',
-      },
-    }
-  ).fromTo(
+const generateBodyTextTimeline = () => gsap.timeline({
+    scrollTrigger: {
+      trigger: `.${classes.textContainer}`,
+      start: 'top 80%',
+      end: 'bottom 20%',
+    },
+  }).fromTo(
     `.${classes.textContainer}>h2, .${classes.textContainer}>p`,
     { opacity: 0, x: '100%' },
     { opacity: 1, x: 0, duration: 1, ease: 'power4.out' },

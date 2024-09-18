@@ -20,7 +20,7 @@ export const classes = {
 const IntroSection = styled('section')<StyledComponent>(({ theme }) => ({
   padding: '120px 5%',
   position: 'relative',
-  overflowX: 'hidden',
+  overflow: 'hidden',
   backgroundColor: theme.colors.bg.white,
 
   [`.${classes.title}`]: {

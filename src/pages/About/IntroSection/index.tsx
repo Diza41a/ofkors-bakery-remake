@@ -1,13 +1,23 @@
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
 import S, { classes } from './styles';
 import MainPhotoImg from '../../../assets/images/about_intro_1.png';
 import SecondPhotoImg from '../../../assets/images/about_intro_2.png';
 import DecorativePhotoImg from '../../../assets/images/about_intro_3.png';
 import DecorativeBranchImg from '../../../assets/images/about_intro_branch.svg';
 import BeansImg from '../../../assets/images/beans.svg';
+import { timelineGenerator, tweenGenerator } from './utils';
 
 const IntroSection = (): JSX.Element => {
+  const introSectionRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    tweenGenerator.titleText();
+    timelineGenerator.contentColumns();
+  }, { scope: introSectionRef });
+
   return (
-    <S.IntroSection className={classes.root}>
+    <S.IntroSection className={classes.root} ref={introSectionRef}>
       <h2 className={classes.title}>The highest quality from seed to cup</h2>
       <div className={classes.contentContainer}>
         <div className={classes.contentColumn}>
