@@ -5,9 +5,11 @@ interface PageBannerProps {
 };
 
 const PageBanner = ({ pageTitle }: PageBannerProps): JSX.Element => (
-  <S.PageBanner className={classes.root}>
-    <h2>{pageTitle}</h2>
-  </S.PageBanner>
+  <S.PageBannerContainer className={classes.container}>
+    <div className={classes.root}>
+      <h2>{pageTitle}</h2>
+    </div>
+  </S.PageBannerContainer>
 );
 
 export default PageBanner;
