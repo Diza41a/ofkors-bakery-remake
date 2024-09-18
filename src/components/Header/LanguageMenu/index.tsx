@@ -19,7 +19,7 @@ const LANGUAGES: LanguageLabels = {
   },
 };
 
-const LanguageMenu = ({ isHeaderOpaque, isNavMenuExpanded }: LanguageMenuProps): JSX.Element => {
+const LanguageMenu = ({ isLandingHeaderOpaque, isNavMenuExpanded }: LanguageMenuProps): JSX.Element => {
   const { i18n } = useTranslation();
 
   const [isLanguageMenuExpanded, setIsLanguageMenuExpanded] = useState(false);
@@ -49,7 +49,7 @@ const LanguageMenu = ({ isHeaderOpaque, isNavMenuExpanded }: LanguageMenuProps):
 
   return (
     <S.LanguageMenu
-      isHeaderOpaque={isHeaderOpaque}
+    isLandingHeaderOpaque={isLandingHeaderOpaque}
       isNavMenuExpanded={isNavMenuExpanded}
       className={classes.languageMenuContainer}
     >

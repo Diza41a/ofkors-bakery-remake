@@ -11,6 +11,7 @@ export const constants = {
 
 export const classes = {
   opaqueBackground: 'Header-OpaqueBackground',
+  opaqueBackgroundLanding: 'Header-OpaqueBackground--landing',
   logoLink: 'Header-LogoLink',
   navLinkActive: 'Header-NavLink--active',
   navMenuExpanded: 'Header-MobileView-NavMenu--expanded',
@@ -22,7 +23,7 @@ const Header = styled('header')<StyledComponent>(() => ({
   justifyContent: 'space-between',
   width: '100%',
   height: 80,
-  position: 'sticky',
+  position: 'fixed',
   top: 0,
   zIndex: zIndexes.header,
   padding: '0 20%',
@@ -72,14 +73,16 @@ const Header = styled('header')<StyledComponent>(() => ({
     backgroundColor: 'transparent',
     boxShadow: 'none',
 
-    nav: {
-      '>ul': {
-        li: {
-          a: {
-            color: theme.colors.text.heading,
+    [`&.${classes.opaqueBackgroundLanding}`]: {
+      nav: {
+        '>ul': {
+          li: {
+            a: {
+              color: theme.colors.text.heading,
 
-            [`&.${classes.navLinkActive}, &:hover`]: {
-              color: theme.colors.action.gold,
+              [`&.${classes.navLinkActive}, &:hover`]: {
+                color: theme.colors.action.gold,
+              },
             },
           },
         },
@@ -189,7 +192,7 @@ const Header = styled('header')<StyledComponent>(() => ({
       },
     },
 
-    [`&.${classes.opaqueBackground}`]: {
+    [`&.${classes.opaqueBackgroundLanding}`]: {
       nav: {
         '.hamburger-react': {
           div: {

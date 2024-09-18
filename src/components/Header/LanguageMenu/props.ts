@@ -1,5 +1,5 @@
 export interface LanguageMenuProps {
-  isHeaderOpaque: boolean;
+  isLandingHeaderOpaque: boolean;
   isNavMenuExpanded: boolean;
 };
 

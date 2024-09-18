@@ -29,9 +29,10 @@ const Header = (): JSX.Element => {
   const [logoImgLink, setLogoImgLink] = useState(initialLogoImg);
 
   const isOnTopOfPage = window.scrollY === 0;
-  const shouldHaveOpaqueBackground = isOnLandingPage && isOnTopOfPage && !isBurgerExpanded;
+  const shouldHaveOpaqueBackground = isOnTopOfPage && !isBurgerExpanded;
   const classNames = [];
   if (shouldHaveOpaqueBackground) classNames.push(classes.opaqueBackground);
+  if (isOnLandingPage && shouldHaveOpaqueBackground) classNames.push(classes.opaqueBackgroundLanding);
 
   const NavMenu = (
     <nav className={navMenuClassNames.join(' ')}>
@@ -50,7 +51,7 @@ const Header = (): JSX.Element => {
       </ul>
 
       <LanguageMenu
-        isHeaderOpaque={shouldHaveOpaqueBackground}
+        isLandingHeaderOpaque={shouldHaveOpaqueBackground && isOnLandingPage}
         isNavMenuExpanded={isBurgerExpanded}
       />
 
@@ -67,12 +68,17 @@ const Header = (): JSX.Element => {
     const toggleHeaderStylesOnPageScroll = () => {
       if (!headerRef.current) return;
 
-      if (window.scrollY > 0 || pathname !== '/') {
+      if (window.scrollY > 0) {
         headerRef.current.classList.remove(classes.opaqueBackground);
+        if (isOnLandingPage) headerRef.current.classList.remove(classes.opaqueBackgroundLanding);
         setLogoImgLink(LogoLightImg);
       } else if (!isBurgerExpanded) {
         headerRef.current.classList.add(classes.opaqueBackground);
-        setLogoImgLink(LogoDarkImg);
+
+        if (isOnLandingPage) {
+          headerRef.current.classList.add(classes.opaqueBackgroundLanding);
+          setLogoImgLink(LogoDarkImg);
+        }
       }
     };
     const toggleBurgerMenuOnPageResize = () => {
@@ -86,15 +92,13 @@ const Header = (): JSX.Element => {
       const clickedEl = e.target as HTMLElement;
       if (!headerRef.current.contains(clickedEl)) setIsBurgerExpanded(false);
     };
-    const switchHeaderAttachmentOnPageLoad = () => {
-      if (!headerRef.current) return;
-
-      if (pathname === '/') headerRef.current.style.position = 'fixed';
-      else headerRef.current.style.position = 'sticky';
+    const toggleLogoImg = () => {
+      if (isOnLandingPage && !isBurgerExpanded) setLogoImgLink(LogoDarkImg);
+      else setLogoImgLink(LogoLightImg);
     };
 
-    switchHeaderAttachmentOnPageLoad();
     toggleHeaderStylesOnPageScroll();
+    toggleLogoImg();
     window.addEventListener('scroll', toggleHeaderStylesOnPageScroll);
     window.addEventListener('resize', toggleBurgerMenuOnPageResize);
     window.addEventListener('click', toggleBurgerMenuOnExternalClick);
@@ -104,7 +108,7 @@ const Header = (): JSX.Element => {
       window.removeEventListener('resize', toggleBurgerMenuOnPageResize);
       window.removeEventListener('click', toggleBurgerMenuOnExternalClick);
     };
-  }, [pathname, isBurgerExpanded]);
+  }, [pathname, isBurgerExpanded, isOnLandingPage]);
 
   useLayoutEffect(() => {
     if (isBurgerExpanded) {

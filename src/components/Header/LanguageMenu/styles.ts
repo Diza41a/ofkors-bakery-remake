@@ -18,14 +18,14 @@ export const classes = {
 
 const styledLanguageMenuShouldForwardProp = (prop: string) => (
   ![
-    'isHeaderOpaque',
+    'isLandingHeaderOpaque',
     'isNavMenuExpanded',
   ].includes(prop)
 );
 
 const LanguageMenu = styled('div').withConfig({
   shouldForwardProp: styledLanguageMenuShouldForwardProp,
-})<StyledLanguageMenuProps>(({ theme, isHeaderOpaque, isNavMenuExpanded }) => ({
+})<StyledLanguageMenuProps>(({ theme, isLandingHeaderOpaque, isNavMenuExpanded }) => ({
   marginLeft: 30,
 
   [`.${classes.languageMenuToggle}`]: {
@@ -33,7 +33,7 @@ const LanguageMenu = styled('div').withConfig({
     alignItems: 'center',
     position: 'relative',
     ...theme.typography.link,
-    color: isHeaderOpaque ? theme.colors.text.heading : theme.colors.text.white,
+    color: isLandingHeaderOpaque ? theme.colors.text.heading : theme.colors.text.white,
     background: 'none',
     border: 'none',
     textTransform: 'uppercase',
