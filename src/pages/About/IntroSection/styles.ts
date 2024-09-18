@@ -86,14 +86,14 @@ const IntroSection = styled('section')<StyledComponent>(({ theme }) => ({
         [`.${classes.decorativeImg}`]: {
           position: 'relative',
           bottom: 50,
-          zIndex: zIndexes.aboutDecorativeImage,
+          zIndex: zIndexes.aboutBackgroundMediaEls,
         },
 
         [`.${classes.branchImg}`]: {
           position: 'absolute',
           left: 123,
           top: 121,
-          zIndex: zIndexes.aboutDecorativeBranchImage,
+          zIndex: zIndexes.aboutMainMediaEls,
         },
       },
     },
