@@ -1,6 +1,7 @@
 import LandingPage from './pages/Landing';
 import AboutPage from './pages/About';
 import GalleryPage from './pages/Gallery';
+import MenuPage from './pages/Menu';
 import ContactPage from './pages/Contact';
 
 export type RouteFixture = {
@@ -23,7 +24,7 @@ export const USER_ROUTES: Array<RouteFixture> = [
   },
   {
     path: '/menu',
-    element: <></>,
+    element: <MenuPage />,
   },
   {
     path: '/contact',
