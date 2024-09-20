@@ -10,11 +10,11 @@ import { useTranslation } from 'react-i18next';
 const Header = (): JSX.Element => {
   const { t } = useTranslation('global');
   const navLinks = [
-    { path: '/', label: t('header:home') },
-    { path: '/about', label: t('header:about') },
-    { path: '/gallery', label: t('header:gallery') },
-    { path: '/menu', label: t('header:menu') },
-    { path: '/contact', label: t('header:contact') },
+    { path: '/', label: t('nav:home') },
+    { path: '/about', label: t('nav:about') },
+    { path: '/gallery', label: t('nav:gallery') },
+    { path: '/menu', label: t('nav:menu') },
+    { path: '/contact', label: t('nav:contact') },
   ];
 
   const { pathname } = useLocation();

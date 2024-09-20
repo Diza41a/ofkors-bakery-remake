@@ -1,9 +1,19 @@
 {
-  "header": {
+  "nav": {
     "home": "home",
     "about": "about",
     "gallery": "gallery",
     "menu": "menu",
     "contact": "contact"
+  },
+  "footer": {
+    "media_links": "Media Links",
+    "hours_of_operation": "Hours of Operation",
+    "hours_of_operation_monday-saturday": "Monday - Saturday: 8 AM - 5 PM",
+    "hours_of_operation_sunday": "Sunday: Closed",
+    "learn_more": "Learn More",
+    "reach_us": "Reach Us",
+    "phone_number": "Phone (941) 552-9717",
+    "copyright": "OfKors European Bakery. All rights reserved."
   }
 }
