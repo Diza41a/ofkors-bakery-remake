@@ -1,10 +1,10 @@
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import S, { classes } from './styles';
-import MainPhotoImg from '../../../assets/images/about_intro_1.png';
-import SecondPhotoImg from '../../../assets/images/about_intro_2.png';
-import DecorativePhotoImg from '../../../assets/images/about_intro_3.png';
-import DecorativeBranchImg from '../../../assets/images/about_intro_branch.svg';
+import MainPhotoImg from '../../../assets/images/about_page/intro_1.png';
+import SecondPhotoImg from '../../../assets/images/about_page/intro_2.png';
+import DecorativePhotoImg from '../../../assets/images/about_page/intro_3.png';
+import DecorativeBranchImg from '../../../assets/images/about_page/intro_branch.svg';
 import BeansImg from '../../../assets/images/beans.svg';
 import { timelineGenerator, tweenGenerator } from './utils';
 

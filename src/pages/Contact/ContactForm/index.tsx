@@ -4,7 +4,7 @@ import { Input, TextArea } from '../../../components/Inputs';
 import { Send as SendIcon } from "lucide-react";
 import S, { classes } from './styles';
 import Button from "../../../components/Button";
-import LeftBranchImg from '../../../assets/images/contact_left_branch.svg';
+import LeftBranchImg from '../../../assets/images/contact_page/left_branch.svg';
 
 type ContactFormInputs = {
   name: string;

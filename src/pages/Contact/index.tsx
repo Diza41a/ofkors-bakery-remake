@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import ContactForm from './ContactForm';
 import S, { classes } from './styles';
-import RightBranchImg from '../../assets/images/contact_right_branch.svg';
+import RightBranchImg from '../../assets/images/contact_page/right_branch.svg';
 import PageBanner from '../../components/PageBanner';
 
 const CLASS_NAME = 'Contact';

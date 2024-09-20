@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import Button from "../../../components/Button";
 import S, { classes } from './styles';
-import HeroImg from '../../../assets/images/hero_img.png';
-import HeroTopLeftCornerImg from '../../../assets/images/hero_top-left_corner.svg';
-import HeroBottomRightCornerImg from '../../../assets/images/hero_bottom-right_corner.svg';
+import HeroImg from '../../../assets/images/landing_page/hero_img.png';
+import HeroTopLeftCornerImg from '../../../assets/images/landing_page/hero_top-left_corner.svg';
+import HeroBottomRightCornerImg from '../../../assets/images/landing_page/hero_bottom-right_corner.svg';
 
 const HeroSection = (): JSX.Element => {
   const { t } = useTranslation('landing');

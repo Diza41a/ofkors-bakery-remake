@@ -2,10 +2,10 @@ import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import { tweenGenerator, timelineGenerator } from './utils';
 import S, { classes } from './styles';
-import FoodSectionLineIcon from '../../../assets/images/food_section_line.svg';
-import LinchpinImage from '../../../assets/images/food_section_linchpin.png';
-import SecondaryImage from '../../../assets/images/food_section_secondary.png';
-import BranchImage from '../../../assets/images/food_section_branch.svg';
+import FoodSectionLineIcon from '../../../assets/images/landing_page/food_section_line.svg';
+import LinchpinImage from '../../../assets/images/landing_page/food_section_linchpin.png';
+import SecondaryImage from '../../../assets/images/landing_page/food_section_secondary.png';
+import BranchImage from '../../../assets/images/landing_page/food_section_branch.svg';
 import BeansImage from '../../../assets/images/beans.svg';
 import Button from '../../../components/Button';
 
