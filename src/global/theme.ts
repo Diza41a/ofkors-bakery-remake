@@ -138,6 +138,10 @@ const theme: Theme = {
     display3: {
       fontFamily: CORMORANT_SEMIBOLD_FONT_NAME,
       fontSize: 48,
+
+      [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
+        fontSize: 36,
+      },
     },
     headline1: {
       fontFamily: CORMORANT_SEMIBOLD_FONT_NAME,

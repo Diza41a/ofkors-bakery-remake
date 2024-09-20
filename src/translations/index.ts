@@ -16,6 +16,9 @@ import contactEn from './en/contact.json';
 import contactRu from './ru/contact.json';
 import contactUk from './uk/contact.json';
 
+export type TLanguage = 'en' | 'ru' | 'uk';
+export const locales: Array<TLanguage> = ['en', 'ru', 'uk'];
+
 export const resources = {
   en: {
     global: globalEn,

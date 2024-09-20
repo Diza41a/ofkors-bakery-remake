@@ -4,15 +4,15 @@ import { zIndexes } from "../../../global/styles";
 import type { StyledComponent } from "../../../global/types/styleTypes";
 
 export const classes = {
-  root: 'Food-Section',
-  titleContainer: 'Food-Section-TitleContainer',
-  bodyContainer: 'Food-Section-BodyContainer',
-  imageContainer: 'Food-Section-ImgContainer',
-  linchpinImage: 'Food-Section-LinchpinImage',
-  secondaryImage: 'Food-Section-SecondaryImage',
-  branchImage: 'Food-Section-BranchImage',
-  beansImageContainer: 'Food-Section-BeansImageContainer',
-  textContainer: 'Food-Section-TxtContainer',
+  root: 'Landing-FoodSection',
+  titleContainer: 'Landing-FoodSection-TitleContainer',
+  bodyContainer: 'Landing-FoodSection-BodyContainer',
+  imageContainer: 'Landing-FoodSection-ImgContainer',
+  linchpinImage: 'Landing-FoodSection-LinchpinImage',
+  secondaryImage: 'Landing-FoodSection-SecondaryImage',
+  branchImage: 'Landing-FoodSection-BranchImage',
+  beansImageContainer: 'Landing-FoodSection-BeansImageContainer',
+  textContainer: 'Landing-FoodSection-TxtContainer',
 };
 
 const FoodSection = styled('section')<StyledComponent>(({ theme }) => ({
