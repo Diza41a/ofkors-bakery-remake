@@ -4,14 +4,16 @@ import { getCurrentYear } from '../../utils/dateUtils.ts';
 import S, { classes } from './styles.ts';
 import FacebookIcon from '../../assets/icons/facebook.svg';
 import InstagramIcon from '../../assets/icons/instagram.svg';
-
-const LEARN_MORE_LINKS = [
-  { path: '/about', label: 'About' },
-  { path: '/gallery', label: 'gallery' },
-  { path: '/menu', label: 'Menu' },
-];
+import { useTranslation } from 'react-i18next';
 
 const Footer = ():JSX.Element => {
+  const { t } = useTranslation('global');
+
+  const learnMoreLinks = [
+    { path: '/about', label: t('nav:about') },
+    { path: '/gallery', label: t('nav:gallery') },
+    { path: '/menu', label: t('nav:menu') },
+  ];
   const currentYear = getCurrentYear();
 
   return (
@@ -19,7 +21,7 @@ const Footer = ():JSX.Element => {
       <div className={classes.contentSectionsContainer}>
         {/* TODO: Update the media links to be actual links */}
         <section className={classes.mediaSection}>
-          <h3>Media Links</h3>
+          <h3>{t('footer:media_links')}</h3>
           <ul>
             <li>
               <Button
@@ -40,24 +42,24 @@ const Footer = ():JSX.Element => {
           </ul>
         </section>
         <section>
-          <h3>Hours of Operation</h3>
+          <h3>{t('footer:hours_of_operation')}</h3>
           <ul>
             <li>
               <p>
-                Monday - Saturday: 8 AM - 5 PM
+                {t('footer:hours_of_operation_monday-saturday')}
               </p>
             </li>
             <li>
               <p>
-                Sunday: Closed
+                {t('footer:hours_of_operation_sunday')}
               </p>
             </li>
           </ul>
         </section>
         <section className={classes.learnMoreSection}>
-          <h3>Learn More</h3>
+          <h3>{t('footer:learn_more')}</h3>
           <ul>
-            {LEARN_MORE_LINKS.map((link) => (
+            {learnMoreLinks.map((link) => (
               <li key={link.path}>
                 <NavLink
                   to={link.path}
@@ -70,14 +72,14 @@ const Footer = ():JSX.Element => {
           </ul>
         </section>
         <section className={classes.contactSection}>
-          <h3>Reach Us</h3>
+          <h3>{t('footer:reach_us')}</h3>
           <ul>
             <li>
               <NavLink
                 to="/contact"
                 className={({ isActive }) => isActive ? classes.activeLink : ''}
               >
-                Contact
+                {t('nav:contact')}
               </NavLink>
             </li>
             <li>
@@ -94,7 +96,7 @@ const Footer = ():JSX.Element => {
                 href='tel:+19415529717'
                 className={classes.contactLink}
               >
-                Phone (941) 552-9717
+                {t('footer:phone_number')}
               </a>
             </li>
             <li>
@@ -110,7 +112,7 @@ const Footer = ():JSX.Element => {
       </div>
       <hr />
       <p className={classes.copyrightText}>
-        &copy; {currentYear} OfKors European Bakery. All rights reserved.
+        &copy; {currentYear} {t('footer:copyright')}
       </p>
     </S.Footer>
   );
