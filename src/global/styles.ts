@@ -26,6 +26,10 @@ const GlobalStyle = createGlobalStyle(() => ({
   img: {
     userSelect: 'none',
   },
+
+  '.yarl__container': {
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+  },
 }));
 
 const FontFaces = createGlobalStyle`
