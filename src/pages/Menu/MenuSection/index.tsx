@@ -1,4 +1,4 @@
-import Menu from "../Menu";
+import Menu from "./Menu";
 import S, { classes } from "./styles";
 
 const MenuSection = (): JSX.Element => {

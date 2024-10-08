@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import type { StyledComponent } from "../../../global/types/styleTypes";
+import { rgba } from "polished";
+import type { StyledComponent } from "../../../../global/types/styleTypes";
 
 export const classes = {
   root: 'Menu-MenuSection-MenuWrapper',
@@ -20,7 +21,7 @@ const MenuWrapper = styled('div')<StyledComponent>(({ theme }) => ({
     display: 'flex',
     justifyContent: 'center',
     columnGap: 14,
-    borderBottom: `1px solid ${theme.colors.lines.gray}`,
+    borderBottom: `1px dashed ${rgba(theme.colors.lines.gray, 0.65)}`,
 
     [`.${classes.btnNav}`]: {
       padding: '19px 16px',
@@ -45,7 +46,7 @@ const MenuWrapper = styled('div')<StyledComponent>(({ theme }) => ({
   },
 
   [`.${classes.body}`]: {
-    marginTop: 80,
+    marginTop: 50,
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
     columnGap: 60,
