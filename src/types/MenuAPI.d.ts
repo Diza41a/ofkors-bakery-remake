@@ -1,3 +1,2 @@
-import type { MenuItem } from "./Menu";
-
-export type MenuGetResponse = Array<MenuItem>;
+import type { Menu } from "./Menu";
+export type MenusGetResponse = Array<Menu>;

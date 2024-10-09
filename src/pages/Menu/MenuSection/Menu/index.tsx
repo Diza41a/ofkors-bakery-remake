@@ -1,13 +1,14 @@
 import { useTranslation } from 'react-i18next';
 import S, { classes } from './styles';
 import { locales, type TLanguage } from '../../../../translations';
-import { getMenu } from '../../../../api/menuItemsAPI';
-import type { MenuItem } from '../../../../types/Menu';
+import type { Menu, MenuItem } from '../../../../types/Menu';
 
-const Menu = (): JSX.Element => {
+interface MenuProps {
+  menu: Menu
+};
+
+const Menu = ({ menu }: MenuProps): JSX.Element => {
   const { i18n: { language } } = useTranslation();
-
-  const menuItems = getMenu();
 
   const renderMenuItemCard = (menuItem: MenuItem) => {
     const lang = locales.includes(language as TLanguage) ? language : 'en';
@@ -28,11 +29,15 @@ const Menu = (): JSX.Element => {
   };
 
   return (
-    <S.MenuWrapper className={classes.root}>
-      <div className={classes.nav}>
-      </div>
+    <S.MenuWrapper
+      className={classes.root}
+      style={{ backgroundImage: `url(${menu.backgroundImageUrl})` }}
+    >
+      <h2 className={classes.title}>
+        {menu.category[language as TLanguage] || menu.category.en}
+      </h2>
       <div className={classes.body}>
-        {menuItems.map((menuItem) => renderMenuItemCard(menuItem))}
+        {menu.items.map((menuItem) => renderMenuItemCard(menuItem))}
       </div>
     </S.MenuWrapper>
   );

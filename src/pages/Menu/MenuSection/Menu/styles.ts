@@ -4,9 +4,7 @@ import type { StyledComponent } from "../../../../global/types/styleTypes";
 
 export const classes = {
   root: 'Menu-MenuSection-MenuWrapper',
-  nav: 'Menu-MenuSection-MenuNav',
-  btnNav: 'Menu-MenuSection-MenuNav-Btn',
-  btnNavActive: 'Menu-MenuSection-MenuNav-Btn--active',
+  title: 'Menu-MenuSection-MenuTitle',
   body: 'Menu-MenuSection-MenuBody',
   menuCard: 'Menu-MenuSection-MenuCard',
   menuCardTitleRow: 'Menu-MenuSection-MenuCard-TitleRow',
@@ -17,61 +15,57 @@ export const classes = {
 };
 
 const MenuWrapper = styled('div')<StyledComponent>(({ theme }) => ({
-  [`.${classes.nav}`]: {
-    display: 'flex',
-    justifyContent: 'center',
-    columnGap: 14,
-    borderBottom: `1px dashed ${rgba(theme.colors.lines.gray, 0.65)}`,
+  maxHeight: 700,
+  overflowY: 'hidden',
+  padding: '40px 50px',
+  background: rgba(theme.colors.bg.dark, 0.8),
+  backgroundBlendMode: 'multiply',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  border: '2px solid #878787',
+  borderRadius: 3,
+  boxShadow: '7px -4px 0 2px black',
 
-    [`.${classes.btnNav}`]: {
-      padding: '19px 16px',
-      ...theme.typography.link,
-      color: theme.colors.text.gray,
-      background: 'none',
-      border: 'none',
-      cursor: 'pointer',
-      textTransform: 'uppercase',
-      transition: 'color 0.1s linear',
-
-      [`&.${classes.btnNavActive}`]: {
-        color: theme.colors.action.gold,
-        borderBottom: `2px solid ${theme.colors.action.gold}`,
-        paddingBottom: 17,
-      },
-
-      '&:hover': {
-        color: theme.colors.action.gold,
-      },
-    },
+  [`.${classes.title}`]: {
+    paddingBottom: 25,
+    ...theme.typography.display3,
+    fontSize: 34,
+    color: theme.colors.text.white,
+    textAlign: 'left',
+    textShadow: '3px 3px 8px #080808',
+    borderBottom: `1px solid ${rgba(theme.colors.lines.gray, 0.4)}`,
   },
 
   [`.${classes.body}`]: {
-    marginTop: 50,
+    marginTop: 25,
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-    columnGap: 60,
-    rowGap: 50,
+    gridTemplateColumns: 'repeat(auto-fill, minmax(235px, 1fr))',
+    gap: 35,
 
     [`.${classes.menuCard}`]: {
       [`.${classes.menuCardTitleRow}`]: {
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'flex-end',
+        alignItems: 'flex-start',
+        columnGap: 20,
 
         [`.${classes.menuCardTitle}`]: {
           ...theme.typography.headline3,
+          fontSize: 26,
           color: theme.colors.text.white,
         },
 
         [`.${classes.menuCardPrice}`]: {
           ...theme.typography.headline3,
+          fontSize: 26,
           color: theme.colors.action.gold,
         },
       },
 
       [`.${classes.menuCardBody}`]: {
-        marginTop: 25,
+        marginTop: 15,
         ...theme.typography.paragraph2,
+        fontSize: 15,
         color: theme.colors.text.white,
       },
     },

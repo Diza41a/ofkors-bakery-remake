@@ -1,15 +1,16 @@
 import Menu from "./Menu";
+import { getMenus } from '../../../api/menuItemsAPI.ts';
 import S, { classes } from "./styles";
 
 const MenuSection = (): JSX.Element => {
+  const menus = getMenus();
+
   return (
     <S.MenuSection className={classes.root}>
-      <div className={classes.menuContainer}>
-        <h2 className={classes.title}>
-          It is our pride to offer premium quality products from all over the world
-        </h2>
-
-        <Menu />
+      <div className={classes.menusContainer}>
+        {menus.map((menu) => (
+          <Menu key={menu.id} menu={menu} />
+        ))}
       </div>
     </S.MenuSection>
   );

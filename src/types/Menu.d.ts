@@ -1,5 +1,11 @@
+export interface MenuCategory {
+  en: string;
+  ru: string;
+  uk: string;
+}
+
 export interface MenuItem {
-  id: number;
+  id: string;
   name: {
     en: string;
     ru: string;
@@ -11,5 +17,12 @@ export interface MenuItem {
     uk: string;
   };
   price: number;
-  category: string;
+  category: MenuCategory;
+};
+
+export type Menu = {
+  id: string;
+  category: MenuCategory;
+  items: MenuItem[];
+  backgroundImageUrl: string;
 };
