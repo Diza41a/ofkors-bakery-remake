@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { rgba } from "polished";
 import type { StyledComponent } from "../../../../global/types/styleTypes";
+import { MOBILE_VIEW_BREAKPOINT } from "../../../../global/theme";
 
 export const classes = {
   root: 'Menu-MenuSection-MenuWrapper',
@@ -15,9 +16,7 @@ export const classes = {
 };
 
 const MenuWrapper = styled('div')<StyledComponent>(({ theme }) => ({
-  maxHeight: 700,
-  overflowY: 'hidden',
-  padding: '40px 50px',
+  position: 'relative',
   background: rgba(theme.colors.bg.dark, 0.8),
   backgroundBlendMode: 'multiply',
   backgroundSize: 'cover',
@@ -27,6 +26,7 @@ const MenuWrapper = styled('div')<StyledComponent>(({ theme }) => ({
   boxShadow: '7px -4px 0 2px black',
 
   [`.${classes.title}`]: {
+    margin: '40px 50px 0 50px',
     paddingBottom: 25,
     ...theme.typography.display3,
     fontSize: 34,
@@ -37,6 +37,8 @@ const MenuWrapper = styled('div')<StyledComponent>(({ theme }) => ({
   },
 
   [`.${classes.body}`]: {
+    padding: '0 50px 40px 50px',
+    overflowY: 'auto',
     marginTop: 25,
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fill, minmax(235px, 1fr))',
@@ -67,6 +69,46 @@ const MenuWrapper = styled('div')<StyledComponent>(({ theme }) => ({
         ...theme.typography.paragraph2,
         fontSize: 15,
         color: theme.colors.text.white,
+      },
+    },
+  },
+
+  '&:after': {
+    content: '""',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    width: '100%',
+    height: '5%',
+    background: 'linear-gradient(to top, #000000bd, transparent)',
+  },
+
+  [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
+    [`.${classes.title}`]: {
+      margin: '30px 40px 0 40px',
+      fontSize: 30,
+      paddingBottom: 20,
+    },
+
+    [`.${classes.body}`]: {
+      padding: '0 40px 30px 40px',
+      marginTop: 20,
+      gap: 25,
+
+      [`.${classes.menuCard}`]: {
+        [`.${classes.menuCardTitleRow}`]: {
+          [`.${classes.menuCardTitle}`]: {
+            fontSize: 25,
+          },
+
+          [`.${classes.menuCardPrice}`]: {
+            fontSize: 25,
+          },
+        },
+
+        [`.${classes.menuCardBody}`]: {
+          marginTop: 10,
+        },
       },
     },
   },
