@@ -85,17 +85,19 @@ const MenuWrapper = styled('div')<StyledComponent>(({ theme }) => ({
 
   [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
     [`.${classes.title}`]: {
-      margin: '30px 40px 0 40px',
+      margin: '30px 25px 0 25px',
       fontSize: 30,
       paddingBottom: 20,
     },
 
     [`.${classes.body}`]: {
-      padding: '0 40px 30px 40px',
+      padding: '0 25px 30px 25px',
       marginTop: 20,
       gap: 25,
+      gridTemplateColumns: '1fr',
 
       [`.${classes.menuCard}`]: {
+
         [`.${classes.menuCardTitleRow}`]: {
           [`.${classes.menuCardTitle}`]: {
             fontSize: 25,
