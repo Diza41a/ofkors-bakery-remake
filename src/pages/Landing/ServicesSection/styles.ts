@@ -13,7 +13,7 @@ const ServicesSection = styled('section')<StyledComponent>(({ theme }) => ({
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'center',
-  alignItems: 'center',
+  alignItems: 'flex-start',
   columnGap: 30,
   rowGap: 40,
   padding: '120px 5%',
@@ -33,11 +33,17 @@ const ServicesSection = styled('section')<StyledComponent>(({ theme }) => ({
       marginTop: 4,
       backgroundColor: theme.colors.bg.light,
       borderRadius: 15,
+
+      svg: {
+        width: 44,
+        strokeWidth: 1,
+        color: theme.colors.action.gold,
+      },
     },
 
     [`.${classes.cardTextContainer}`]: {
       h3: {
-        marginBottom: 30,
+        marginBottom: 20,
         ...theme.typography.headline3,
         color: theme.colors.text.heading,
       },
@@ -58,7 +64,7 @@ const ServicesSection = styled('section')<StyledComponent>(({ theme }) => ({
         width: 55,
         height: 55,
 
-        img: {
+        svg: {
           transform: 'scale(0.75)',
         },
       },

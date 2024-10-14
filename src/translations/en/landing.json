@@ -3,5 +3,19 @@
     "title": "Welcome to OfKors European Bakery!",
     "body": "We are dedicated to bringing fresh, high-quality baked goods and meals directly to your table. Enjoy a taste of authentic European flavors with every bite.",
     "to_menu": "View Menu"
+  },
+  "services": {
+    "service_1": {
+      "title": "Baked Goods",
+      "body": "Enjoy a selection of freshly baked croissants, brioche rolls, and more, crafted daily with the finest ingredients."
+    },
+    "service_2": {
+      "title": "Hot Foods",
+      "body": "Indulge in savory crepes, pelmeni, borscht, and other seasonal soups, all made with love and tradition."
+    },
+    "service_3": {
+      "title": "Desserts",
+      "body": "Satisfy your sweet tooth with our cakes, cannolis, eclairs, and other delightful pastries."
+    }
   }
 }
