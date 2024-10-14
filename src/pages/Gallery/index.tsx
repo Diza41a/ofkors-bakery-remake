@@ -1,10 +1,13 @@
+import { useTranslation } from "react-i18next";
 import PageBanner from "../../components/PageBanner";
 import Gallery from "./Gallery";
 
 const GalleryPage = (): JSX.Element => {
+  const { t } = useTranslation('gallery');
+
   return (
     <div>
-      <PageBanner pageTitle="Gallery" />
+      <PageBanner pageTitle={t('banner')} />
       <Gallery />
     </div>
   );

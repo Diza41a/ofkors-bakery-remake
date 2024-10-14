@@ -11,7 +11,7 @@ const ContactPage = (): JSX.Element => {
 
   return (
     <div className={CLASS_NAME}>
-      <PageBanner pageTitle='Contact Us' />
+      <PageBanner pageTitle={t('banner')} />
 
       <S.ContactContainer>
         <h2 className={classes.title}>{t('title')}</h2>

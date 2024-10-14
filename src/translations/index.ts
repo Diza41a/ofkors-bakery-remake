@@ -12,6 +12,18 @@ import landingEn from './en/landing.json';
 import landingRu from './ru/landing.json';
 import landingUk from './uk/landing.json';
 
+import aboutEn from './en/about.json';
+import aboutRu from './ru/about.json';
+import aboutUk from './uk/about.json';
+
+import galleryEn from './en/gallery.json';
+import galleryRu from './ru/gallery.json';
+import galleryUk from './uk/gallery.json';
+
+import menuEn from './en/menu.json';
+import menuRu from './ru/menu.json';
+import menuUk from './uk/menu.json';
+
 import contactEn from './en/contact.json';
 import contactRu from './ru/contact.json';
 import contactUk from './uk/contact.json';
@@ -23,16 +35,25 @@ export const resources = {
   en: {
     global: globalEn,
     landing: landingEn,
+    about: aboutEn,
+    gallery: galleryEn,
+    menu: menuEn,
     contact: contactEn,
   },
   ru: {
     global: globalRu,
     landing: landingRu,
+    about: aboutRu,
+    gallery: galleryRu,
+    menu: menuRu,
     contact: contactRu,
   },
   uk: {
     global: globalUk,
     landing: landingUk,
+    about: aboutUk,
+    gallery: galleryUk,
+    menu: menuUk,
     contact: contactUk,
   },
 };
