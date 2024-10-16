@@ -26,22 +26,15 @@ const IntroSection = (): JSX.Element => {
         <div className={classes.contentColumn}>
           <img src={MainPhotoImg} className={classes.mainPhotoImg} />
           <h3>{t('story:body_title')}</h3>
-          <p>
-            {/* We are proud to offer this exquisite coffee and proud to support producer partners around the world doing sustainability
-            work that benefits their farms, their communities, and the planet. */}
-            {t('story:paragraph1')}
-          </p>
+          <p>{t('story:paragraph1')}</p>
+          <br />
 
           <img src={BeansImg} className={classes.beansImg} />
         </div>
         <div className={classes.contentColumn}>
-          <p>
-            {t('story:paragraph2')}
-          </p>
+          <p>{t('story:paragraph2')}</p>
           <br />
-          <p>
-            {t('story:paragraph3')}
-          </p>
+          <p>{t('story:paragraph3')}</p>
           <img src={SecondPhotoImg} className={classes.secondaryPhotoImg} />
         </div>
         <div className={classes.decorativeColumn}>

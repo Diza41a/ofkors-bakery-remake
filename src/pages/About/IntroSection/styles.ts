@@ -51,6 +51,10 @@ const IntroSection = styled('section')<StyledComponent>(({ theme }) => ({
       },
 
       '&:nth-of-type(1)': {
+        br: {
+          display: 'none',
+        },
+
         [`.${classes.beansImg}`]: {
           width: 135,
           position: 'absolute',
@@ -129,6 +133,12 @@ const IntroSection = styled('section')<StyledComponent>(({ theme }) => ({
 
       [`.${classes.contentColumn}`]: {
         width: '90%',
+
+        '&:nth-of-type(1)': {
+          br: {
+            display: 'initial',
+          },
+        },
       },
     },
   },
