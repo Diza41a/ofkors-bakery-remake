@@ -1,3 +1,10 @@
 {
-  "banner": "About Us"
+  "banner": "About Us",
+  "story": {
+    "title": "The Finest Quality from Oven to Table",
+    "body_title": "When the aroma of fresh bread fills the air",
+    "paragraph1": "Inna and her daughter Angelina share their passion for fresh baked goods and meals, creating a bakery that feels like home. Every dish is made with care, bringing warmth and flavor to every bite.",
+    "paragraph2": "The menu at OfKors Bakery features a variety of items, from savory crepes to sweet eclairs, each prepared with care and tradition. The bakery believes that food has the power to bring people together, no matter where they come from. Whether it's a fresh croissant or a bowl of warm borscht, each dish tells a unique story rooted in family and culture.",
+    "paragraph3": "Visit OfKors Bakery and experience the warmth and flavor of their kitchen. Whether you're grabbing a coffee or sitting down for a meal, the bakery offers a welcoming space filled with fresh, delicious goods and the comfort of home."
+  }
 }

@@ -7,8 +7,11 @@ import DecorativePhotoImg from '../../../assets/images/about_page/intro_3.png';
 import DecorativeBranchImg from '../../../assets/images/about_page/intro_branch.svg';
 import BeansImg from '../../../assets/images/beans.svg';
 import { timelineGenerator, tweenGenerator } from './utils';
+import { useTranslation } from 'react-i18next';
 
 const IntroSection = (): JSX.Element => {
+  const { t } = useTranslation('about');
+
   const introSectionRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -18,32 +21,26 @@ const IntroSection = (): JSX.Element => {
 
   return (
     <S.IntroSection className={classes.root} ref={introSectionRef}>
-      <h2 className={classes.title}>The highest quality from seed to cup</h2>
+      <h2 className={classes.title}>{t('story:title')}</h2>
       <div className={classes.contentContainer}>
         <div className={classes.contentColumn}>
           <img src={MainPhotoImg} className={classes.mainPhotoImg} />
-          <h3>It’s that moment when your hand is warmed by the mug</h3>
+          <h3>{t('story:body_title')}</h3>
           <p>
-            We are proud to offer this exquisite coffee and proud to support producer partners around the world doing sustainability
-            work that benefits their farms, their communities, and the planet.
+            {/* We are proud to offer this exquisite coffee and proud to support producer partners around the world doing sustainability
+            work that benefits their farms, their communities, and the planet. */}
+            {t('story:paragraph1')}
           </p>
 
           <img src={BeansImg} className={classes.beansImg} />
         </div>
         <div className={classes.contentColumn}>
           <p>
-            Our roasts feature multiple underlying notes. We believe the unexpected can happen when good design
-            and great coffee come together. We also believe there is an outside in all of us
-            to be found.
-            Our roasts feature multiple underlying notes. We believe the unexpected can happen when good design
-            and great coffee come together. We also believe there is an outside in all of us
-            to be found.
+            {t('story:paragraph2')}
           </p>
           <br />
           <p>
-            Our roasts feature multiple underlying notes. We believe the unexpected can happen when good design
-            and great coffee come together. We also believe there is an outside in all of us
-            to be found.
+            {t('story:paragraph3')}
           </p>
           <img src={SecondPhotoImg} className={classes.secondaryPhotoImg} />
         </div>
