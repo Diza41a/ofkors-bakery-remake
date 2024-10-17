@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
+import { useTranslation } from 'react-i18next';
 import { tweenGenerator, timelineGenerator } from './utils';
 import S, { classes } from './styles';
 import FoodSectionLineIcon from '../../../assets/images/landing_page/food_section_line.svg';
@@ -10,6 +11,8 @@ import BeansImage from '../../../assets/images/beans.svg';
 import Button from '../../../components/Button';
 
 const FoodSection = (): JSX.Element => {
+  const { t } = useTranslation('landing');
+
   const foodSectionRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -22,7 +25,7 @@ const FoodSection = (): JSX.Element => {
   return (
     <S.FoodSection className={classes.root} ref={foodSectionRef}>
       <div className={classes.titleContainer}>
-        <h2>Providing unique coffee experiences</h2>
+        <h2>{t('food:title')}</h2>
         <img src={FoodSectionLineIcon} draggable={false} />
       </div>
       <div className={classes.bodyContainer}>
@@ -32,16 +35,9 @@ const FoodSection = (): JSX.Element => {
           <img src={BranchImage} className={classes.branchImage} draggable={false} />
         </div>
         <div className={classes.textContainer}>
-          <h2>
-            We believe this is the best coffee in New York. Try it for yourself
-          </h2>
-          <p>
-            Our roasts feature multiple underlying notes. We believe the unexpected can happen when good design and great coffee come together. We also believe there is an outside in all of us
-            to be found.
-          </p>
-          <Button>
-            VIEW MENU
-          </Button>
+          <h2>{t('food:body_title')}</h2>
+          <p>{t('food:body')}</p>
+          <Button>{t('hero:to_menu')}</Button>
         </div>
       </div>
 

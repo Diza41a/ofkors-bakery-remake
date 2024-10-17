@@ -11,7 +11,7 @@ export const classes = {
 
 const MenuSection = styled('section')<StyledComponent>(() => ({
   backgroundImage: `url(${BgImg})`,
-  backgroundSize: 'cover',
+  backgroundSize: 'auto',
   backgroundPosition: 'center',
   padding: '75px 2.5%',
 

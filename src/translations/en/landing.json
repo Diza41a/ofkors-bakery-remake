@@ -2,7 +2,7 @@
   "hero": {
     "title": "Welcome to OfKors European Bakery!",
     "body": "We are dedicated to bringing fresh, high-quality baked goods and meals directly to your table. Enjoy a taste of authentic European flavors with every bite.",
-    "to_menu": "View Menu"
+    "to_menu": "VIEW MENU"
   },
   "services": {
     "service_1": {
@@ -17,5 +17,10 @@
       "title": "Desserts",
       "body": "Satisfy your sweet tooth with our cakes, cannolis, eclairs, and other delightful pastries."
     }
+  },
+  "food": {
+    "title": "Serving Fresh and Flavorful Meals",
+    "body_title": "Discover a variety of breakfast and lunch options made fresh daily",
+    "body": "From savory egg crepes with salmon or bacon to sweet fruit-filled crepes, our menu offers something for everyone. Enjoy a warm bowl of borsht, perfectly crispy chebureki, or traditional pelmeni. Each dish is crafted with care to bring the comfort of home cooking to your table."
   }
 }
