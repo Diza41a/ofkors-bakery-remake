@@ -1,9 +1,4 @@
-export enum MenuCategoryEn {
-  COFFEE_DRINKS = 'Coffee & Drinks',
-  BREAKFAST_LUNCH = 'Breakfast & Lunch',
-  DRINKS = 'Drinks',
-  DESSERTS = 'Desserts',
-}
+export type MenuCategoryEn = 'Coffee & Drinks' | 'Breakfast & Lunch' | 'Drinks' | 'Desserts';
 
 export interface MenuCategory {
   en: MenuCategoryEn;

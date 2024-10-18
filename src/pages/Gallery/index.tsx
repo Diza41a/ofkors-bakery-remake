@@ -7,7 +7,7 @@ const GalleryPage = (): JSX.Element => {
 
   return (
     <div>
-      <PageBanner pageTitle={t('banner')} />
+      <PageBanner pageTitle={t('banner')} bgImage="" />
       <Gallery />
     </div>
   );

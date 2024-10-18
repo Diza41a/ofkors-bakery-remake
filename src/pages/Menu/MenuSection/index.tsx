@@ -1,15 +1,14 @@
 import Menu from "./Menu";
 import { getMenus } from "../../../api/menuItemsAPI.ts";
 import S, { classes } from "./styles";
-import { MenuCategoryEn } from "../../../types/Menu.d";
 
 const MenuSection = (): JSX.Element => {
   const menus = getMenus();
 
-  const coffeeMenu = menus.find((menu) => (menu.category.en === MenuCategoryEn.COFFEE_DRINKS));
-  const breakfastLunchMenu = menus.find((menu) => (menu.category.en === MenuCategoryEn.BREAKFAST_LUNCH));
-  const drinksMenu = menus.find((menu) => (menu.category.en === MenuCategoryEn.DRINKS));
-  const dessertsMenu = menus.find((menu) => (menu.category.en === MenuCategoryEn.DESSERTS));
+  const coffeeMenu = menus.find((menu) => (menu.category.en === 'Coffee & Drinks'));
+  const breakfastLunchMenu = menus.find((menu) => (menu.category.en === 'Breakfast & Lunch'));
+  const drinksMenu = menus.find((menu) => (menu.category.en === 'Drinks'));
+  const dessertsMenu = menus.find((menu) => (menu.category.en === 'Desserts'));
 
   return (
     <S.MenuSection className={classes.root}>
