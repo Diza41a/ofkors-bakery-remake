@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { constants as headerConstants } from "../Header/styles";
 import { MOBILE_VIEW_BREAKPOINT } from "../../global/theme";
 import type { StyledComponent } from "../../global/types/styleTypes";
+import { zIndexes } from "../../global/styles";
 
 export const classes = {
   container: 'PageBanner-Container',
@@ -9,6 +10,9 @@ export const classes = {
 };
 
 const PageBannerContainer = styled('div')<StyledComponent>(({ theme }) => ({
+  position: 'relative',
+  zIndex: zIndexes.pageBanner,
+
   [`.${classes.root}`]: {
     display: 'flex',
     justifyContent: 'center',

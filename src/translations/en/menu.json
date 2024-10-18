@@ -1,3 +1,6 @@
 {
-  "banner": "Menu"
+  "banner": "Menu",
+  "menu": {
+    "title": "Savor Every Delicious Bite"
+  }
 }
