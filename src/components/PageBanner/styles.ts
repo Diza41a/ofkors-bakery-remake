@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { constants as headerConstants } from "../Header/styles";
 import { MOBILE_VIEW_BREAKPOINT } from "../../global/theme";
-// TODO: Clear this
-// import BgImg from '../../assets/images/page_banner.jpg';
 import type { StyledComponent } from "../../global/types/styleTypes";
 
 export const classes = {
@@ -11,12 +9,6 @@ export const classes = {
 };
 
 const PageBannerContainer = styled('div')<StyledComponent>(({ theme }) => ({
-  // backgroundImage: `url(${BgImg})`,
-  // backgroundSize: 'cover',
-  // backgroundPosition: 'center',
-  // backgroundAttachment: 'fixed',
-  // backgroundRepeat: 'no-repeat',
-
   [`.${classes.root}`]: {
     display: 'flex',
     justifyContent: 'center',

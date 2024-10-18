@@ -39,6 +39,20 @@ const IntroSection = styled('section')<StyledComponent>(({ theme }) => ({
       width: 400,
       position: 'relative',
 
+      [`.${classes.mainPhotoImg}`]: {
+        width: 400,
+        height: 500,
+        maxWidth: '100%',
+        objectFit: 'cover',
+      },
+
+      [`.${classes.secondaryPhotoImg}`]: {
+        width: 400,
+        height: 400,
+        maxWidth: '100%',
+        objectFit: 'cover',
+      },
+
       h3: {
         ...theme.typography.headline2,
         color: theme.colors.text.heading,
@@ -88,16 +102,19 @@ const IntroSection = styled('section')<StyledComponent>(({ theme }) => ({
         position: 'relative',
 
         [`.${classes.decorativeImg}`]: {
+          width: 200,
+          maxWidth: '100%',
+          height: 280,
           position: 'relative',
           bottom: 50,
-          zIndex: zIndexes.aboutBackgroundMediaEls,
+          zIndex: zIndexes.aboutMainMediaEls,
         },
 
         [`.${classes.branchImg}`]: {
           position: 'absolute',
           left: 123,
           top: 121,
-          zIndex: zIndexes.aboutMainMediaEls,
+          zIndex: zIndexes.aboutBackgroundMediaEls,
         },
       },
     },
@@ -111,8 +128,6 @@ const IntroSection = styled('section')<StyledComponent>(({ theme }) => ({
     [`.${classes.mainPhotoImg}, .${classes.secondaryPhotoImg}`]: {
       display: 'block',
       margin: '0 auto',
-      width: '100%',
-      maxWidth: 450,
     },
   },
 

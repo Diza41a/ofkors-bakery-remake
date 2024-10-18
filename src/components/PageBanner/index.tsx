@@ -1,7 +1,7 @@
 import { Parallax } from 'react-parallax';
 
 import S, { classes } from './styles';
-import BgImg from '../../assets/images/page_banner.jpg';
+import BgImg from '../../assets/images/about_page/page_banner.jpg';
 
 interface PageBannerProps {
   pageTitle: string;
