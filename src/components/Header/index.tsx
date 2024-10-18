@@ -93,7 +93,7 @@ const Header = (): JSX.Element => {
       if (!headerRef.current.contains(clickedEl)) setIsBurgerExpanded(false);
     };
     const toggleLogoImg = () => {
-      if (isOnLandingPage && !isBurgerExpanded) setLogoImgLink(LogoDarkImg);
+      if (isOnLandingPage && isOnTopOfPage && !isBurgerExpanded) setLogoImgLink(LogoDarkImg);
       else setLogoImgLink(LogoLightImg);
     };
 
