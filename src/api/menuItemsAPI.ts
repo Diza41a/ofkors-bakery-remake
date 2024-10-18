@@ -36,10 +36,10 @@ export const getMenus = /* async */(): MenusGetResponse => {
       { en: 'Coffee & Drinks', ru: 'Кофе и Напитки', uk: 'Кофе та Напої' },
     ),
     generateMenu(
-      { en: 'Breakfast & Lunch', ru: 'Обед и Обеденный ужин', uk: 'Обід і Перекладене' },
+      { en: 'Baked Goods', ru: 'Выпечка', uk: 'Хлібобулочні Вироби' },
     ),
     generateMenu(
-      { en: 'Drinks', ru: 'Напитки', uk: 'Напої' },
+      { en: 'Breakfast & Lunch', ru: 'Обед и Обеденный ужин', uk: 'Обід і Перекладене' },
     ),
     generateMenu(
       { en: 'Desserts', ru: 'Десерты', uk: 'Десерти' },

@@ -1,4 +1,4 @@
-export type MenuCategoryEn = 'Coffee & Drinks' | 'Breakfast & Lunch' | 'Drinks' | 'Desserts';
+export type MenuCategoryEn = 'Coffee & Drinks' | 'Baked Goods' | 'Breakfast & Lunch' | 'Desserts';
 
 export interface MenuCategory {
   en: MenuCategoryEn;
