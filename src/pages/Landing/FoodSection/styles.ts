@@ -45,15 +45,26 @@ const FoodSection = styled('section')<StyledComponent>(({ theme }) => ({
       position: 'relative',
 
       [`.${classes.linchpinImage}`]: {
+        width: 293,
+        height: 370,
+        objectFit: 'cover',
+        objectPosition: '50% 109%',
+        top: 4,
+        right: 43,
         position: 'relative',
         zIndex: zIndexes.landingFoodLinchpinImage,
+        boxShadow: '0 0 23px 10px #6a686826',
       },
 
       [`.${classes.secondaryImage}`]: {
+        width: 466,
+        height: 296,
+        objectFit: 'cover',
         position: 'absolute',
         zIndex: zIndexes.landingFoodSecondaryImage,
-        bottom: -100,
-        right: 135,
+        bottom: -58,
+        right: 163,
+        boxShadow: '0 0 23px 10px #6a686826',
       },
 
       [`.${classes.branchImage}`]: {
@@ -132,11 +143,16 @@ const FoodSection = styled('section')<StyledComponent>(({ theme }) => ({
       [`.${classes.imageContainer}`]: {
         left: 0,
         width: 720,
+
+        [`.${classes.secondaryImage}`]: {
+          height: 277,
+          bottom: -119,
+        },
       },
 
       [`.${classes.textContainer}`]: {
         width: 'auto',
-        marginTop: 35,
+        marginTop: 95,
         padding: '0 10%',
 
         'h2': {
@@ -183,7 +199,7 @@ const FoodSection = styled('section')<StyledComponent>(({ theme }) => ({
       },
 
       [`.${classes.textContainer}`]: {
-        marginTop: 0,
+        marginTop: 22,
         padding: '0 3.5%',
       },
     },
