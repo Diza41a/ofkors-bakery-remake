@@ -4,10 +4,11 @@ import { locales, type TLanguage } from '../../../../translations';
 import type { Menu, MenuItem } from '../../../../types/Menu';
 
 interface MenuProps {
-  menu: Menu
+  data: Menu,
+  backgroundImageUrl: string;
 };
 
-const Menu = ({ menu }: MenuProps): JSX.Element => {
+const Menu = ({ data, backgroundImageUrl }: MenuProps): JSX.Element => {
   const { i18n: { language } } = useTranslation();
 
   const renderMenuItemCard = (menuItem: MenuItem) => {
@@ -31,13 +32,13 @@ const Menu = ({ menu }: MenuProps): JSX.Element => {
   return (
     <S.MenuWrapper
       className={classes.root}
-      style={{ backgroundImage: `url(${menu.backgroundImageUrl})` }}
+      style={{ backgroundImage: `url(${backgroundImageUrl})` }}
     >
       <h2 className={classes.title}>
-        {menu.category[language as TLanguage] || menu.category.en}
+        {data.category[language as TLanguage] || data.category.en}
       </h2>
       <div className={classes.body}>
-        {menu.items.map((menuItem) => renderMenuItemCard(menuItem))}
+        {data.items.map((menuItem) => renderMenuItemCard(menuItem))}
       </div>
     </S.MenuWrapper>
   );

@@ -3,6 +3,7 @@ import ContactForm from './ContactForm';
 import S, { classes } from './styles';
 import RightBranchImg from '../../assets/images/contact_page/right_branch.svg';
 import PageBanner from '../../components/PageBanner';
+import BannerImg from '../../assets/images/contact_page/page_banner.png';
 
 const CLASS_NAME = 'Contact';
 
@@ -11,7 +12,7 @@ const ContactPage = (): JSX.Element => {
 
   return (
     <div className={CLASS_NAME}>
-      <PageBanner pageTitle={t('banner')} />
+      <PageBanner pageTitle={t('banner')} bgImage={BannerImg} />
 
       <S.ContactContainer>
         <h2 className={classes.title}>{t('title')}</h2>
