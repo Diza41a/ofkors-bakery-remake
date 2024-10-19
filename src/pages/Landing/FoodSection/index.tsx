@@ -37,7 +37,7 @@ const FoodSection = (): JSX.Element => {
         <div className={classes.textContainer}>
           <h2>{t('food:body_title')}</h2>
           <p>{t('food:body')}</p>
-          <Button>{t('hero:to_menu')}</Button>
+          <Button routerHref='/menu'>{t('hero:to_menu')}</Button>
         </div>
       </div>
 

@@ -13,7 +13,7 @@ const HeroSection = (): JSX.Element => {
       <div className={classes.textContainer}>
         <h1 className={classes.titleText}>{t('hero:title')}</h1>
         <p className={classes.bodyText}>{t('hero:body')}</p>
-        <Button>{`${t('hero:to_menu')}`.toUpperCase()}</Button>
+        <Button routerHref="/menu">{`${t('hero:to_menu')}`.toUpperCase()}</Button>
       </div>
       <div className={classes.imageContainer}>
         <img src={HeroImg} draggable={false} />

@@ -1,8 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import S, { classes } from './styles.ts';
 import theme from '../../global/theme.ts';
 import type { ButtonProps } from './props.ts';
 
 const Button = (props: ButtonProps): JSX.Element => {
+  const navigate = useNavigate();
+
   const {
     children,
     accentColor = theme.colors.action.gold,
@@ -13,7 +16,7 @@ const Button = (props: ButtonProps): JSX.Element => {
     startIcon = undefined,
     endIcon = undefined,
     isIconButton = false,
-    href=undefined,
+    routerHref=undefined,
     ...rest
   } = props;
 
@@ -26,7 +29,6 @@ const Button = (props: ButtonProps): JSX.Element => {
     startIcon,
     endIcon,
     isIconButton,
-    href,
   };
 
   return (
@@ -34,6 +36,10 @@ const Button = (props: ButtonProps): JSX.Element => {
       className={classes.root}
       {...buttonStyleProps}
       {...rest}
+      onClick={(...onClickProps) => {
+        if (props.onClick) props.onClick(...onClickProps);
+        if (routerHref) navigate(routerHref);
+      }}
     >
       {startIcon && <span className={classes.startIcon}>{startIcon}</span>}
       {isIconButton ? children : <p className={classes.text}>{children}</p>}

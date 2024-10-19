@@ -10,6 +10,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   endIcon?: JSX.Element;
   children?: ReactNode;
   isIconButton?: boolean;
+  routerHref?: string;
   /**
    * Button will render as `<a>`.
    */
