@@ -17,6 +17,7 @@ const Button = (props: ButtonProps): JSX.Element => {
     endIcon = undefined,
     isIconButton = false,
     routerHref=undefined,
+    href = undefined,
     ...rest
   } = props;
 
@@ -31,6 +32,10 @@ const Button = (props: ButtonProps): JSX.Element => {
     isIconButton,
   };
 
+  const anchorEl = href ? (
+    <a className={classes.anchorEl} href={href} />
+  ) : null;
+
   return (
     <S.Button
       className={classes.root}
@@ -44,6 +49,8 @@ const Button = (props: ButtonProps): JSX.Element => {
       {startIcon && <span className={classes.startIcon}>{startIcon}</span>}
       {isIconButton ? children : <p className={classes.text}>{children}</p>}
       {endIcon && <span className={classes.endIcon}>{endIcon}</span>}
+
+      {anchorEl}
     </S.Button>
   );
 };

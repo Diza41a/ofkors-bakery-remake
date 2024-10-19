@@ -19,7 +19,6 @@ const Footer = ():JSX.Element => {
   return (
     <S.Footer>
       <div className={classes.contentSectionsContainer}>
-        {/* TODO: Update the media links to be actual links */}
         <section className={classes.mediaSection}>
           <h3>{t('footer:media_links')}</h3>
           <ul>
@@ -27,6 +26,7 @@ const Footer = ():JSX.Element => {
               <Button
                 isIconButton
                 borderRadius={'50%'}
+                href="https://www.facebook.com/profile.php?id=100053554227093"
               >
                 <img src={FacebookIcon} />
               </Button>
@@ -35,6 +35,7 @@ const Footer = ():JSX.Element => {
               <Button
                 isIconButton
                 borderRadius={'50%'}
+                href="https://www.instagram.com/ofkors_bakery"
               >
                 <img src={InstagramIcon} />
               </Button>

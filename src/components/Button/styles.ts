@@ -9,6 +9,7 @@ export const classes = {
   link: 'Btn-link',
   startIcon: 'Btn-startIcon',
   endIcon: 'Btn-endIcon',
+  anchorEl: 'Btn-anchorEl',
 };
 
 const styledButtonShouldForwardProp = (prop: string) => (
@@ -38,6 +39,7 @@ const Button = styled('button').withConfig({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  position: 'relative',
   outline: 'none',
   cursor: 'pointer',
   borderRadius,
@@ -92,6 +94,14 @@ const Button = styled('button').withConfig({
       },
     };
   })(),
+
+  [`.${classes.anchorEl}`]: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+  },
 
   [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
     ...(() => ({
