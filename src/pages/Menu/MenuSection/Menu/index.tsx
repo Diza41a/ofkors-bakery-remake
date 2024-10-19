@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import S, { classes } from './styles';
 import { locales, type TLanguage } from '../../../../translations';
@@ -10,6 +11,10 @@ interface MenuProps {
 
 const Menu = ({ data, backgroundImageUrl }: MenuProps): JSX.Element => {
   const { i18n: { language } } = useTranslation();
+
+  const [isImgLoaded, setIsImgLoaded] = useState(false);
+  const overlayClassNames = [classes.loadingOverlay];
+  if (isImgLoaded) overlayClassNames.push(classes.loadingOverlayTransparent);
 
   const renderMenuItemCard = (menuItem: MenuItem) => {
     const lang = locales.includes(language as TLanguage) ? language : 'en';
@@ -29,6 +34,15 @@ const Menu = ({ data, backgroundImageUrl }: MenuProps): JSX.Element => {
     );
   };
 
+  useEffect(() => {
+    const img = new Image();
+    img.src = backgroundImageUrl;
+    console.log({ img });
+    img.onload = () => setIsImgLoaded(true);
+
+    return () => { img.src = ''; }
+  }, [backgroundImageUrl]);
+
   return (
     <S.MenuWrapper
       className={classes.root}
@@ -40,6 +54,8 @@ const Menu = ({ data, backgroundImageUrl }: MenuProps): JSX.Element => {
       <div className={classes.body}>
         {data.items.map((menuItem) => renderMenuItemCard(menuItem))}
       </div>
+
+      <div className={overlayClassNames.join(' ')} />
     </S.MenuWrapper>
   );
 };

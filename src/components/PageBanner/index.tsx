@@ -10,7 +10,6 @@ interface PageBannerProps {
 
 const PageBanner = ({ pageTitle, bgImage }: PageBannerProps): JSX.Element => {
   const [isImgLoaded, setIsImgLoaded] = useState(false);
-
   const overlayClassNames = [classes.loadingOverlay];
   if (isImgLoaded) overlayClassNames.push(classes.loadingOverlayTransparent);
 
@@ -19,9 +18,7 @@ const PageBanner = ({ pageTitle, bgImage }: PageBannerProps): JSX.Element => {
     img.src = bgImage;
     img.onload = () => setIsImgLoaded(true);
 
-    return () => {
-      img.src = '';
-    }
+    return () => { img.src = ''; }
   }, [bgImage]);
 
   return (

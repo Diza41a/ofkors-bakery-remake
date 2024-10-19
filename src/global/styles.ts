@@ -9,6 +9,8 @@ export const zIndexes = {
   pageBanner: 10,
   pageBannerLoadingOverlay: 1,
   pageBannerTitle: 2,
+  menuLoadingOverlay: 1,
+  menuElements: 2,
   landingHeroCornerImages: 0,
   landingFoodLinchpinImage: 3,
   landingFoodSecondaryImage: 2,

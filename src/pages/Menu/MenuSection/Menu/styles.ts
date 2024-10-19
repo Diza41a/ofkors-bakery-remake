@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { rgba } from "polished";
-import type { StyledComponent } from "../../../../global/types/styleTypes";
 import { MOBILE_VIEW_BREAKPOINT } from "../../../../global/theme";
+import { zIndexes } from "../../../../global/styles";
+import type { StyledComponent } from "../../../../global/types/styleTypes";
 
 export const classes = {
   root: 'Menu-MenuSection-MenuWrapper',
@@ -13,6 +14,8 @@ export const classes = {
   menuCardPrice: 'Menu-MenuSection-MenuCard-Price',
   menuCardBody: 'Menu-MenuSection-MenuCard-Body',
   menuCardDesc: 'Menu-MenuSection-MenuCard-Desc',
+  loadingOverlay: 'Menu-MenuSection-LoadingOverlay',
+  loadingOverlayTransparent: 'Menu-MenuSection-LoadingOverlay--transparent',
 };
 
 const MenuWrapper = styled('div')<StyledComponent>(({ theme }) => ({
@@ -28,6 +31,8 @@ const MenuWrapper = styled('div')<StyledComponent>(({ theme }) => ({
   [`.${classes.title}`]: {
     margin: '40px 50px 0 50px',
     paddingBottom: 25,
+    position: 'relative',
+    zIndex: zIndexes.menuElements,
     ...theme.typography.display3,
     fontSize: 34,
     color: theme.colors.text.white,
@@ -37,12 +42,14 @@ const MenuWrapper = styled('div')<StyledComponent>(({ theme }) => ({
   },
 
   [`.${classes.body}`]: {
-    padding: '0 50px 40px 50px',
-    overflowY: 'auto',
-    marginTop: 25,
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fill, minmax(235px, 1fr))',
     gap: 35,
+    padding: '0 50px 40px 50px',
+    overflowY: 'auto',
+    marginTop: 25,
+    position: 'relative',
+    zIndex: zIndexes.menuElements,
 
     [`.${classes.menuCard}`]: {
       [`.${classes.menuCardTitleRow}`]: {
@@ -70,6 +77,22 @@ const MenuWrapper = styled('div')<StyledComponent>(({ theme }) => ({
         fontSize: 15,
         color: theme.colors.text.white,
       },
+    },
+  },
+
+  [`.${classes.loadingOverlay}`]: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    zIndex: zIndexes.menuLoadingOverlay,
+    width: '100%',
+    height: '100%',
+    background: 'rgba(0, 0, 0)',
+    opacity: 1,
+    transition: 'opacity 0.2s ease-in-out',
+
+    [`&.${classes.loadingOverlayTransparent}`]: {
+      opacity: 0,
     },
   },
 
