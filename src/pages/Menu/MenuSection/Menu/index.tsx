@@ -37,7 +37,6 @@ const Menu = ({ data, backgroundImageUrl }: MenuProps): JSX.Element => {
   useEffect(() => {
     const img = new Image();
     img.src = backgroundImageUrl;
-    console.log({ img });
     img.onload = () => setIsImgLoaded(true);
 
     return () => { img.src = ''; }
