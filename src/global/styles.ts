@@ -7,6 +7,8 @@ import MoskFont from '../assets/fonts/Mosk/Mosk-400.ttf';
 export const zIndexes = {
   header: 1000,
   pageBanner: 10,
+  pageBannerLoadingOverlay: 1,
+  pageBannerTitle: 2,
   landingHeroCornerImages: 0,
   landingFoodLinchpinImage: 3,
   landingFoodSecondaryImage: 2,

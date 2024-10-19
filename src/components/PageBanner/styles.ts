@@ -7,6 +7,8 @@ import { zIndexes } from "../../global/styles";
 export const classes = {
   container: 'PageBanner-Container',
   root: 'PageBanner',
+  loadingOverlay: 'PageBanner-LoadingOverlay',
+  loadingOverlayTransparent: 'PageBanner-LoadingOverlay--transparent',
 };
 
 const PageBannerContainer = styled('div')<StyledComponent>(({ theme }) => ({
@@ -22,8 +24,26 @@ const PageBannerContainer = styled('div')<StyledComponent>(({ theme }) => ({
     textShadow: '3px 3px 2px #252525',
 
     h2: {
+      position: 'relative',
+      zIndex: zIndexes.pageBannerTitle,
       ...theme.typography.display2,
       color: theme.colors.text.white,
+    },
+  },
+
+  [`.${classes.loadingOverlay}`]: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(0, 0, 0)',
+    opacity: 0.8,
+    zIndex: zIndexes.pageBannerLoadingOverlay,
+    transition: 'opacity 0.2s ease-in-out',
+
+    [`&.${classes.loadingOverlayTransparent}`]: {
+      opacity: 0,
     },
   },
 
