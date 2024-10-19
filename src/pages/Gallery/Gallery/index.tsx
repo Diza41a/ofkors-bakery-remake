@@ -4,7 +4,7 @@ import { ColumnsPhotoAlbum } from 'react-photo-album';
 import Lightbox from "yet-another-react-lightbox";
 import { Zoom } from 'yet-another-react-lightbox/plugins';
 import { ZoomIn as ZoomInIcon } from 'lucide-react';
-// import { photos } from './slides';
+import { photos } from './slides';
 import S, { classes } from './styles';
 
 import "react-photo-album/columns.css";
@@ -17,7 +17,7 @@ const Gallery = (): JSX.Element => {
   return (
     <S.GalleryWrapper className={classes.root}>
       <ColumnsPhotoAlbum
-        photos={[]}
+        photos={photos}
         padding={0}
         spacing={0}
         onClick={({ index }) => {
@@ -37,9 +37,13 @@ const Gallery = (): JSX.Element => {
         open={isLightboxOpen}
         close={() => setIsLightboxOpen(false)}
         index={lightboxIndex}
-        slides={[]}
+        slides={photos}
         plugins={[Zoom]}
-        controller={{ closeOnBackdropClick: true }}
+        zoom={{
+          maxZoomPixelRatio: 0.5,
+          doubleClickMaxStops: 1,
+        }}
+        carousel={{ imageFit: 'contain' }}
       />
     </S.GalleryWrapper>
   );
