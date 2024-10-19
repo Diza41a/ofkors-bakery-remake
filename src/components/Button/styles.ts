@@ -103,6 +103,11 @@ const Button = styled('button').withConfig({
     height: '100%',
   },
 
+  transition: 'all 0.2s ease-in-out',
+  '&:hover': {
+    filter: 'brightness(105%)',
+  },
+
   [`@media (max-width: ${MOBILE_VIEW_BREAKPOINT}px)`]: {
     ...(() => ({
       [`.${classes.startIcon}`]: {
