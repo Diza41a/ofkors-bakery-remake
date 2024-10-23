@@ -26,7 +26,7 @@ function App() {
       return <Navigate to="/admin/login" />;
     }
     if (isLoggedIn && route.path === '/admin/login') {
-      return <Navigate to="/admin/projects" />;
+      return <Navigate to="/admin/menus" />;
     }
 
     return route.element;
