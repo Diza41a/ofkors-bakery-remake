@@ -22,8 +22,8 @@ const AdminLoginPage = (): JSX.Element => {
         const { access_token } = data;
         const expirationDate = new Date();
         expirationDate.setDate(expirationDate.getDate() + 7);
-        cookies.remove('ofkors-euro-bakery-admin-access_token', { path: '/' });
-        cookies.set('ofkors-euro-bakery-admin-access_token', access_token, { expires: expirationDate, path: '/' });
+        cookies.remove('access_token', { path: '/' });
+        cookies.set('access_token', access_token, { expires: expirationDate, path: '/' });
         setIsAdminLoggedIn(true);
         navigate('/admin/menus');
       })

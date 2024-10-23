@@ -12,8 +12,12 @@ const AdminLayout = (): JSX.Element => {
   useLayoutEffect(() => {
     setIsPageLoading(true);
 
+    console.log("Checking admin authentication...");
     validateAdminAuthentication()
-      .then(() => setIsAdminLoggedIn(true))
+      .then(() => {
+        console.log("Admin authenticated");
+        setIsAdminLoggedIn(true);
+      })
       .catch(() => {})
       .finally(() => setIsPageLoading(false));
   }, [setIsAdminLoggedIn, setIsPageLoading]);
