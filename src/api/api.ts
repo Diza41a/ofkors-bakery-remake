@@ -3,8 +3,9 @@ import Cookies from 'universal-cookie';
 export const cookies = new Cookies();
 
 const PRODUCTION_SERVER_URL = 'production-server-url.com';
-const DEVELOPMENT_SERVER_URL = 'localhost-server:3000';
+const DEVELOPMENT_SERVER_URL = 'http://localhost:8080';
 const baseURL = process.env.NODE_ENV == 'production' ? PRODUCTION_SERVER_URL : DEVELOPMENT_SERVER_URL;
+console.log('Base URL:', baseURL);
 
 const api = axios.create({
   baseURL,
