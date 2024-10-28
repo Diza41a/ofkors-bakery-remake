@@ -5,6 +5,7 @@ import CormorantBoldFont from '../assets/fonts/Cormorant/Cormorant-Bold.ttf';
 import MoskFont from '../assets/fonts/Mosk/Mosk-400.ttf';
 
 export const zIndexes = {
+  modal: 10000,
   header: 1000,
   pageBanner: 10,
   pageBannerLoadingOverlay: 1,

@@ -1,9 +1,9 @@
-// import type { AxiosResponse } from 'axios';
-import type { MenusGetResponse } from '../types/MenuAPI.d';
-// import api from './api';
+import type { AxiosResponse } from 'axios';
+import type { MenuItemInputDto, MenusGetResponse } from '../types/MenuAPI.d';
+import api from './api';
 import type { Menu, MenuCategory, MenuItem } from '../types/Menu';
 
-// const ROUTE = '/menu';
+const ROUTE = '/menu_items';
 
 export const getMenus = /* async */(): MenusGetResponse => {
   // return api.get(ROUTE);
@@ -47,4 +47,8 @@ export const getMenus = /* async */(): MenusGetResponse => {
   ];
 
   return menus;
+};
+
+export const createMenuItem = async (menuItemInputDto: MenuItemInputDto): Promise<AxiosResponse<MenuItem>> => {
+  return api.post(ROUTE, menuItemInputDto);
 };

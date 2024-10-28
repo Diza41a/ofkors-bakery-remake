@@ -5,6 +5,7 @@ import MenuPage from './pages/Menu';
 import ContactPage from './pages/Contact';
 import AdminLoginPage from './pages/AdminLogin';
 import { Navigate } from 'react-router-dom';
+import AdminMenus from './pages/AdminMenus';
 
 export type RouteFixture = {
   path: string;
@@ -45,6 +46,6 @@ export const ADMIN_ROUTES: Array<RouteFixture> = [
   },
   {
     path: '/admin/menus',
-    element: <>Admin menus page placeholder</>,
+    element: <AdminMenus />,
   },
 ];

@@ -37,13 +37,13 @@ const AdminLoginPage = (): JSX.Element => {
   });
 
   return (
-    <S.AdminPageContainer className={classes.root}>
+    <S.AdminLoginPageContainer className={classes.root}>
       <form action="submit">
         <p>Enter the admin password:</p>
         <Input type='password' onChange={handlePasswordChange} />
         <Button size="small" type='submit' onClick={handleSubmit}>Login</Button>
       </form>
-    </S.AdminPageContainer>
+    </S.AdminLoginPageContainer>
   );
 };
 

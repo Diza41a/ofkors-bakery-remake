@@ -6,7 +6,7 @@ export const classes = {
   root: 'AdminPageContainer',
 };
 
-const AdminPageContainer = styled('div')<StyledComponent>(({ theme }) => ({
+const AdminLoginPageContainer = styled('div')<StyledComponent>(({ theme }) => ({
   height: '100vh',
   display: 'flex',
   justifyContent: 'center',
@@ -40,5 +40,5 @@ const AdminPageContainer = styled('div')<StyledComponent>(({ theme }) => ({
 }));
 
 export default {
-  AdminPageContainer,
+  AdminLoginPageContainer,
 };
