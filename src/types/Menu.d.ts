@@ -23,7 +23,6 @@ export interface MenuItem {
 };
 
 export type Menu = {
-  id: string;
-  category: MenuCategory;
+  category: MenuCategoryEn;
   items: MenuItem[];
 };

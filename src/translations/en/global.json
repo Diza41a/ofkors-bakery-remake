@@ -15,5 +15,15 @@
     "reach_us": "Reach Us",
     "phone_number": "Phone (941) 552-9717",
     "copyright": "OfKors European Bakery. All rights reserved."
+  },
+  "apis": {
+    "menu": {
+      "categories": {
+        "coffee_and_drinks": "Coffee & Drinks",
+        "baked_goods": "Baked Goods",
+        "breakfast_and_lunch": "Breakfast & Lunch",
+        "desserts": "Desserts"
+      }
+    }
   }
 }

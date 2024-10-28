@@ -10,7 +10,7 @@ interface MenuProps {
 };
 
 const Menu = ({ data, backgroundImageUrl }: MenuProps): JSX.Element => {
-  const { i18n: { language } } = useTranslation();
+  const { i18n: { language }, t } = useTranslation('global');
 
   const [isImgLoaded, setIsImgLoaded] = useState(false);
   const overlayClassNames = [classes.loadingOverlay];
@@ -48,7 +48,7 @@ const Menu = ({ data, backgroundImageUrl }: MenuProps): JSX.Element => {
       style={{ backgroundImage: `url(${backgroundImageUrl})` }}
     >
       <h2 className={classes.title}>
-        {data.category[language as TLanguage] || data.category.en}
+        {t(`apis:menu:categories:${data.category}`)}
       </h2>
       <div className={classes.body}>
         {data.items.map((menuItem) => renderMenuItemCard(menuItem))}

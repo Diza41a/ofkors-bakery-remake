@@ -15,5 +15,15 @@
     "reach_us": "Зворотний Зв'язок",
     "phone_number": "Телефон: (941) 552-9717",
     "copyright": "OfKors European Bakery. Усі права захищені."
+  },
+  "apis": {
+    "menu": {
+      "categories": {
+        "coffee_and_drinks": "Кофе та Напої",
+        "baked_goods": "Хлібобулочні Вироби",
+        "breakfast_and_lunch": "Сніданок і Обід",
+        "desserts": "Десерти"
+      }
+    }
   }
 }

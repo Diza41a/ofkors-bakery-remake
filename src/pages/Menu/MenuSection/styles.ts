@@ -11,6 +11,7 @@ export const classes = {
   menusContainer: 'Menu-MenuSection-MenuContainer',
   leftVectorImgWrapper: 'Menu-MenuSection-ImgLeftVector-Wrapper',
   rightVectorImgWrapper: 'Menu-MenuSection-ImgRightVector-Wrapper',
+  threeDots: 'Menu-MenuSection-ThreeDots',
 };
 
 const MenuSection = styled('section')<StyledComponent>(({ theme }) => ({
@@ -38,6 +39,12 @@ const MenuSection = styled('section')<StyledComponent>(({ theme }) => ({
     [`.${menuClasses.root}`]: {
       width: 'min(100%, 1368px)',
       zIndex: zIndexes.menuMenuMenus,
+    },
+
+    [`.${classes.threeDots}`]: {
+      svg: {
+        fill: theme.colors.action.gold,
+      },
     },
   },
 
@@ -74,6 +81,12 @@ const MenuSection = styled('section')<StyledComponent>(({ theme }) => ({
 
     [`.${classes.title}`]: {
       marginBottom: 55,
+    },
+
+    [`.${classes.menusContainer}`]: {
+      [`.${classes.threeDots}`]: {
+        width: 50,
+      },
     },
 
     [`.${classes.leftVectorImgWrapper}`]: {
