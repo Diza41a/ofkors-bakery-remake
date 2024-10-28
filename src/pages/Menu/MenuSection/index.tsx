@@ -65,7 +65,6 @@ const MenuSection = (): JSX.Element => {
       </div>
 
       <h2 className={classes.title}>{t("menu:title")}</h2>
-
       <div className={classes.menusContainer}>
         {isLoading ? (
           <ThreeDots wrapperClass={classes.threeDots} />

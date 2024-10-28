@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 export const cookies = new Cookies();
 
-const PRODUCTION_SERVER_URL = 'production-server-url.com';
+const PRODUCTION_SERVER_URL = 'https://ofkors-bakery-remake-server.vercel.app';
 const DEVELOPMENT_SERVER_URL = 'http://localhost:8080';
 const baseURL = process.env.NODE_ENV == 'production' ? PRODUCTION_SERVER_URL : DEVELOPMENT_SERVER_URL;
 
