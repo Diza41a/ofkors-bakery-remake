@@ -1,10 +1,4 @@
-export type MenuCategoryEn = 'coffee_and_drinks' | 'baked_goods' | 'breakfast_and_lunch' | 'desserts';
-
-export interface MenuCategory {
-  en: MenuCategoryEn;
-  ru: string;
-  uk: string;
-}
+export type MenuCategory = 'coffee_and_drinks' | 'baked_goods' | 'breakfast_and_lunch' | 'desserts';
 
 export interface MenuItem {
   id: string;
@@ -23,6 +17,6 @@ export interface MenuItem {
 };
 
 export type Menu = {
-  category: MenuCategoryEn;
+  category: MenuCategory;
   items: MenuItem[];
 };

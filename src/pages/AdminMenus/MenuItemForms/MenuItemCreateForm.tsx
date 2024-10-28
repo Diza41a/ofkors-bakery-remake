@@ -1,34 +1,106 @@
+import { Controller, useForm } from 'react-hook-form';
 import Button from '../../../components/Button';
 import { Input, TextArea } from '../../../components/Inputs';
 import S from './styled';
 
+type NewMenuItemFormInputs = {
+  name: { en: string; uk: string; ru: string };
+  category: string;
+  description: { en: string; uk: string; ru: string };
+  price: number;
+};
+
 const MenuItemCreateForm = (): JSX.Element => {
+  const { handleSubmit, control, reset } = useForm<NewMenuItemFormInputs>({
+    defaultValues: {
+      name: { en: '', uk: '', ru: '' },
+      category: 'coffee_and_drinks',
+      description: { en: '', uk: '', ru: '' },
+      price: 0,
+    }
+  });
+
+  const onSubmit: (data: NewMenuItemFormInputs) => void = (data) => {
+    console.log(data);
+    reset();
+  };
+
   return (
-    <S.MenuItemForm>
+    <S.MenuItemForm onSubmit={handleSubmit(onSubmit)}>
       <div>
         Name
-        <Input placeholder='en' />
-        <Input placeholder='uk' />
-        <Input placeholder='ru' />
+        <Controller
+          name="name.en"
+          control={control}
+          render={({ field }) => (
+            <Input {...field} placeholder='English' />
+          )}
+        />
+        <Controller
+          name="name.uk"
+          control={control}
+          render={({ field }) => (
+            <Input {...field} placeholder='Українська' />
+          )}
+        />
+        <Controller
+          name="name.ru"
+          control={control}
+          render={({ field }) => (
+            <Input {...field} placeholder='Русский' />
+          )}
+        />
       </div>
       <div>
         Category
-        <select>
-          <option value="coffee_and_drinks">Coffee & Drinks</option>
-          <option value="baked_goods">Baked Goods</option>
-          <option value="breakfast_and_lunch">Breakfast & Lunch</option>
-          <option value="desserts">Desserts</option>
-        </select>
+        <Controller
+          name="category"
+          control={control}
+          render={({ field }) => (
+            <select {...field}>
+              <option value="coffee_and_drinks">Coffee & Drinks</option>
+              <option value="baked_goods">Baked Goods</option>
+              <option value="breakfast_and_lunch">Breakfast & Lunch</option>
+              <option value="desserts">Desserts</option>
+            </select>
+          )}
+        />
       </div>
       <div>
         Description
-        <TextArea placeholder='en' rows={5} />
-        <TextArea placeholder='uk' rows={5} />
-        <TextArea placeholder='ru' rows={5} />
+        <Controller
+          name="description.en"
+          control={control}
+          render={({ field }) => (
+            <TextArea {...field} placeholder='English' />
+          )}
+        />
+        <Controller
+          name="description.uk"
+          control={control}
+          render={({ field }) => (
+            <TextArea {...field} placeholder='Українська' />
+          )}
+        />
+        <Controller
+          name="description.ru"
+          control={control}
+          render={({ field }) => (
+            <TextArea {...field} placeholder='Русский' />
+          )}
+        />
       </div>
       <div>
         Price
-        <Input type="number" placeholder='price' />
+        <Controller
+          name="price"
+          control={control}
+          render={({ field }) => (
+            <Input {...field}
+            type="number"
+            placeholder='price' />
+          )}
+        />
       </div>
       <Button type='submit'>Submit</Button>
     </S.MenuItemForm>
