@@ -2,16 +2,18 @@ import { Controller, useForm } from 'react-hook-form';
 import Button from '../../../components/Button';
 import { Input, TextArea } from '../../../components/Inputs';
 import S from './styled';
+import { createMenuItem } from '../../../api/menuItemsAPI';
+import type { MenuCategory } from '../../../types/Menu';
 
 type NewMenuItemFormInputs = {
   name: { en: string; uk: string; ru: string };
-  category: string;
+  category: MenuCategory;
   description: { en: string; uk: string; ru: string };
   price: number;
 };
 
 const MenuItemCreateForm = (): JSX.Element => {
-  const { handleSubmit, control, reset } = useForm<NewMenuItemFormInputs>({
+  const { handleSubmit, control, reset, setFocus } = useForm<NewMenuItemFormInputs>({
     defaultValues: {
       name: { en: '', uk: '', ru: '' },
       category: 'coffee_and_drinks',
@@ -21,8 +23,12 @@ const MenuItemCreateForm = (): JSX.Element => {
   });
 
   const onSubmit: (data: NewMenuItemFormInputs) => void = (data) => {
-    console.log(data);
-    reset();
+    createMenuItem(data)
+      .then(() => {
+        reset();
+        setFocus('name.en');
+      })
+      .catch((error) => alert(error.message));
   };
 
   return (

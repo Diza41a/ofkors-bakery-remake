@@ -28,6 +28,10 @@ import contactEn from './en/contact.json';
 import contactRu from './ru/contact.json';
 import contactUk from './uk/contact.json';
 
+import apisEn from './en/apis.json';
+import apisRu from './ru/apis.json';
+import apisUk from './uk/apis.json';
+
 export type TLanguage = 'en' | 'ru' | 'uk';
 export const locales: Array<TLanguage> = ['en', 'ru', 'uk'];
 
@@ -39,6 +43,7 @@ export const resources = {
     gallery: galleryEn,
     menu: menuEn,
     contact: contactEn,
+    apis: apisEn,
   },
   ru: {
     global: globalRu,
@@ -47,6 +52,7 @@ export const resources = {
     gallery: galleryRu,
     menu: menuRu,
     contact: contactRu,
+    apis: apisRu,
   },
   uk: {
     global: globalUk,
@@ -55,6 +61,7 @@ export const resources = {
     gallery: galleryUk,
     menu: menuUk,
     contact: contactUk,
+    apis: apisUk,
   },
 };
 

@@ -1,13 +1,40 @@
-import Button from '../Button/index.tsx';
+import { useTranslation } from 'react-i18next';
+import { useQuery } from '@tanstack/react-query';
 import { NavLink } from 'react-router-dom';
-import { getCurrentYear } from '../../utils/dateUtils.ts';
+import { ThreeDots } from 'react-loader-spinner';
+import Button from '../Button/index.tsx';
+import { getCurrentYear } from '../../utils/dateUtils';
 import S, { classes } from './styles.ts';
 import FacebookIcon from '../../assets/icons/facebook.svg';
 import InstagramIcon from '../../assets/icons/instagram.svg';
-import { useTranslation } from 'react-i18next';
+import { getHoursOfOperation } from '../../api/hoursAPI';
+import { generateHoursOfOperationStrings } from './utils';
+import type { TLanguage } from '../../translations/index';
 
 const Footer = ():JSX.Element => {
   const { t } = useTranslation('global');
+  const { t: tApis, i18n: { language } } = useTranslation('apis');
+  const {
+    data: hoursOfOperationResponse,
+    isFetched: isHoursOfOperationFetched,
+  } = useQuery({
+    queryKey: ['hours_of_operation'],
+    queryFn: () => getHoursOfOperation(),
+  });
+
+  let hoursOfOperationStrings: Array<string> = [];
+  if (isHoursOfOperationFetched) {
+    hoursOfOperationStrings = generateHoursOfOperationStrings(
+      tApis,
+      language as TLanguage,
+      hoursOfOperationResponse!.data,
+    )
+  }
+  const hoursOfOperationListEls = hoursOfOperationStrings.map((hoursOfOperationString, index) => (
+    <li key={index}>
+      <p>{hoursOfOperationString}</p>
+    </li>
+  ));
 
   const learnMoreLinks = [
     { path: '/about', label: t('nav:about') },
@@ -45,16 +72,9 @@ const Footer = ():JSX.Element => {
         <section>
           <h3>{t('footer:hours_of_operation')}</h3>
           <ul>
-            <li>
-              <p>
-                {t('footer:hours_of_operation_monday-saturday')}
-              </p>
-            </li>
-            <li>
-              <p>
-                {t('footer:hours_of_operation_sunday')}
-              </p>
-            </li>
+            {isHoursOfOperationFetched ? (
+              hoursOfOperationListEls
+            ): <ThreeDots wrapperClass={classes.threeDots} />}
           </ul>
         </section>
         <section className={classes.learnMoreSection}>

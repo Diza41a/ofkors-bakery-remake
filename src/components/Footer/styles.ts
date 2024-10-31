@@ -10,6 +10,7 @@ export const classes = {
   contactLink: 'Footer-Section-Contact-Lnk',
   activeLink: 'Footer-Section-Lnk--active',
   copyrightText: 'Footer-Txt-Copyright',
+  threeDots: 'Footer-ThreeDots',
 };
 
 const Footer = styled('footer')<StyledComponent>(({ theme }) => ({
@@ -86,6 +87,12 @@ const Footer = styled('footer')<StyledComponent>(({ theme }) => ({
           },
         },
       },
+
+      [`.${classes.threeDots}`]: {
+        svg: {
+          fill: theme.colors.action.gold,
+        },
+      },
     },
   },
 
@@ -144,6 +151,10 @@ const Footer = styled('footer')<StyledComponent>(({ theme }) => ({
             },
           },
         },
+      },
+
+      [`.${classes.threeDots}`]: {
+        width: 50,
       },
     },
 
